@@ -93,10 +93,10 @@ class RscDisplayMain: RscStandardDisplay
 		class GVAR(serveriLeftText): RscButton
 		{
 			text = "Join AFI weekly games server";
-			//tooltip = "1";
-			style = QUOTE(2 + 192);//  
+			tooltip = "This is afi weekly game server";
+			style = QUOTE(2 + 192);
 			SizeEx = QUOTE(GUI_TEXT_SIZE_LARGE);
-			//onButtonClick = "connectToServer ['65.21.188.102', 2202, 'kotka'];";
+			onButtonClick = "connectToServer ['65.21.188.102', 2302, 'kotka'];";
 			x = "0.5 - (1.5 * 	10) * 	(pixelW * pixelGridNoUIScale * 2) - 	(2 * pixelW)";
 			y = "0.37 - (	10 / 2) * 	(pixelH * pixelGridNoUIScale * 2)";
 			w = "10 * 	(pixelW * pixelGridNoUIScale * 2)";
@@ -108,14 +108,16 @@ class RscDisplayMain: RscStandardDisplay
 		class GVAR(serveriCenterText): GVAR(serveriLeftText)
 		{
 			text = "Join AFI main event server";
-			tooltip = "1";
+			tooltip = "This is main afi event server, all our events use this if not told otherwise.";
+			onButtonClick = "connectToServer ['65.21.188.102', 2202, 'kotka'];";
 			x = "0.5 - (0.5 * 	10) * 	(pixelW * pixelGridNoUIScale * 2)";
 
 		};
 		class GVAR(serveriRightText): GVAR(serveriLeftText)
 		{
 			text = "Join AFI secondary event server";
-			tooltip = "1";
+			tooltip = "Almost never used, just in case as backup here.";
+			onButtonClick = "connectToServer ['65.21.188.102', 2502, 'kotka'];";
 			x = "0.5 + (0.5 * 	10) * 	(pixelW * pixelGridNoUIScale * 2) + 	(2 * pixelW)";
 		};
 		class GVAR(serveriLeftImage): RscActivePictureKeepAspect
