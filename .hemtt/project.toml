@@ -22,7 +22,7 @@ enabled = true
 workshop = [
     "1291778160",
     "450814997", # CBA
-    # "463939057", # ACE
+    "463939057", # ACE
     # "894678801", # TFAR
 ]
 parameters = [
