@@ -20,6 +20,7 @@ extensions/vcproj64/*
 hemtt
 hemtt.exe
 pohja.sqf
+reequip/*
 release/*
 releases/*
 sqfvm.exe
@@ -27,4 +28,3 @@ template/*
 texHeaders.bin
 Thumbs.db
 tools/temp
-reequip/*
