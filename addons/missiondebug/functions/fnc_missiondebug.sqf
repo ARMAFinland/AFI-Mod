@@ -9,7 +9,7 @@
  * None
  *
  * Example:
- * [] call tunuti_radiochannels_fnc_missiondebug
+ * [] call afitweaks_missiondebug_fnc_missiondebug
  */
 #include "script_component.hpp"
 
