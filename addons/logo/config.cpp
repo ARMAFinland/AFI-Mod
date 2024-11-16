@@ -75,6 +75,37 @@ class RscActivePictureKeepAspect;
 class RscButton;
 class RscDisplayMain: RscStandardDisplay
 {
+	class ControlsBackground
+	{
+		class GVAR(serveriLeftImage): RscActivePictureKeepAspect
+		{
+			text = QPATHTOF(afilogo.paa);
+			//tooltip = "This is afi weekly game server";
+			//onButtonClick = "connectToServer ['65.21.188.102', 2302, 'kotka'];";
+			x = "0.5 - (1.5 * 	10) * 	(pixelW * pixelGridNoUIScale * 2) - 	(2 * pixelW)";
+			y = "0.01 - (	10 / 2) * 	(pixelH * pixelGridNoUIScale * 2)";
+			w = "10 * 	(pixelW * pixelGridNoUIScale * 2)";
+			h = "7 * 	(pixelH * pixelGridNoUIScale * 2)";
+			color[] = {1,1,1,1};
+			background = 1;
+		};
+
+		class GVAR(serveriCenterImage): GVAR(serveriLeftImage)
+		{
+			text = QPATHTOF(afilogo.paa);
+			//tooltip = "This is main afi event server, all our events use this if not told otherwise.";
+			//onButtonClick = "connectToServer ['65.21.188.102', 2202, 'kotka'];";
+			x = "0.5 - (0.5 * 	10) * 	(pixelW * pixelGridNoUIScale * 2)";
+		};
+
+		class GVAR(serveriRightImage): GVAR(serveriLeftImage)
+		{
+			text = QPATHTOF(afilogo.paa);
+			//tooltip = "Almost never used, just in case as backup here.";
+			//onButtonClick = "connectToServer ['65.21.188.102', 2502, 'kotka'];";
+			x = "0.5 + (0.5 * 	10) * 	(pixelW * pixelGridNoUIScale * 2) + 	(2 * pixelW)";
+		};
+	};
 	class Controls
 	{
 		// This would change the arma logo at top
@@ -103,7 +134,6 @@ class RscDisplayMain: RscStandardDisplay
 			h = "1 * 	(pixelH * pixelGridNoUIScale * 2)";
 			//color[] = {1,1,1,1};
 			colorBackground[] = {0,0,0,1};
-			background = 1;
 		};
 		class GVAR(serveriCenterText): GVAR(serveriLeftText)
 		{
@@ -116,33 +146,6 @@ class RscDisplayMain: RscStandardDisplay
 		class GVAR(serveriRightText): GVAR(serveriLeftText)
 		{
 			text = "Join AFI secondary event server";
-			tooltip = "Almost never used, just in case as backup here.";
-			onButtonClick = "connectToServer ['65.21.188.102', 2502, 'kotka'];";
-			x = "0.5 + (0.5 * 	10) * 	(pixelW * pixelGridNoUIScale * 2) + 	(2 * pixelW)";
-		};
-		class GVAR(serveriLeftImage): RscActivePictureKeepAspect
-		{
-			text = QPATHTOF(afilogo.paa);
-			tooltip = "This is afi weekly game server";
-			onButtonClick = "connectToServer ['65.21.188.102', 2302, 'kotka'];";
-			x = "0.5 - (1.5 * 	10) * 	(pixelW * pixelGridNoUIScale * 2) - 	(2 * pixelW)";
-			y = "0.01 - (	10 / 2) * 	(pixelH * pixelGridNoUIScale * 2)";
-			w = "10 * 	(pixelW * pixelGridNoUIScale * 2)";
-			h = "7 * 	(pixelH * pixelGridNoUIScale * 2)";
-			color[] = {1,1,1,1};
-		};
-
-		class GVAR(serveriCenterImage): GVAR(serveriLeftImage)
-		{
-			text = QPATHTOF(afilogo.paa);
-			tooltip = "This is main afi event server, all our events use this if not told otherwise.";
-			onButtonClick = "connectToServer ['65.21.188.102', 2202, 'kotka'];";
-			x = "0.5 - (0.5 * 	10) * 	(pixelW * pixelGridNoUIScale * 2)";
-		};
-
-		class GVAR(serveriRightImage): GVAR(serveriLeftImage)
-		{
-			text = QPATHTOF(afilogo.paa);
 			tooltip = "Almost never used, just in case as backup here.";
 			onButtonClick = "connectToServer ['65.21.188.102', 2502, 'kotka'];";
 			x = "0.5 + (0.5 * 	10) * 	(pixelW * pixelGridNoUIScale * 2) + 	(2 * pixelW)";
