@@ -54,3 +54,47 @@ parameters = [
 
 [hemtt.release]
 folder = "afi_tweaks"
+
+[hemtt.launch.server]
+workshop = [
+    "450814997", # CBA_A3
+    "463939057", # ACE
+    "843425103", # RHS AFRF Workshop ID
+    "843577117", # RHS USAF Workshop ID
+    "843593391", # RHS GREF Workshop ID
+    "843632231", # RHS SAF  Workshop ID
+    "1673456286", # 3CB FACTIONS Workshop ID
+    "893349825", # 3CB Vehicles Workshop ID
+]
+parameters = [
+    "-server",
+    "-port=2302",
+    "-filePatching",
+    "-cfg=C:\\Users\\mikal\\Documents\\GitHub\\AFI-Tweaks\\server\\server_basic.cfg",
+    "-config=C:\\Users\\mikal\\Documents\\GitHub\\AFI-Tweaks\\server\\server_config.cfg",
+]
+
+[hemtt.launch.player]
+workshop = [
+    "450814997", # CBA_A3
+    "463939057", # ACE
+    "843425103", # RHS AFRF Workshop ID
+    "843577117", # RHS USAF Workshop ID
+    "843593391", # RHS GREF Workshop ID
+    "843632231", # RHS SAF  Workshop ID
+    "1673456286", # 3CB FACTIONS Workshop ID
+    "893349825", # 3CB Vehicles Workshop ID
+]
+parameters = [
+    "-skipIntro",         # These parameters are passed to the Arma 3 executable
+    "-noSplash",          # They do not need to be added to your list
+    "-showScriptErrors",  # You can add additional parameters here
+    "-debug",
+    "-filePatching",
+    "-world=empty",
+    "-noPause",
+    "-noPauseAudio",
+    "-connect=localHost",
+    "-port=2302",
+    "-window",
+]
