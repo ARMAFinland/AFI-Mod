@@ -45,4 +45,3 @@ class CfgVehicles {
 		ace_vehicles_engineStartDelay  = 10;
 	};
 };
-engineStartSpeed = 5;
