@@ -19,3 +19,6 @@
 
 # Mission debug
 - Some basic AFI mission debug features 
+
+# Repair
+- Tweak repair times to be higher. Aim is to prevent 1min repair after mobility kill.
