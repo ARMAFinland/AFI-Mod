@@ -28,3 +28,9 @@ This mod is build using [HEMTT](https://github.com/BrettMayson/HEMTT)
 
 ## Repair
 - Tweak repair times to be higher. Aim is to prevent 1min repair after mobility kill.
+
+## Clutter cutter
+- Adds ace action to remove clutter around player
+
+## Briefing equipment
+- Adds briefing tab with equipment of each side.
