@@ -34,3 +34,9 @@ This mod is build using [HEMTT](https://github.com/BrettMayson/HEMTT)
 
 ## Briefing equipment
 - Adds briefing tab with equipment of each side.
+
+## AI Skill Presets
+- Add different presets for AI skils
+- 
+## Confirm start
+- During briefing screen, require admin to confirm starting game. Prevents acidental clicking it.
