@@ -1,6 +1,6 @@
-name = "Afi Tweaks"
-author = "Tuntematon"
-prefix = "AfiTweaks"
+name = "Afi"
+author = "Afi"
+prefix = "Afi"
 mainprefix = "x"
 
 [files]
@@ -53,7 +53,7 @@ parameters = [
 ]
 
 [hemtt.release]
-folder = "afi_tweaks"
+folder = "afi"
 
 [hemtt.launch.server]
 workshop = [
