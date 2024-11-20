@@ -1,6 +1,6 @@
 name = "Afi"
 author = "Afi"
-prefix = "Afi"
+prefix = "afi"
 mainprefix = "x"
 
 [files]
