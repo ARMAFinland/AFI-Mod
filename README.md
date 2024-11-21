@@ -40,3 +40,6 @@ This mod is build using [HEMTT](https://github.com/BrettMayson/HEMTT)
 - 
 ## Confirm start
 - During briefing screen, require admin to confirm starting game. Prevents acidental clicking it.
+
+## Safestart
+- Add afi safestart system
