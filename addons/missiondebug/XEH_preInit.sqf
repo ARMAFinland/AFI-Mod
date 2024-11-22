@@ -9,12 +9,11 @@ PREP_RECOMPILE_END;
 	QGVAR(enableMissionDebug),
 	"CHECKBOX",
 	"Enable mission debug",
-	"AFI Tweak - Mission debug",
+	"AFI - Mission debug",
 	true,
 	0,
 	{},
 	true
 ] call CBA_fnc_addSetting;
-
 
 ADDON = true;

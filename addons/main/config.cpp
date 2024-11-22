@@ -13,12 +13,14 @@ class CfgPatches {
 		VERSION_CONFIG;
 	};
 };
+// configs go here
+#include "CfgEventHandlers.hpp"
 
 // information on the whole mod (only needed once)
 class CfgMods {
 	class PREFIX {
-		dir = "@afi_tweaks";
-		name = "Afi Tweaks";
+		dir = "@afi";
+		name = "Afi";
 		
 		author[] = {"Tuntematon"};					// probably shown somewhere in the mods menu, but probably ignored by CBA/HEMTT
 

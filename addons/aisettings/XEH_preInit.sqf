@@ -48,7 +48,7 @@ afi_aiSettings_skillClassTooltips = [
             _settingName, // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
             "SLIDER", // setting type
             [_prettyName,_tooltip], // Pretty name shown inside the ingame settings menu. Can be stringtable entry. Also tooltip.
-            ["AFI Tweak - AI Skill Presets",_prettySubCategoryName], // Category for the settings menu + optional sub-category <STRING, ARRAY>
+            ["AFI - AI Skill Presets",_prettySubCategoryName], // Category for the settings menu + optional sub-category <STRING, ARRAY>
             [0, 1, 0.5, 2], // data for this setting: [min, max, default, number of shown trailing decimals]
             1 //all clients share the same setting
         ] call CBA_Settings_fnc_init;
@@ -59,7 +59,7 @@ afi_aiSettings_skillClassTooltips = [
     "afi_aiSkillPreset_defaultBehaviour", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
     ["Use 'regular' as default preset","If true, then every AI with no assigned AI preset will use the 'regular' preset. If false, then units with undefined preset will not be edited."], // Setting name shown, tooltip
-    ["AFI Tweak - AI Skill Presets","-Default Behaviour-"], // Category for the settings menu + optional sub-category <STRING, ARRAY>
+    ["AFI - AI Skill Presets","-Default Behaviour-"], // Category for the settings menu + optional sub-category <STRING, ARRAY>
     false, //Default value of the setting.
     1 //all clients share the same setting
 ] call CBA_Settings_fnc_init;

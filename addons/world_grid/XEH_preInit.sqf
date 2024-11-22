@@ -16,9 +16,9 @@ GVAR(grid) = -1;
 	private _worldDesc = _x select 1;
 
 	if (_world == worldName) then {
-		[format["afi_grid_w_%1", _world], "SLIDER", format["%1", _worldDesc], "AFI Terrain Grid", [-1, 50, -1, 2], 1, {GVAR(grid) = _this}, true] call CBA_Settings_fnc_init;
+		[format["afi_grid_w_%1", _world], "SLIDER", format["%1", _worldDesc], "AFI - Terrain Grid", [-1, 50, -1, 2], 1, {GVAR(grid) = _this}, true] call CBA_Settings_fnc_init;
 	} else {
-		[format["afi_grid_w_%1", _world], "SLIDER", format["%1", _worldDesc], "AFI Terrain Grid", [-1, 50, -1, 2]] call CBA_Settings_fnc_init;
+		[format["afi_grid_w_%1", _world], "SLIDER", format["%1", _worldDesc], "AFI - Terrain Grid", [-1, 50, -1, 2]] call CBA_Settings_fnc_init;
 	};
 } forEach ([] call FUNC(listWorlds));
 
