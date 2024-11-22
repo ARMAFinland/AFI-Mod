@@ -11,9 +11,9 @@ class Extended_PreInit_EventHandlers {
 };
 
 class Extended_InitPost_EventHandlers {
-    class CAManBase {
-        class afi_aiSettings_initPost_serverEvent {
-            serverinit = QUOTE([_this select 0] call FUNC(updateUnitsAiSkill);); //Update units skills after init.
-        };
-    };
+	class CAManBase {
+		class afi_aiSettings_initPost_serverEvent {
+			serverinit = QUOTE([_this select 0] call FUNC(updateUnitsAiSkill);); //Update units skills after init.
+		};
+	};
 };

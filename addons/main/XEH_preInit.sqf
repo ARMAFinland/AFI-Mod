@@ -7,13 +7,13 @@ ADDON = false;
 
 
 [
-    QGVAR(enableEnvironment),
-    "CHECKBOX", 
-    ["Enable enviroment", "enable/disable ambient life (bees, rabbits, birds, snakes, fish)"],
-    "Afi - Main",
-    false, 
-    nil, 
-    {
+	QGVAR(enableEnvironment),
+	"CHECKBOX", 
+	["Enable enviroment", "enable/disable ambient life (bees, rabbits, birds, snakes, fish)"],
+	"Afi - Main",
+	false, 
+	nil, 
+	{
 		enableEnvironment [_this, true];
 	}
 ] call CBA_fnc_addSetting;

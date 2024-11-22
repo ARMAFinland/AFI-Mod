@@ -37,14 +37,14 @@ class cfgNotifications
 /*
 class Params
 {
-    class afi_safeStart_duration
-    {
-            title = "SafeStart Timer";
-            values[] = {0,3,5,8,10,12,15};
-            texts[] = {"SafeStart Off","3","5","8","10","12","15"};
-            default = 5;
-            code = "afi_safeStart_timer = %1";
-    };
+	class afi_safeStart_duration
+	{
+			title = "SafeStart Timer";
+			values[] = {0,3,5,8,10,12,15};
+			texts[] = {"SafeStart Off","3","5","8","10","12","15"};
+			default = 5;
+			code = "afi_safeStart_timer = %1";
+	};
 };
 */
 

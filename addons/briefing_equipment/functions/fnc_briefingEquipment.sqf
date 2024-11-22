@@ -176,7 +176,7 @@ _fnc_formatWeapon = {
 		_info = [_name, _name, _mass] call _fnc_formatItemInfo;
 		
 		_return = _return + format [_font0 + _info + _fontEnd];
-		_return = _return + format ["<br/><img image='%1' width='100' height='50'/>    ", _image];
+		_return = _return + format ["<br/><img image='%1' width='100' height='50'/>	", _image];
 		
 		_weaponItems = _weaponItems - [""];
 		{
@@ -189,7 +189,7 @@ _fnc_formatWeapon = {
 			_return = _return + format [_font0 + _info + _fontEnd];
 			
 			//add comma and empty space if more items
-			if (_forEachIndex + 1 < (count _weaponItems)) then {_return = _return + ",    ";};
+			if (_forEachIndex + 1 < (count _weaponItems)) then {_return = _return + ",	";};
 		} forEach _weaponItems;
 		
 		_return = _return + "<br/>";

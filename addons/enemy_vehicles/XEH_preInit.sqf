@@ -7,13 +7,13 @@ PREP_RECOMPILE_END;
 
 
 [
-    QGVAR(allowed),
-    "CHECKBOX", 
-    "Allow enemy vehicles",
-    "Afi - Allow enemy vehicles",
-    false, 
-    nil, 
-    {}
+	QGVAR(allowed),
+	"CHECKBOX", 
+	"Allow enemy vehicles",
+	"Afi - Allow enemy vehicles",
+	false, 
+	nil, 
+	{}
 ] call CBA_fnc_addSetting;
 
 ADDON = true;
