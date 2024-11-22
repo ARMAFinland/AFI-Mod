@@ -12,4 +12,4 @@
 #define MAIN_ADDON_STR			QUOTE(MAIN_ADDON)
 
 //This forces debug on everything.
-#define DEBUG_ENABLED_MAIN
+//#define DEBUG_ENABLED_MAIN
