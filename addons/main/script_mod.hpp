@@ -1,5 +1,5 @@
 #define MAINPREFIX x
-#define PREFIX afitweaks
+#define PREFIX afi
 
 #include "script_version.hpp"
 
