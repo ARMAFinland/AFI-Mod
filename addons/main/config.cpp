@@ -8,7 +8,7 @@ class CfgPatches {
 		weapons[] = {};
 		requiredVersion = REQUIRED_VERSION;
 		requiredAddons[] = {"cba_main","cba_xeh","cba_settings","cba_events","ace_common","ace_main","ace_interaction"};
-		author = "Tuntematon";
+		author[] = {"Tuntematon"};
 		authorUrl = GITHUBLINK;
 		VERSION_CONFIG;
 	};
@@ -20,7 +20,7 @@ class CfgMods {
 		dir = "@afi_tweaks";
 		name = "Afi Tweaks";
 		
-		author = "Tuntematon";					// probably shown somewhere in the mods menu, but probably ignored by CBA/HEMTT
+		author[] = {"Tuntematon"};					// probably shown somewhere in the mods menu, but probably ignored by CBA/HEMTT
 
 		picture		 = "data\afilogo.paa";	   // Picture displayed from the expansions menu. Optimal size is 2048x1024
 		hideName		= "false";			  // Hide the extension name in main menu and extension menu

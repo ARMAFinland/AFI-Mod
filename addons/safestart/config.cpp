@@ -8,7 +8,7 @@ class CfgPatches {
 		weapons[] = {};
 		requiredVersion = REQUIRED_VERSION;
 		requiredAddons[] = {"cba_main","cba_xeh","cba_settings",MAIN_ADDON_STR, "Extended_EventHandlers"};
-		author = "Tuntematon";
+		author[] = {"Tikka"};
 		authorUrl = GITHUBLINK;
 		VERSION_CONFIG;
 	};
