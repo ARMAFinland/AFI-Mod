@@ -6,7 +6,7 @@ addMissionEventHandler ["HandleChatMessage", {
 
 	if ((_chatMessageType isEqualTo 2 || _channel isEqualTo 16) && {cba_missionTime > 0}) then {
 		_block = true;
-		private _text = "Message blocked: " + _text + ". -- ";
+		private _text = "Message blocked: " + _text;
 		LOG(_text);
 		TRACE_2("",_chatMessageType,_channel);
 	};
