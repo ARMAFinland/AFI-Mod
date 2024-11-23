@@ -1,11 +1,11 @@
 #include "script_component.hpp"
 
-if (!GVAR(enemyVehiclesAllowed)) then {
+if (!GVAR(allowed)) then {
 	params ["_vehicle", "_role", "_unit"];
 
 	if (player == _unit) then {
-		private _locked = _vehicle getVariable["afi_vehicle_locked", true];
-		private _lockedSide = _vehicle getVariable "afi_vehicle_locked_side";
+		private _locked = _vehicle getVariable[QGVAR(locked), true];
+		private _lockedSide = _vehicle getVariable QGVAR(lockedSide);
 
 		if (_locked && (playerSide != civilian) && !(player getVariable ["ace_captives_isHandcuffed", false])) then {
 			if (!isNil "_lockedSide") then {
@@ -15,10 +15,10 @@ if (!GVAR(enemyVehiclesAllowed)) then {
 					hint "I don't have required qualification to operate that vehicle.";
 				};
 			} else { // lock vehicle to side
-				if ((_vehicle isKindOf "Car") || (_vehicle isKindOf "StaticWeapon")) then {
-					_vehicle setVariable["afi_vehicle_locked", false, true]; // don't lock cars or static weapons
+				if (((_vehicle isKindOf "Car") && GVAR(allowCars)) || (_vehicle isKindOf "StaticWeapon")) then {
+					_vehicle setVariable[QGVAR(locked), false, true]; // don't lock cars or static weapons
 				} else {
-					_vehicle setVariable ["afi_vehicle_locked_side", playerSide, true];
+					_vehicle setVariable [QGVAR(lockedSide), playerSide, true];
 				};
 			};
 		};
