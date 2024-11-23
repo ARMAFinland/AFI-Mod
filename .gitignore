@@ -7,6 +7,7 @@
 .vscode/*
 @*
 *.biprivatekey
+*.bisign
 *.cache
 *.pbo
 *.sqfc
