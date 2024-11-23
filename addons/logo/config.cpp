@@ -7,7 +7,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = REQUIRED_VERSION;
-		requiredAddons[] = {MAIN_ADDON_STR,"A3_Ui_F","A3_Data_F_Enoch_Loadorder"};
+		requiredAddons[] = {MAIN_ADDON_STR,"A3_Data_F_Enoch_Loadorder"};
 		author[] = {"Tuntematon"};
 		authorUrl = GITHUBLINK;
 		VERSION_CONFIG;
