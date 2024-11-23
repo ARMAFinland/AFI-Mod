@@ -14,12 +14,16 @@ This mod is build using [HEMTT](https://github.com/BrettMayson/HEMTT)
 ## Briefing equipment
 - Adds briefing tab with equipment of each side.
 
+## CBA settings whitelist
+-  Whitelist who can change cba settings
+
+## Chat filter
+- Filters all systemChat messages out. Should prevent connected, killed etc. messages
+
 ## Clutter cutter
 - Adds ace action to remove clutter around player
 
-## CBA settings whitelist
--  Whitelist who can change cba settings
-  
+
 ## Confirm start
 - During briefing screen, require admin to confirm starting game. Prevents acidental clicking it.
 
@@ -52,6 +56,11 @@ This mod is build using [HEMTT](https://github.com/BrettMayson/HEMTT)
 ## Logo
 - Add afi logo on splash screen
 - Add buttons to join servers to main menu
+
+## Main
+- Disables profile glasses.
+- Add cba setting to disable [ambient animals](https://community.bistudio.com/wiki/enableEnvironment)
+- Add cba setting to disable [remoteSensors](https://community.bistudio.com/wiki/disableRemoteSensors)
 
 ## Mission debug
 - Some basic AFI mission debug features 
