@@ -1,8 +1,38 @@
-# Afi-Tweaks
+# Afi-mod
 
-This mod adds AFI QOL improvements and tweaks some mechanics without altering damage values for weapons, ammo, or vehicles.  
+This mod adds AFI QOL improvements and tweaks/add some mechanics without altering damage values for weapons, ammo, or vehicles.  
 Ace and cba are only mods that are required, others are optional.  
 This mod is build using [HEMTT](https://github.com/BrettMayson/HEMTT)
+
+## AI Skill Presets
+- Add different presets for AI skils
+
+## Allow markers
+- Add cba setting to enable/disable ability to place markers in specific channels using SWT after briefing.
+- Hides vanilla marker system.
+
+## Briefing equipment
+- Adds briefing tab with equipment of each side.
+
+## Clutter cutter
+- Adds ace action to remove clutter around player
+
+## CBA settings whitelist
+-  Whitelist who can change cba settings
+  
+## Confirm start
+- During briefing screen, require admin to confirm starting game. Prevents acidental clicking it.
+
+## Disable gamme
+- Disables players ability to change gamma settings during MP mission.
+
+## Enemy radio
+-  Add cba setting to enable/disable ability to take enemy sides radios
+
+## Enemy vehicles
+-  Add cba setting to enable/disable ability to use enemy vehicles.
+-  Defaulty allows usage of cars, but that can be also toggled from settings.
+-  Static vehicles are never locked.
 
 ## Engine start (Engine delay) 
 - Expands ace engine start delay system.
@@ -29,14 +59,8 @@ This mod is build using [HEMTT](https://github.com/BrettMayson/HEMTT)
 ## Repair
 - Tweak repair times to be higher. Aim is to prevent 1min repair after mobility kill.
 
-## Clutter cutter
-- Adds ace action to remove clutter around player
+## Safestart
+- Add AFI safestart system
 
-## Briefing equipment
-- Adds briefing tab with equipment of each side.
-
-## AI Skill Presets
-- Add different presets for AI skils
-- 
-## Confirm start
-- During briefing screen, require admin to confirm starting game. Prevents acidental clicking it.
+## World grid
+-  Add CBA setting to specify  [terrain resolution](https://community.bistudio.com/wiki/setTerrainGrid) for each map individually.
