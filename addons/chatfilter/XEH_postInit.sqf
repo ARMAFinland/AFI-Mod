@@ -2,6 +2,7 @@
 
 addMissionEventHandler ["HandleChatMessage", {
 	//params ["_channel", "_owner", "_from", "_text", "_person", "_name", "_strID", "_forcedDisplay", "_isPlayerMessage", "_sentenceType", "_chatMessageType", "_params"];
+	private _channel = param[0];
 	private _text = param[3];
 	private _block = false;
 
