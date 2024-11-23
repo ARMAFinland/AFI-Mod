@@ -9,7 +9,7 @@ PREP_RECOMPILE_END;
 	QGVAR(enableMissionDebug),
 	"CHECKBOX",
 	"Enable mission debug",
-	"AFI - Mission debug",
+	["AFI - Main", "Mission debug"],
 	true,
 	0,
 	{},

@@ -10,11 +10,23 @@ ADDON = false;
 	QGVAR(enableEnvironment),
 	"CHECKBOX", 
 	["Enable enviroment", "enable/disable ambient life (bees, rabbits, birds, snakes, fish)"],
-	"Afi - Main",
+	["AFI - Main", "Main"],
 	false, 
-	nil, 
+	1, 
 	{
 		enableEnvironment [_this, true];
+	}
+] call CBA_fnc_addSetting;
+
+[
+	QGVAR(disableRemoteSensors),
+	"CHECKBOX", 
+	["Disable Remote Sensors", "This should be true on pure TvT missions. Might affect missions with AI"],
+	["AFI - Main", "Main"],
+	true, 
+	1, 
+	{
+		disableRemoteSensors _this;
 	}
 ] call CBA_fnc_addSetting;
 

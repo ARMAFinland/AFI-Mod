@@ -10,7 +10,7 @@ PREP_RECOMPILE_END;
 	QGVAR(allowed),
 	"CHECKBOX", 
 	"Allow enemy radios",
-	["Afi - Main", "Allow enemy radios"],
+	["AFI - Main", "Allow enemy radios"],
 	false, 
 	nil, 
 	{}
