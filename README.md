@@ -71,5 +71,11 @@ This mod is build using [HEMTT](https://github.com/BrettMayson/HEMTT)
 ## Safestart
 - Add AFI safestart system
 
+## viewdistance
+- Add hotkeys F1-F2 to change viewdistance
+
+## volume control
+- Add hotkeys F3-F4 to change volume
+
 ## World grid
 -  Add CBA setting to specify  [terrain resolution](https://community.bistudio.com/wiki/setTerrainGrid) for each map individually.
