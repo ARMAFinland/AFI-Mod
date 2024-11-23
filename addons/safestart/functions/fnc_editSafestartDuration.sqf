@@ -1,5 +1,5 @@
 #include "script_component.hpp"
-
+//[0] call afi_safestart_fnc_editSafestartDuration
 params ["_duration"];
 
 if (_duration > 0) then {
