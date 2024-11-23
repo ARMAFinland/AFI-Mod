@@ -7,6 +7,10 @@ mainprefix = "x"
 include = [
     "mod.cpp",
     "data/**",
+    "addons/swt_markers_a3.pbo",
+    "addons/swt_markers_a3.pbo.afi_1732216694.bisign",
+    # "addons/BH_checkLOS.pbo",
+    # "addons/BH_checkLOS.pbo.afi_1732216694.bisign",
 ]
 
 [version]
@@ -27,7 +31,7 @@ workshop = [
 ]
 parameters = [
     "-noPause",
-    #"C:\\Users\\mikal\\Documents\\Arma 3 - Other Profiles\\Tuntematon\\missions\\TUN_Respawn_System.Stratis\\mission.sqm", # Launch into existing Editor Mission - \\ needed
+    "C:\\Users\\mikal\\Documents\\Arma 3 - Other Profiles\\Tuntematon\\missions\\testMission.VR\\mission.sqm", # Launch into existing Editor Mission - \\ needed
 ]
 
 [hemtt.launch.all]
@@ -40,6 +44,7 @@ workshop = [
     "843632231", # RHS SAF  Workshop ID
     "1673456286", # 3CB FACTIONS Workshop ID
     "893349825", # 3CB Vehicles Workshop ID
+    "894678801", # TFAR
 ]
 parameters = [
     "-noPause",
@@ -59,6 +64,7 @@ workshop = [
     "843632231", # RHS SAF  Workshop ID
     "1673456286", # 3CB FACTIONS Workshop ID
     "893349825", # 3CB Vehicles Workshop ID
+    "894678801", # TFAR
 ]
 parameters = [
     "-server",
@@ -78,6 +84,7 @@ workshop = [
     "843632231", # RHS SAF  Workshop ID
     "1673456286", # 3CB FACTIONS Workshop ID
     "893349825", # 3CB Vehicles Workshop ID
+    "894678801", # TFAR
 ]
 parameters = [
     "-debug",
