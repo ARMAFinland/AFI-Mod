@@ -2,7 +2,7 @@
 
 [{cba_missionTime > 0 && (!isNull player || isDedicated)}, {
 	if (!GVAR(allowed)) then {
-		player addEventHandler ["take", {
+		player addEventHandler ["Take", {
 			_this call FUNC(tfrDisallowEnemyRadios);
 		}];
 	};
