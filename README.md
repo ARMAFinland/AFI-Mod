@@ -9,6 +9,7 @@ This mod is build using [HEMTT](https://github.com/BrettMayson/HEMTT)
 
 ## Allow markers
 - Add cba setting to enable/disable ability to place markers in specific channels using SWT after briefing.
+- Hides vanilla marker system.
 
 ## Briefing equipment
 - Adds briefing tab with equipment of each side.
