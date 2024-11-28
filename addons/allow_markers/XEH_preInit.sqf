@@ -12,7 +12,7 @@ ADDON = false;
 	["AFI - Main", "Markers"],
 	false,
 	1
-] call CBA_Settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
 	QGVAR(side),
@@ -21,7 +21,7 @@ ADDON = false;
 	["AFI - Main", "Markers"],
 	false,
 	1
-] call CBA_Settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
 	QGVAR(command),
@@ -30,7 +30,7 @@ ADDON = false;
 	["AFI - Main", "Markers"],
 	false,
 	1
-] call CBA_Settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
 	QGVAR(group),
@@ -39,16 +39,16 @@ ADDON = false;
 	["AFI - Main", "Markers"],
 	false,
 	1
-] call CBA_Settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
 	QGVAR(vehicle),
 	"CHECKBOX",
 	["Vehicle Channel Enabled", "Enable this channel for markers"],
-	["AFI - Main", "Marker channels"],
+	["AFI - Main", "Markers"],
 	true,
 	1
-] call CBA_Settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 [
 	QGVAR(direct),
@@ -57,6 +57,6 @@ ADDON = false;
 	["AFI - Main", "Markers"],
 	true,
 	1
-] call CBA_Settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 ADDON = true;

@@ -51,7 +51,7 @@ afi_aiSettings_skillClassTooltips = [
 			["AFI - AI Skill Presets",_prettySubCategoryName], // Category for the settings menu + optional sub-category <STRING, ARRAY>
 			[0, 1, 0.5, 2], // data for this setting: [min, max, default, number of shown trailing decimals]
 			1 //all clients share the same setting
-		] call CBA_Settings_fnc_init;
+		] call CBA_fnc_addSetting;
 	} forEach afi_aiSettings_skillClasses;
 } forEach afi_aiSettings_mainClasses;
 
@@ -62,6 +62,6 @@ afi_aiSettings_skillClassTooltips = [
 	["AFI - AI Skill Presets","-Default Behaviour-"], // Category for the settings menu + optional sub-category <STRING, ARRAY>
 	false, //Default value of the setting.
 	1 //all clients share the same setting
-] call CBA_Settings_fnc_init;
+] call CBA_fnc_addSetting;
 
 ADDON = true;
