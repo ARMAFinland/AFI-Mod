@@ -15,19 +15,19 @@ class ACE_Repair
 		};
 		
 		class MiscRepair: ReplaceWheel {
-			repairingTime = 300;
+			repairingTime = 180;
 		};
 		
 		class RepairTrack: MiscRepair {
-			repairingTime = 300;
+			repairingTime = 180;
 		};
 		
 		class RemoveTrack: MiscRepair {
-			repairingTime = 120;
+			repairingTime = 90;
 		};
 		
 		class ReplaceTrack: RemoveTrack {
-			repairingTime = 300;
+			repairingTime = 180;
 		};
 		
 		// class FullRepair: MiscRepair {
@@ -35,3 +35,4 @@ class ACE_Repair
 		// };
 	};
 };
+
