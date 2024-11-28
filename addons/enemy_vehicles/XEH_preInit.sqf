@@ -12,7 +12,7 @@ PREP_RECOMPILE_END;
 	["Allow enemy vehicles", "Allow enemy vehicles; this setting does not affect cars or static weapons"],
 	["AFI - Main", "Allow enemy vehicles"],
 	false, 
-	nil, 
+	1, 
 	{}
 ] call CBA_fnc_addSetting;
 
@@ -22,7 +22,7 @@ PREP_RECOMPILE_END;
 	["Allow enemy cars", "Allow the usage of enemy cars"],
 	["AFI - Main", "Allow enemy vehicles"],
 	true, 
-	nil, 
+	1, 
 	{}
 ] call CBA_fnc_addSetting;
 

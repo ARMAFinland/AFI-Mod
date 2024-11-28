@@ -12,7 +12,7 @@ PREP_RECOMPILE_END;
 	"Allow enemy radios",
 	["AFI - Main", "Allow enemy radios"],
 	false, 
-	nil, 
+	1, 
 	{}
 ] call CBA_fnc_addSetting;
 
