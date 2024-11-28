@@ -7,8 +7,8 @@ mainprefix = "x"
 include = [
     "mod.cpp",
     "data/**",
-    "addons/swt_markers_a3.pbo",
-    "addons/swt_markers_a3.pbo.afi_1732216694.bisign",
+    # "addons/swt_markers_a3.pbo",
+    # "addons/swt_markers_a3.pbo.afi_1732216694.bisign",
     # "addons/BH_checkLOS.pbo",
     # "addons/BH_checkLOS.pbo.afi_1732216694.bisign",
 ]
