@@ -1,1 +1,1 @@
-x\afitweaks\addons\volume_control
+x\afi\addons\volume_control

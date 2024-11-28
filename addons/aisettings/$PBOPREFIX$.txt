@@ -1,1 +1,1 @@
-x\afitweaks\addons\aisettings
+x\afi\addons\aisettings

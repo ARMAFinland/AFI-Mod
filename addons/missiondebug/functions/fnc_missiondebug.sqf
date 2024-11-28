@@ -9,7 +9,7 @@
  * None
  *
  * Example:
- * [] call afitweaks_missiondebug_fnc_missiondebug
+ * [] call afi_missiondebug_fnc_missiondebug
  */
 #include "script_component.hpp"
 

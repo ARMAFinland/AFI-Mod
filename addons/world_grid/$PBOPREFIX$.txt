@@ -1,1 +1,1 @@
-x\afitweaks\addons\world_grid
+x\afi\addons\world_grid

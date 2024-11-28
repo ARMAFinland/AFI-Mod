@@ -1,1 +1,1 @@
-x\afitweaks\addons\missiondebug
+x\afi\addons\missiondebug

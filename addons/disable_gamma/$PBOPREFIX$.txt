@@ -1,1 +1,1 @@
-x\afitweaks\addons\disable_gamma
+x\afi\addons\disable_gamma

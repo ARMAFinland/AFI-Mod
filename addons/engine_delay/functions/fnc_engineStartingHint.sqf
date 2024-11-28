@@ -9,7 +9,7 @@
  * None
  *
  * Example:
- * [] call afitweaks_engine_delay_fnc_engineStartingHint
+ * [] call afi_engine_delay_fnc_engineStartingHint
  */
 #include "script_component.hpp"
 params [["_type", 0],["_time", false]];

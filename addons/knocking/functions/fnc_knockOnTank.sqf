@@ -9,7 +9,7 @@
  * None
  *
  * Example:
- * [] call afitweaks_knocking_fnc_knockOnTank
+ * [] call afi_knocking_fnc_knockOnTank
  */
 #include "script_component.hpp"
 params ["_tank", "_player"];

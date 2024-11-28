@@ -9,7 +9,7 @@
  * None
  *
  * Example:
- * [] call afitweaks_engine_delay_fnc_serverEngineStart
+ * [] call afi_engine_delay_fnc_serverEngineStart
  */
 #include "script_component.hpp"
 params ["_vehicle", "_isEngineOn"];

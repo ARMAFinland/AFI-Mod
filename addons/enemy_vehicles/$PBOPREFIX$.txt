@@ -1,1 +1,1 @@
-x\afitweaks\addons\enemy_vehicles
+x\afi\addons\enemy_vehicles

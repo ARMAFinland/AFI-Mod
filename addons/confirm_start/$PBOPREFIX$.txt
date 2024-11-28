@@ -1,1 +1,1 @@
-x\afitweaks\addons\confirm_start
+x\afi\addons\confirm_start

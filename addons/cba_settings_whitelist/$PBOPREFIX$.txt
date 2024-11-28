@@ -1,1 +1,1 @@
-x\afitweaks\addons\cba_settings_whitelist
+x\afi\addons\cba_settings_whitelist

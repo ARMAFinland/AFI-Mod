@@ -1,1 +1,1 @@
-x\afitweaks\addons\viewdistance
+x\afi\addons\viewdistance

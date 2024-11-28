@@ -1,1 +1,1 @@
-x\afitweaks\addons\briefing_equipment
+x\afi\addons\briefing_equipment
