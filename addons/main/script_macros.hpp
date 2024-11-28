@@ -8,7 +8,7 @@
 	#define PREP(fncName) [QPATHTOF(functions\DOUBLES(fnc,fncName).sqf), QFUNC(fncName)] call CBA_fnc_compileFunction
 #endif
 
-#define GITHUBLINK				"https://github.com/ARMAFinland/AFI-Tweaks"
+#define GITHUBLINK				"https://github.com/ARMAFinland/AFI-Mod"
 #define MAIN_ADDON_STR			QUOTE(MAIN_ADDON)
 
 //This forces debug on everything.
