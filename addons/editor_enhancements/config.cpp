@@ -23,7 +23,7 @@ class CfgMarkers {
 			class hideMarkerWest {
 				//--- Mandatory properties
 				displayName = "Hide marker from West"; // Name assigned to UI control class Title
-				tooltip = "Hides marker from certain sided players. Does not hide the marker in editor(SinglePlayer).Does hide it in editor(MP) and in other MP."; // Tooltip assigned to UI control class Title
+				tooltip = "Hides marker from certain sided players. Does not hide the marker in editor(SinglePlayer). Does hide it in editor(MP) and in other MP."; // Tooltip assigned to UI control class Title
 				property = "afi_editorEnhancements_hideMarkerWest"; // Unique config property name saved in SQM
 				control = "Checkbox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
 
