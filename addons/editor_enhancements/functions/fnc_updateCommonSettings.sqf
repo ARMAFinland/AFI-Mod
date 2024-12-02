@@ -40,6 +40,7 @@ switch (_type) do {
 			"Scenario" set3DENMissionAttribute ["EnableTargetDebug",1];
 			"Scenario" set3DENMissionAttribute ["EnableDebugConsole", 1];
 			"Scenario" set3DENMissionAttribute ["SaveBinarized",false];
+			"GarbageCollection" set3DENMissionAttribute ["CorpseManagerMode",0];
 			QGVAR(missionAttributes) set3DENMissionAttribute [QGVAR(viewdistance),3000];
 			QGVAR(missionAttributes) set3DENMissionAttribute [QGVAR(enableViewdistance),true];
 			QGVAR(missionAttributes) set3DENMissionAttribute [QGVAR(enableSafeStart),true];
@@ -73,6 +74,12 @@ switch (_type) do {
 			"Scenario" set3DENMissionAttribute ["EnableTargetDebug",1];
 			"Scenario" set3DENMissionAttribute ["EnableDebugConsole", 1];
 			"Scenario" set3DENMissionAttribute ["SaveBinarized",false];
+			"GarbageCollection" set3DENMissionAttribute ["MinPlayerDistance",200];
+			"GarbageCollection" set3DENMissionAttribute ["CorpseManagerMode",1];
+			"GarbageCollection" set3DENMissionAttribute ["CorpseLimit",60];
+			"GarbageCollection" set3DENMissionAttribute ["CorpseRemovalMinTime",600];
+			"GarbageCollection" set3DENMissionAttribute ["CorpseRemovalMaxTime",3600];
+			"GarbageCollection" set3DENMissionAttribute ["WreckManagerMode",0];
 			QGVAR(missionAttributes) set3DENMissionAttribute [QGVAR(viewdistance),3000];
 			QGVAR(missionAttributes) set3DENMissionAttribute [QGVAR(enableViewdistance),true];
 			QGVAR(missionAttributes) set3DENMissionAttribute [QGVAR(enableSafeStart),true];
