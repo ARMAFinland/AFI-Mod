@@ -70,132 +70,132 @@ class CfgMarkers {
 
 
 class Cfg3DEN {
-    // Configuration of all objects
-    class Object {
-        // Categories collapsible in "Edit Attributes" window
-        class AttributeCategories {
-            // Category class, can be anything
-            class afi_editorEnhancements {
-                displayName = "AFI Editor Enhancements"; // Category name visible in Edit Attributes window
-                collapsed = 1; // When 1, the category is collapsed by default
-                class Attributes {
-                    class afi_editorEnhancements_skipDebug {
-                        displayName = "Skip Debug for this object";
-                        tooltip = "Dont run any debug on this object";
-                        property = "afi_editorEnhancements_skipDebug";
-                        control = "Checkbox";
-                        expression = "_this setVariable ['Skip_Debug',_value,true];";
-                        defaultValue = "false";
-                        unique = 0;
-                        condition = "objectSimulated";
-                    };
-                    class afi_editorEnhancements_brieffingEquipmentSideWest: afi_editorEnhancements_skipDebug {
-                        displayName = "Show equipment to West";
-                        tooltip = "Shows this vehicle/box and its inventory and weapon loadout at the brieffing for certain sided players. Only pick one side per object.";
-                        property = "afi_editorEnhancements_brieffingEquipmentSideWest";
-                        control = "Checkbox";
-                        expression = "if (_value) then{_this setVariable ['AFI_vehicle_gear','west',true]};";
-                        condition = "objectHasInventoryCargo + objectVehicle";
-                    };
-                    class afi_editorEnhancements_brieffingEquipmentSideEast: afi_editorEnhancements_brieffingEquipmentSideWest {
-                        displayName = "Show equipment to East";
-                        property = "afi_editorEnhancements_brieffingEquipmentSideEast";
-                        expression = "if (_value) then{_this setVariable ['AFI_vehicle_gear','east',true]};";
-                    };
-                    class afi_editorEnhancements_brieffingEquipmentSideInd: afi_editorEnhancements_brieffingEquipmentSideWest {
-                        displayName = "Show equipment to Independent";
-                        property = "afi_editorEnhancements_brieffingEquipmentSideInd";
-                        expression = "if (_value) then{_this setVariable ['AFI_vehicle_gear','guer',true]};";
-                    };
-                    class afi_editorEnhancements_brieffingEquipmentSideCivilian: afi_editorEnhancements_brieffingEquipmentSideWest {
-                        displayName = "Show equipment to Civilian";
-                        property = "afi_editorEnhancements_brieffingEquipmentSideCivilian";
-                        expression = "if (_value) then{_this setVariable ['AFI_vehicle_gear','civ',true]};";
-                    };
-                };
-            };
-        };
-    };
-    class Mission {
+	// Configuration of all objects
+	class Object {
+		// Categories collapsible in "Edit Attributes" window
+		class AttributeCategories {
+			// Category class, can be anything
+			class afi_editorEnhancements {
+				displayName = "AFI Editor Enhancements"; // Category name visible in Edit Attributes window
+				collapsed = 1; // When 1, the category is collapsed by default
+				class Attributes {
+					class afi_editorEnhancements_skipDebug {
+						displayName = "Skip Debug for this object";
+						tooltip = "Dont run any debug on this object";
+						property = "afi_editorEnhancements_skipDebug";
+						control = "Checkbox";
+						expression = "_this setVariable ['Skip_Debug',_value,true];";
+						defaultValue = "false";
+						unique = 0;
+						condition = "objectSimulated";
+					};
+					class afi_editorEnhancements_brieffingEquipmentSideWest: afi_editorEnhancements_skipDebug {
+						displayName = "Show equipment to West";
+						tooltip = "Shows this vehicle/box and its inventory and weapon loadout at the brieffing for certain sided players. Only pick one side per object.";
+						property = "afi_editorEnhancements_brieffingEquipmentSideWest";
+						control = "Checkbox";
+						expression = "if (_value) then{_this setVariable ['AFI_vehicle_gear','west',true]};";
+						condition = "objectHasInventoryCargo + objectVehicle";
+					};
+					class afi_editorEnhancements_brieffingEquipmentSideEast: afi_editorEnhancements_brieffingEquipmentSideWest {
+						displayName = "Show equipment to East";
+						property = "afi_editorEnhancements_brieffingEquipmentSideEast";
+						expression = "if (_value) then{_this setVariable ['AFI_vehicle_gear','east',true]};";
+					};
+					class afi_editorEnhancements_brieffingEquipmentSideInd: afi_editorEnhancements_brieffingEquipmentSideWest {
+						displayName = "Show equipment to Independent";
+						property = "afi_editorEnhancements_brieffingEquipmentSideInd";
+						expression = "if (_value) then{_this setVariable ['AFI_vehicle_gear','guer',true]};";
+					};
+					class afi_editorEnhancements_brieffingEquipmentSideCivilian: afi_editorEnhancements_brieffingEquipmentSideWest {
+						displayName = "Show equipment to Civilian";
+						property = "afi_editorEnhancements_brieffingEquipmentSideCivilian";
+						expression = "if (_value) then{_this setVariable ['AFI_vehicle_gear','civ',true]};";
+					};
+				};
+			};
+		};
+	};
+	class Mission {
 		class GVAR(missionAttributes) { // Custom section class, everything inside will be opened in one window
 			displayName = "AFI Mission Attributes"; // Text visible in the window title as "Edit: <displayName>"
 			class AttributeCategories {
 				// The following structure is the same as the one used for entity attributes
 				class GVAR(viewDistance) {
 					displayName = "Viewdistance";
-                	collapsed = 0;
+					collapsed = 0;
 					class Attributes {
 						class GVAR(enableViewdistance) {
 							displayName = "Enable viewdistance change";
-                        	tooltip = "Dont enable this if you set the viewdistance settings elsewhere";
+							tooltip = "Dont enable this if you set the viewdistance settings elsewhere";
 							property = QGVAR(enableViewdistance);
-	                        control = "CheckboxState";
-	                        expression = "%s = _value;";
-	                        defaultValue = "false";
-	                        unique = 0;
+							control = "CheckboxState";
+							expression = "%s = _value;";
+							defaultValue = "false";
+							unique = 0;
 						};
 						class GVAR(viewdistance) {
 							displayName = "Maximum viewdistance for players";
-                        	tooltip = "User can adjust viewdistance up to this value while ingame. Min: 500, Max:12000.";
+							tooltip = "User can adjust viewdistance up to this value while ingame. Min: 500, Max:12000.";
 							property = QGVAR(viewdistance);
-	                        control = "Edit";
+							control = "Edit";
 							expression = "%s = _value;";
-	                        defaultValue = "3000";
-	                        unique = 0;
-	                        validate = "number";
-	                        typeName = "NUMBER";
+							defaultValue = "3000";
+							unique = 0;
+							validate = "number";
+							typeName = "NUMBER";
 						};
 					};
 				};
 				class GVAR(safeStart) {
 					displayName = "Safestart";
-                	collapsed = 0;
+					collapsed = 0;
 					class Attributes {
 						class GVAR(enableSafeStart) {
 							displayName = "Enable safestart";
-                        	tooltip = "Don't enable this if you start SafeStart elsewhere.";
+							tooltip = "Don't enable this if you start SafeStart elsewhere.";
 							property = QGVAR(enableSafeStart);
-	                        control = "CheckboxState";
+							control = "CheckboxState";
 							expression = "%s = _value;";
-	                        defaultValue = "false";
-	                        unique = 0;
+							defaultValue = "false";
+							unique = 0;
 						};
 						class GVAR(safeStartLength) {
 							displayName = "Safestart duration";
-                        	tooltip = "Safestart duration";
+							tooltip = "Safestart duration";
 							property = QGVAR(safeStartLength);
-	                        control = "Edit";
-	                        expression = "%s = _value;";
-	                        defaultValue = "15";
-	                        unique = 0;
-	                        validate = "number";
-	                        typeName = "NUMBER";
+							control = "Edit";
+							expression = "%s = _value;";
+							defaultValue = "15";
+							unique = 0;
+							validate = "number";
+							typeName = "NUMBER";
 						};
 					};
 				};
 				class GVAR(viewDistanceServer) {
 					displayName = "Server viewdistance";
-                	collapsed = 0;
+					collapsed = 0;
 					class Attributes {
 						class GVAR(enableViewdistanceServer) {
 							displayName = "Set server viewdistance";
-                        	tooltip = "This will run only for dedicated. Basicly used to increase AI viewdistance";
+							tooltip = "This will run only for dedicated. Basicly used to increase AI viewdistance";
 							property = QGVAR(enableViewdistanceServer);
-	                        control = "CheckboxState";
-	                        expression = "%s = _value;";
-	                        defaultValue = "false";
-	                        unique = 0;
+							control = "CheckboxState";
+							expression = "%s = _value;";
+							defaultValue = "false";
+							unique = 0;
 						};
 						class GVAR(viewdistanceServer) {
 							displayName = "Server viewdistance";
-                        	tooltip = "This will run only for dedicated. Basicly used to increase AI viewdistance";
+							tooltip = "This will run only for dedicated. Basicly used to increase AI viewdistance";
 							property = QGVAR(viewdistanceServer);
-	                        control = "Edit";
-	                        expression = "%s = _value;";
-	                        defaultValue = "3000";
-	                        unique = 0;
-	                        validate = "number";
-	                        typeName = "NUMBER";
+							control = "Edit";
+							expression = "%s = _value;";
+							defaultValue = "3000";
+							unique = 0;
+							validate = "number";
+							typeName = "NUMBER";
 						};
 					};
 				};
@@ -204,14 +204,14 @@ class Cfg3DEN {
 	};
 	class Groups {
 		class AttributeCategories {
-            class Init {
-                class Attributes {
-                    class Callsign {
-                        unique = 0;
-                    };
-                };
-            };
-        };
+			class Init {
+				class Attributes {
+					class Callsign {
+						unique = 0;
+					};
+				};
+			};
+		};
 	};
 
 	// Container with all tutorials
