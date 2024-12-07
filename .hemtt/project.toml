@@ -27,6 +27,7 @@ workshop = [
     "1291778160",
     "450814997", # CBA
     "463939057", # ACE
+    "2369477168", # Advanced tool thing
     # "894678801", # TFAR
 ]
 parameters = [
@@ -45,6 +46,7 @@ workshop = [
     "1673456286", # 3CB FACTIONS Workshop ID
     "893349825", # 3CB Vehicles Workshop ID
     "894678801", # TFAR
+    "2369477168", # Advanced tool thing
 ]
 parameters = [
     "-noPause",
@@ -65,6 +67,7 @@ workshop = [
     "1673456286", # 3CB FACTIONS Workshop ID
     "893349825", # 3CB Vehicles Workshop ID
     "894678801", # TFAR
+    "2369477168", # Advanced tool thing
 ]
 parameters = [
     "-server",
@@ -85,6 +88,7 @@ workshop = [
     "1673456286", # 3CB FACTIONS Workshop ID
     "893349825", # 3CB Vehicles Workshop ID
     "894678801", # TFAR
+    "2369477168", # Advanced tool thing
 ]
 parameters = [
     "-debug",
