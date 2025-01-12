@@ -64,8 +64,8 @@ if ((driver _vehicle) isEqualTo ace_player) then {
 			["KeyDown", _keyDownEventHandler] call CBA_fnc_removeDisplayHandler;
 		};
 
-		private _text = [3,2] select (_vehicle isEqualTo (objectParent ace_player) && (cba_missionTime >= _delay));
-		[_text, 5] call FUNC(engineStartingHint);
+		private _textNumber = [3,2] select (_vehicle isEqualTo (objectParent ace_player) && (cba_missionTime >= _delay));
+		[_textNumber, 5] call FUNC(engineStartingHint);
 		_handle call CBA_fnc_removePerFrameHandler;
 	};
 }, 0, [_vehicle, _keyDownEventHandler, (_startupDelay + cba_missionTime)]] call CBA_fnc_addPerFrameHandler;

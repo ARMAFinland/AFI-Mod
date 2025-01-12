@@ -7,8 +7,6 @@ PREP_RECOMPILE_END;
 
 RHS_ENGINE_STARTUP_OFF = true;
 
-
-
 [
 	QGVAR(cooldownMultiplier),
 	"SLIDER",

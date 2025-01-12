@@ -24,7 +24,6 @@ if (_startupDelay <= 0 ) exitWith { };
 
 if (!_isEngineOn) exitWith {
 	if (!(_vehicle getVariable [QGVAR(engineStarting), false]) && 0 <_configDelay) then {
-		diag_log "run stop engine1";
 		[_vehicle] call FUNC(serverEngineStop);
 	};
 };
@@ -41,8 +40,6 @@ _vehicle setVariable [QGVAR(engineStartTime), cba_missionTime];
 	_args params ["_vehicle", "_delay", "_startupDelay", "_engineStartTime", "_configDelay"];
 	TUN_SKIP_PAUSED;
 
-	if (GVAR(pfhUpdateTime) == cba_missiontime) exitWith { };
-	GVAR(pfhUpdateTime) = cba_missiontime;
 	// Wait and remove eh
 	if ( (cba_missionTime > _delay) || {!(alive _vehicle)} || {!isEngineOn _vehicle} ) exitWith {
 		//make sure it is alive and engine is running.

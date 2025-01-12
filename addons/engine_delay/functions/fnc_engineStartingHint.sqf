@@ -24,10 +24,9 @@ _text = switch (_type) do {
 	case 3: { 
 		"The engine did not fully start"
 	};
-	case 4: { 
-
+	default { 
+		"Something is wrong"
 	};
-	default { };
 };
 
 [_text, false, _time] call ace_common_fnc_displayText;
