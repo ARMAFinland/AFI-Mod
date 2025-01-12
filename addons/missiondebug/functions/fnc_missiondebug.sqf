@@ -115,10 +115,10 @@ private _Tun_fnc_DebugVari = {
 		//Secondary/launcher
 		if ( !_noSecondary ) then {
 			private _isDisposable = (
-				!(getText (configFile >> "CFGWeapons" >> _secondaryWeapon >> "displayName") == "") && 
+				(getText (configFile >> "CFGWeapons" >> _secondaryWeapon >> "displayName") != "") && 
 				getNumber (configFile >> "CFGWeapons" >> _secondaryWeapon >> "rhs_disposable") == 0 && 
 				getText (configFile >> "CFGWeapons" >> _secondaryWeapon >> "ACE_UsedTube") == "" && 
-				!(getText (configFile >> "CFGWeapons" >> _secondaryWeapon >> "author") == "FinMod"));
+				(getText (configFile >> "CFGWeapons" >> _secondaryWeapon >> "author") != "FinMod"));
 				
 			if ( _isDisposable  && { _secondary_mag_count < 2 } ) then {
 
@@ -429,7 +429,7 @@ private _Tun_fnc_DebugVari = {
 		_unit isKindOf "Ship" ||
 		_unit isKindOf "Static" ||
 		(_unit isKindOf "thing") &&
-		!( getNumber (configFile/"CfgVehicles"/typeOf _unit/"transportMaxMagazines") == 0) && 
+		( getNumber (configFile/"CfgVehicles"/typeOf _unit/"transportMaxMagazines") != 0) && 
 		!(typeOf _x in ["ACE_friesAnchorBar","WeaponHolderSimulated"])
 	) then {
 		private _isLocked = (2 <= locked _unit);
@@ -453,7 +453,7 @@ private _Tun_fnc_DebugVari = {
 					private _tfarVehSide = toLower str ((vehicle _unit) call TFAR_fnc_getVehicleSide);
 					if (
 						((vehicle _unit) call TFAR_fnc_hasVehicleRadio) &&
-						{!(_side == _tfarVehSide)}
+						{(_side != _tfarVehSide)}
 						) then {
 
 							private _color = [5] call _Tun_fnc_DebugVari;
