@@ -20,10 +20,10 @@ addMissionEventHandler ["HandleChatMessage", {
 
 	switch (GVAR(disableSystemChat)) do {
 		case true: { 
-			sideChat "Chat filter is ON";
+			player sideChat "Chat filter is ON";
 		};
 		case false: { 
-			sideChat "Chat filter is OFF";
+			player sideChat "Chat filter is OFF";
 		};
 	};
 }, "admin"] call CBA_fnc_registerChatCommand;

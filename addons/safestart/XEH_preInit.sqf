@@ -35,7 +35,7 @@ if (isServer) then {
 //backward comp
 afi_safestart = {
 	if (!isMultiplayer) then {
-		sideChat "Warning - Deprecated function: afi_safestart, call afi_safestart_fnc_start instead on server";
+		player sideChat "Warning - Deprecated function: afi_safestart, call afi_safestart_fnc_start instead on server";
 		diag_log "Warning - Deprecated function: afi_safestart, call afi_safestart_fnc_start instead on server";
 	};
 	

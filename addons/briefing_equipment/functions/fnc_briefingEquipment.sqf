@@ -153,9 +153,9 @@ _fnc_formatItemInfo = {
 	private ["_return"];
 	
 	if (_containerInfo != "") then {
-		_return = format ["<execute expression='call {sideChat (""Item: "" + str (parseText (toString %1))); sideChat ""- Weight: %2kg""; sideChat ""- Free: %4"";}'>%3</execute>",toArray _name, _mass, _linkText, _containerInfo];
+		_return = format ["<execute expression='call {%5 sideChat (""Item: "" + str (parseText (toString %1))); %5 sideChat ""- Weight: %2kg""; %5 sideChat ""- Free: %4"";}'>%3</execute>",toArray _name, _mass, _linkText, player];
 	} else {
-		_return = format ["<execute expression='call {sideChat (""Item: "" + str (parseText (toString %1))); sideChat ""- Weight: %2kg"";}'>%3</execute>",toArray _name, _mass, _linkText];
+		_return = format ["<execute expression='call {%4 sideChat (""Item: "" + str (parseText (toString %1))); %4 sideChat ""- Weight: %2kg"";}'>%3</execute>",toArray _name, _mass, player];
 	};
 	
 	_return;
