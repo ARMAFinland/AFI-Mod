@@ -12,7 +12,7 @@ class Extended_PreInit_EventHandlers {
 };
 
 class Extended_Engine_EventHandlers {
-	class AllVehicles {
+	class LandVehicle {
 		class ADDON {
 			clientEngine = QUOTE(if (local driver (_this select 0)) then {_this call FUNC(preventMovingVehicle)};);
 			serverEngine = QUOTE(_this call FUNC(serverEngineStart));
