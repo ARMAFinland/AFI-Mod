@@ -14,7 +14,7 @@ class CfgPatches {
 	};
 };
 // configs go here
-#include "\a3\3DEN\UI\resincl.inc"
+#include "\a3\3den\UI\resincl.inc"
 #include "CfgEventHandlers.hpp"
 
 class CfgMarkers {

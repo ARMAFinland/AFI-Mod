@@ -2,7 +2,7 @@
 ADDON = false;
 
 PREP_RECOMPILE_START;
-#include "XEH_PREP.hpp"
+#include "XEH_prep.hpp"
 PREP_RECOMPILE_END;
 
 [
