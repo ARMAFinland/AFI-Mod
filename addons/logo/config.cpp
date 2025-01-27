@@ -16,6 +16,8 @@ class CfgPatches {
 // configs go here
 //#include "CfgEventHandlers.hpp"
 
+#define SERVER_IP	'37.27.232.48'
+
 class RscPictureKeepAspect;
 class RscStandardDisplay;
 class RscControlsGroup;
@@ -101,7 +103,7 @@ class RscDisplayMain: RscStandardDisplay{
 			tooltip = "This is afi weekly game server";
 			style = QUOTE(2 + 192);
 			SizeEx = QUOTE(GUI_TEXT_SIZE_LARGE);
-			onButtonClick = "connectToServer ['65.21.188.102', 2302, 'kotka'];";
+			onButtonClick = QUOTE(connectToServer ARR_3([SERVER_IP,2302,'kotka']););
 			x = "0.5 - (1.5 * 10) * (pixelW * pixelGridNoUIScale * 2) - (2 * pixelW)";
 			y = "0.37 - (10 / 2) * (pixelH * pixelGridNoUIScale * 2)";
 			w = "10 * pixelW * pixelGridNoUIScale * 2)";
@@ -112,14 +114,14 @@ class RscDisplayMain: RscStandardDisplay{
 		class GVAR(serveriCenterText): GVAR(serveriLeftText) {
 			text = "Join AFI main event server";
 			tooltip = "This is main afi event server, all our events use this if not told otherwise.";
-			onButtonClick = "connectToServer ['65.21.188.102', 2202, 'kotka'];";
+			onButtonClick = QUOTE(connectToServer ARR_3([SERVER_IP,2202,'kotka']););
 			x = "0.5 - (0.5 * 10) * (pixelW * pixelGridNoUIScale * 2)";
 
 		};
 		class GVAR(serveriRightText): GVAR(serveriLeftText) {
 			text = "Join AFI secondary event server";
 			tooltip = "Almost never used, just in case as backup here.";
-			onButtonClick = "connectToServer ['65.21.188.102', 2502, 'kotka'];";
+			onButtonClick = QUOTE(connectToServer ARR_3([SERVER_IP,2502,'kotka']););
 			x = "0.5 + (0.5 * 10) * (pixelW * pixelGridNoUIScale * 2) + (2 * pixelW)";
 		};
 	};
