@@ -1,22 +1,20 @@
 class CfgVehicles {
 	class APC_Tracked_01_base_F;
-
 	class UK3CB_2S6M_Tunguska: APC_Tracked_01_base_F {
 		ace_vehicles_engineStartDelay  = 10;
 	};
 
-	class UK3CB_ZSU39_Base: APC_Tracked_01_base_F {
+	class O_APC_Tracked_02_AA_F;
+	class UK3CB_ZSU39_Base: O_APC_Tracked_02_AA_F {
 		ace_vehicles_engineStartDelay  = 10;
 	};
 
 	class Tank_F;
-
 	class UK3CB_M60a3: Tank_F {
 		ace_vehicles_engineStartDelay  = 15;
 	};
 
 	class MBT_02_base_F;
-
 	class UK3CB_T72A: MBT_02_base_F {
 		ace_vehicles_engineStartDelay  = 10;
 	};
@@ -30,7 +28,6 @@ class CfgVehicles {
 	};
 
 	class Car_F;
-
 	class UK3CB_MMT_Base: Car_F {
 		ace_vehicles_engineStartDelay  = 0;
 	};
