@@ -40,8 +40,8 @@ class CfgVehicles {
 		ace_vehicles_engineStartDelay  = 20;
 	};
 
-	class APC_Tracked_01_base_F;
-	class rhs_zsutank_base: APC_Tracked_01_base_F {
+	class APC_Tracked_02_base_F;
+	class rhs_zsutank_base: APC_Tracked_02_base_F {
 		ace_vehicles_engineStartDelay  = 10;
 	};
 };

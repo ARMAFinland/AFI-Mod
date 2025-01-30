@@ -16,5 +16,3 @@ class CfgPatches {
 };
 // configs go here
 #include "CfgVehicles.hpp"
-
-
