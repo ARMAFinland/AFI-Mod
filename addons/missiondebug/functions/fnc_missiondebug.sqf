@@ -219,7 +219,7 @@ private _Tun_fnc_DebugVari = {
 			if (_epinephrineCount  > 0) then {
 				private _color = [1] call _Tun_fnc_DebugVari;
 
-				_unitErrorList pushBack format ["<br/>--  <font color='%1'>Unit is not ACE medic, but have bloodbags</font>", _color];
+				_unitErrorList pushBack format ["<br/>--  <font color='%1'>Unit is not ACE medic, but have epipherin</font>", _color];
 			};
 			
 			if (_morphineCount < 1) then {
@@ -291,7 +291,7 @@ private _Tun_fnc_DebugVari = {
 			};
 		};
 
-		if ((getDammage _unit != 0)) then {
+		if ((damage _unit != 0)) then {
 			private _color = [5] call _Tun_fnc_DebugVari;
 
 				_unitErrorList pushBack format ["<br/>--  <font color='%1'>Unit has taken damage</font>", _color];
@@ -462,7 +462,7 @@ private _Tun_fnc_DebugVari = {
 					};
 				};
 
-			if (getDammage _unit != 0) then {
+			if (damage _unit != 0) then {
 
 				private _color = [4] call _Tun_fnc_DebugVari;
 
@@ -640,12 +640,3 @@ civilian countSide (if (isDedicated) then {playableUnits} else {switchableUnits}
 (resistance countSide allUnits) - (resistance countSide (if (isDedicated) then {playableUnits} else {switchableUnits})),
 (civilian countSide allUnits) - (civilian countSide (if (isDedicated) then {playableUnits} else {switchableUnits})) //33
 ]]];
-
-addMissionEventHandler ["MapSingleClick", {
-	params ["_units", "_pos", "_alt", "_shift"];
-	if (_shift) then {
-		player setPos _pos;
-	};
-}];
-
-
