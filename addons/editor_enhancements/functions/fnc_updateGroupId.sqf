@@ -13,8 +13,9 @@
 */
 params [["_selectedUnits",[],[]]];
 
+FILTER(_selectedUnits,private _unit = _x; (_unit get3DENAttribute "ControlMP") select 0 || (_unit get3DENAttribute "ControlSP") select 0);
 if (_selectedUnits isEqualTo []) exitWith {
-	["Zero units selected",1,9] call BIS_fnc_3DENNotification;
+	["Zero playable units selected",1,9] call BIS_fnc_3DENNotification;
 };
 
 GVAR(unitIdInInitArray) = [];
@@ -50,6 +51,20 @@ collect3DENHistory {
 			};
 		};
 	} forEach _selectedUnits;
+
+	if (GVAR(unitIdInInitArray) isEqualTo []) then {
+		{
+			private _unit = _x;
+			private _roleDescription = (_unit get3DENAttribute "description") select 0;
+			private _cbaGroupPos = _roleDescription find "@";
+			if (_cbaGroupPos isNotEqualTo -1) then {
+				_roleDescription = _roleDescription select [0,_cbaGroupPos];
+			};
+			_roleDescription = trim _roleDescription;
+			_roleDescription = [_roleDescription,"@",group _unit get3DENAttribute "groupID" select 0] joinString "";
+			_unit set3DENAttribute ["description", _roleDescription];
+		} forEach _selectedUnits;
+	};
 };
 
 

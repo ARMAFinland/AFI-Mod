@@ -12,23 +12,27 @@
 	Bool - True when done
 */
 private _selectedUnits = get3DENSelected 'object';
+FILTER(_selectedUnits,private _unit = _x; (_unit get3DENAttribute "ControlMP") select 0 || (_unit get3DENAttribute "ControlSP") select 0);
 
 if (_selectedUnits isEqualTo []) exitWith {
-	["Zero units selected",1,9] call BIS_fnc_3DENNotification;
+	["Zero playable units selected",1,9] call BIS_fnc_3DENNotification;
 };
 
 collect3DENHistory {
 	{
 		private _unit = _x;
 		private _group = group _unit;
+		private _roleDescriptionOld = (_unit get3DENAttribute "description") select 0;
+		private _cbaGroupPos = _roleDescriptionOld find "@";
 		private _roleDescription = (configFile >> "CfgVehicles" >> typeOf _unit >> "displayName") call BIS_fnc_getCfgData;//Get units role description or "displayname"
-		if (_unit isEqualTo leader group _unit) then {
-			_roleDescription =  [_roleDescription,"@",group _unit get3DENAttribute "groupID" select 0] joinString ""; // Join together the units display name, @ cba separator and the units callsign.
+
+		if (_cbaGroupPos isNotEqualTo -1) then {
+			_roleDescription = (trim _roleDescription) + trim (_roleDescriptionOld select [_cbaGroupPos]);
 		};
 		_unit set3DENAttribute ["description", _roleDescription]; //Set it to the unit
 	} forEach _selectedUnits;
 };
 
-["Each selected units Role descriptions were updated to: Displayname@Groupid format. Displayname units config role, example: 'Machinegunner'. GroupID was taken from groups eden attributes. Undo changes with Ctrl+Z.",0,12] call BIS_fnc_3DENNotification;
+["Each selected units Role descriptions were updated to: Displayname format. Displayname units config role, example: 'Machinegunner'. Undo changes with Ctrl+Z.",0,12] call BIS_fnc_3DENNotification;
 
 true
