@@ -12,9 +12,10 @@
 	Bool - True when done
 */
 private _selectedUnits = get3DENSelected 'object';
+FILTER(_selectedUnits,private _unit = _x; (_unit get3DENAttribute "ControlMP") select 0 || (_unit get3DENAttribute "ControlSP") select 0);
 
 if (_selectedUnits isEqualTo []) exitWith {
-	["Zero units selected",1,9] call BIS_fnc_3DENNotification;
+	["Zero playable units selected",1,9] call BIS_fnc_3DENNotification;
 };
 
 collect3DENHistory {
