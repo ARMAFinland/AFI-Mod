@@ -51,6 +51,20 @@ collect3DENHistory {
 			};
 		};
 	} forEach _selectedUnits;
+
+	if (GVAR(unitIdInInitArray) isEqualTo []) then {
+		{
+			private _unit = _x;
+			private _roleDescription = (_unit get3DENAttribute "description") select 0;
+			private _cbaGroupPos = _roleDescription find "@";
+			if (_cbaGroupPos isNotEqualTo -1) then {
+				_roleDescription = _roleDescription select [0,_cbaGroupPos];
+			};
+			_roleDescription = trim _roleDescription;
+			_roleDescription = [_roleDescription,"@",group _unit get3DENAttribute "groupID" select 0] joinString "";
+			_unit set3DENAttribute ["description", _roleDescription];
+		} forEach _selectedUnits;
+	};
 };
 
 

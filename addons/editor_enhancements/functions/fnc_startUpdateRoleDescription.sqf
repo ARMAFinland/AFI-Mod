@@ -1,11 +1,11 @@
 #include "script_component.hpp"
 
 [
-	"Before running this, ensure the Check Group ID command does not report any errors. It will override previous descriptions!",
+	"This will override previous descriptions!",
 	"Update unit descriptions",
 	[
 		"Run",
-		{ [] call FUNC(updateRoleDescription);}
+		{ [] call FUNC(updateRoleDescription); closeDialog 0; }
 	],
 	[
 		"Exit",
