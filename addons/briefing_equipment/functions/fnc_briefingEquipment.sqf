@@ -1,7 +1,6 @@
 //Briefing gear v2.4 - by Raimo @ https://armafinland.fi/
 //TODO: better layout
 
-
 ///////////////////////////////////////////////
 ///////			FUNCTIONS				///////
 ///////////////////////////////////////////////
@@ -147,17 +146,27 @@ _fnc_confType = {
 	_type;
 };
 
+
+private _fnc_doChatMessage = {
+	params ["_name","_mass",["_containerInfo",""]];
+
+	ace_player sideChat "- Item: " + _name;
+	ace_player sideChat "- Weight: "+str _mass+"kg";
+	if (_containerInfo isNotEqualTo "") then {
+		ace_player sideChat "- Free: " + _containerInfo;
+	};
+};
+
 _fnc_formatItemInfo = {
 	//format item info link into given string, names are turned into array and again into string on execution to not break execute expression
 	params ["_linkText","_name","_mass",["_containerInfo",""]];
-	private ["_return"];
 	
-	if (_containerInfo != "") then {
-		_return = format ["<execute expression='call {%5 sideChat (""Item: "" + str (parseText (toString %1))); %5 sideChat ""- Weight: %2kg""; %5 sideChat ""- Free: %4"";}'>%3</execute>",toArray _name, _mass, _linkText, _containerInfo, player];
-	} else {
-		_return = format ["<execute expression='call {%4 sideChat (""Item: "" + str (parseText (toString %1))); %4 sideChat ""- Weight: %2kg"";}'>%3</execute>",toArray _name, _mass, _linkText, player];
-	};
-	
+	private _return = format ["<execute expression='[str (parseText (toString %1)),%2,%4] call "+ str _fnc_doChatMessage +"'>%3</execute>",
+	(toArray _name), 
+	_mass,
+	_linkText,
+	_containerInfor];
+
 	_return;
 };
 
