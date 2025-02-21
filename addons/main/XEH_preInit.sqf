@@ -5,6 +5,7 @@ ADDON = false;
 // #include "XEH_prep.hpp"
 // PREP_RECOMPILE_END;
 
+RHS_WP_Managment_Disabled = true;
 
 [
 	QGVAR(enableEnvironment),
