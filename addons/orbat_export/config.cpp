@@ -82,7 +82,7 @@ class Cfg3DEN {
 			class Init {
 				class Attributes {
 					class GVAR(groupAdditionalDescription) {
-						displayName = "AFI event group description";
+						displayName = "git mv <old name> <new name> group description";
 						tooltip = "Only used in the export JSON tool.";
 						property = QGVAR(groupAdditionalDescription);
 						control = "Edit";
@@ -199,11 +199,11 @@ class display3DEN {
 			class Items {
 				class EGVAR(editor_enhancements,commonToolFolder) {
 					text = "AFI Common Tools";
-					items[] += {QGVAR(rosterExport)}; // ADD ALL TOOLS HERE
+					items[] += {QGVAR(exportJSON)}; // ADD ALL TOOLS HERE
 				};
-				class GVAR(rosterExport) {
+				class GVAR(exportJSON) {
 					text = "Export orbat to JSON";
-					action = QUOTE([] call FUNC(rosterExport););
+					action = QUOTE([] call FUNC(exportJSON););
 				};
 			};
 		};

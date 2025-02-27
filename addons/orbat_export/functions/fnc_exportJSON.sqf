@@ -9,7 +9,7 @@
  * None
  *
  * Example:
- * [] call afi_event_system_fnc_rosterExport
+ * [] call afi_event_system_fnc_exportJSON
  */
 #include "script_component.hpp"
 

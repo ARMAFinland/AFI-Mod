@@ -1,5 +1,5 @@
-#define COMPONENT event_system
-#define COMPONENT_BEAUTIFIED event_system
+#define COMPONENT orbat_export
+#define COMPONENT_BEAUTIFIED orbat_export
 #include "\x\afi\addons\main\script_mod.hpp"
 
 #define DEBUG_MODE_FULL
