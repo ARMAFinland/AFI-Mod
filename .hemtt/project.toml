@@ -22,9 +22,17 @@ enabled = true
 [lint.sqf]
 enabled = true
 
+[lints.sqf.command_case]
+severity = "Help"
+options.ignore = [
+    "Blufor",
+    "Opfor",
+    "Independent",
+    "Civilian",
+]
+
 [hemtt.launch.default]
 workshop = [
-    "1291778160",
     "450814997", # CBA
     "463939057", # ACE
     "2369477168", # Advanced tool thing
@@ -36,20 +44,16 @@ parameters = [
 ]
 
 [hemtt.launch.all]
+extends = "default"
 workshop = [
-    "450814997", # CBA_A3
-    "463939057", # ACE
     "843425103", # RHS AFRF Workshop ID
     "843577117", # RHS USAF Workshop ID
     "843593391", # RHS GREF Workshop ID
     "843632231", # RHS SAF  Workshop ID
     "1673456286", # 3CB FACTIONS Workshop ID
     "893349825", # 3CB Vehicles Workshop ID
-    "894678801", # TFAR
-    "2369477168", # Advanced tool thing
 ]
 parameters = [
-    "-noPause",
     #"C:\\Users\\mikal\\Documents\\Arma 3 - Other Profiles\\Tuntematon\\missions\\igla.altis\\mission.sqm", # Launch into existing Editor Mission - \\ needed
 ]
 
