@@ -18,7 +18,6 @@ private _sideData = [];
 private _lolFail = [];
 private _allVehicles = vehicles;
 
-
 {
     _x params ["_side","_atribute"];
     private _enabled = QEGVAR(editor_enhancements,missionAttributes) get3DENMissionAttribute _atribute;
@@ -26,6 +25,10 @@ private _allVehicles = vehicles;
         _sideAtributes pushBack ([_side] call FUNC(getSideData));
     };
 } forEach [[blufor,QGVAR(enableSideDataWest)], [opfor,QGVAR(enableSideDataEast)], [independent,QGVAR(enableSideDataResistance)], [civilian,QGVAR(enableSideDataCivilian)]];
+
+if (_sideAtributes isEqualTo []) exitWith {
+    ["All sides export disabled!<br/>Go Attributes -> AFI Mission atributes",1,12] call BIS_fnc_3DENNotification;
+};
 
 {
     _x params["_side","_sideName","_sideDescription"];

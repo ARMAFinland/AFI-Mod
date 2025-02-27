@@ -28,7 +28,7 @@ class Cfg3DEN {
 				class Attributes {
 					class GVAR(unitAdditionalDescription) {
 						displayName = "AFI event unit description";
-						tooltip = "Only used in export JSON tool.";
+						tooltip = "Only used in the export JSON tool.";
 						property = QGVAR(unitAdditionalDescription) ;
 						control = "Edit";
 						defaultValue = """""";
@@ -37,7 +37,7 @@ class Cfg3DEN {
                     };
 					class GVAR(vehicleSide) {
 						displayName = "AFI event vehicle side";
-						tooltip = "Only used in export JSON tool.";
+						tooltip = "Only used in the export JSON tool.";
 						property = QGVAR(vehicleSide) ;
 						control = "combo";
 						defaultValue = -1;
@@ -83,7 +83,7 @@ class Cfg3DEN {
 				class Attributes {
 					class GVAR(groupAdditionalDescription) {
 						displayName = "AFI event group description";
-						tooltip = "Only used in export JSON tool.";
+						tooltip = "Only used in the export JSON tool.";
 						property = QGVAR(groupAdditionalDescription);
 						control = "Edit";
 						defaultValue = """""";
@@ -92,7 +92,7 @@ class Cfg3DEN {
 
 					class GVAR(platoonAdditionalDescription) : GVAR(groupAdditionalDescription) {
 						displayName = "AFI event platoon description";
-						tooltip = "Only first groups platoon description is used for each platoon. Only used in export JSON tool.";
+						tooltip = "Only the first group platoon description is used for each platoon. Only used in the export JSON tool.";
 						property = QGVAR(platoonAdditionalDescription);
 					};
 				};
@@ -109,7 +109,7 @@ class Cfg3DEN {
 					class Attributes {
 						class GVAR(enableSideDataWest) {
 							displayName = "Enable export";
-							tooltip = "When enabled, export JSON will export this side.";
+							tooltip = "When enabled, the export JSON tool will export this side.";
 							property = QGVAR(enableSideDataWest);
 							control = "CheckboxState";
 							//expression = "%s = _value;";
@@ -118,7 +118,7 @@ class Cfg3DEN {
 						};
 						class GVAR(sideNameWest) {
 							displayName = "Side name";
-							tooltip = "Leave empty to use default. Only used in export JSON tool.";
+							tooltip = "Leave empty to use the default. Only used in the export JSON tool.";
 							property = QGVAR(sideNameWest);
 							control = "Edit";
 							//expression = "%s = _value;";
@@ -129,10 +129,10 @@ class Cfg3DEN {
 						};
 						class GVAR(sideDescriptionWest) : GVAR(sideNameWest) {
 							displayName = "Side description";
-							tooltip = "Additional info you want to be shown for this side at AFI event page. Only used in export JSON tool.";
+							tooltip = "Additional info you want to be shown for this side on the AFI event page. Only used in the export JSON tool.";
 							property = QGVAR(sideDescriptionWest);
 							//expression = "%s = _value;";
-							defaultValue = QUOTE(QUOTE(""));
+							defaultValue = """""";
 						};
 					};
 				};
@@ -202,7 +202,7 @@ class display3DEN {
 					items[] += {QGVAR(rosterExport)}; // ADD ALL TOOLS HERE
 				};
 				class GVAR(rosterExport) {
-					text = "Export roster to JSON";
+					text = "Export orbat to JSON";
 					action = QUOTE([] call FUNC(rosterExport););
 				};
 			};
