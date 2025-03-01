@@ -82,7 +82,7 @@ class Cfg3DEN {
 			class Init {
 				class Attributes {
 					class GVAR(groupAdditionalDescription) {
-						displayName = "git mv <old name> <new name> group description";
+						displayName = "AFI event group description";
 						tooltip = "Only used in the export JSON tool.";
 						property = QGVAR(groupAdditionalDescription);
 						control = "Edit";
