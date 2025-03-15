@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
-	Author: Bummeri <@Armafinland.fi>
+	Author: Bummeri & Tuntematon
 
 	Description:
 	Will assign common settings to the mission in eden editor.

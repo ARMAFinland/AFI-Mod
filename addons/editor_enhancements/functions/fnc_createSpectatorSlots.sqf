@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
-	Author: Bummeri <@Armafinland.fi>
+	Author: Bummeri & Tuntematon
 
 	Description:
 	Will create 50 virtual spectator slots on the middle of the screen.
@@ -19,7 +19,6 @@ collect3DENHistory {
 		_spectator set3DENAttribute ["ControlMP",true];
 	};
 };
-
 
 ["50 virtual spectator slots were created on the middle of the screen. Undo changes with Ctrl+Z.",0,9] call BIS_fnc_3DENNotification;
 

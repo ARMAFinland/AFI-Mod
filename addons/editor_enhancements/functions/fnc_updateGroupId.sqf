@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
-	Author: Bummeri <@Armafinland.fi>
+	Author: Bummeri & Tuntematon
 
 	Description:
 	Will update each units roledescription to match the Displayname@Groupid. Displayname is assigned in units config. Forexample: "Machinegunner". GroupID needs to be assigned in the groups eden attributes.
