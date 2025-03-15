@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
-	Author: Bummeri <@Armafinland.fi>
+	Author: Bummeri & Tuntematon
 
 	Description:
 	Will update each units roledescription to match the Displayname@Groupid. Displayname is assigned in units config. Forexample: "Machinegunner". GroupID needs to be assigned in the groups eden attributes.
@@ -19,6 +19,7 @@ if (_selectedUnits isEqualTo []) exitWith {
 };
 
 GVAR(unitIdInInitArray) = [];
+GVAR(data) = createHashMap;
 collect3DENHistory {
 	{
 		private _unit = _x;
@@ -30,18 +31,21 @@ collect3DENHistory {
 			private _groupIdInUnitInitBool = _groupIdInUnitInit isNotEqualTo -1;
 			private _groupIdInGroupInit = toLower _initGroup find "setgroupid";
 
-
 			if (_groupIdInUnitInitBool || _groupIdInGroupInit isNotEqualTo -1) then {
 				
 				private _init = [_initGroup,_initUnit] select _groupIdInUnitInitBool;
 				private _initPOS = [_groupIdInGroupInit,_groupIdInUnitInit] select _groupIdInUnitInitBool;
 
-				
 				private _idStart = (_init find ["[", _initPOS]) + 2;
 				private _idEnd = ((_init find ["]", _idStart]) - 1) - _idStart;
 				private _id = _init select [_idStart,_idEnd];
 				TRACE_4("asd",_idStart,_idEnd,_id,_init);
-				_group set3DENAttribute ["groupID", _id];
+
+				GVAR(data) set [(hashValue _unit),_id];
+
+				//Arma not allowing multiple squads having same groupid in editor atributes. Add side prefix to fix this.
+				private _sideLetter = ["B ", "O ", "I ", "C "] select ([west,east,resistance,civilian] find (side _unit));
+				_group set3DENAttribute ["groupID", (_sideLetter + _id)];
 				if (_groupIdInUnitInitBool) then {
 					GVAR(unitIdInInitArray) pushBack _group;
 				};
@@ -61,7 +65,9 @@ collect3DENHistory {
 				_roleDescription = _roleDescription select [0,_cbaGroupPos];
 			};
 			_roleDescription = trim _roleDescription;
-			_roleDescription = [_roleDescription,"@",group _unit get3DENAttribute "groupID" select 0] joinString "";
+
+			private _id = GVAR(data) get (hashValue leader _unit);
+			_roleDescription = [_roleDescription,"@",_id] joinString "";
 			_unit set3DENAttribute ["description", _roleDescription];
 		} forEach _selectedUnits;
 	};
@@ -86,4 +92,7 @@ if (GVAR(unitIdInInitArray) isNotEqualTo []) then {
 } else {
 	["Group IDs updated, no errors found",0,12] call BIS_fnc_3DENNotification;
 }; 
+
+GVAR(unitIdInInitArray) = nil;
+GVAR(data) = nil;
 true

@@ -1,6 +1,6 @@
 #include "script_component.hpp"
 /*
-	Author: Bummeri <@Armafinland.fi>
+	Author: Bummeri & Tuntematon
 
 	Description:
 	Update min/max player count for the mission file. Max is all non virtual playable units. Min is 90% of that, rounded down. Use in 3den.
