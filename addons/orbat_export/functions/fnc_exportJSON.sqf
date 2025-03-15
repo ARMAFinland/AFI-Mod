@@ -31,7 +31,7 @@ if (_sideAtributes isEqualTo []) exitWith {
 };
 
 {
-    _x params["_side","_sideName","_sideDescription"];
+    _x params["_side","_sideName","_sideDescription","_color"];
     
     private _platoons = []; // Store as an array instead of a hashmap
 
@@ -111,8 +111,6 @@ if (_sideAtributes isEqualTo []) exitWith {
     } forEach _allGroups; 
 
     if (count _platoons > 0) then {
-        private _color = [_side, false] call BIS_fnc_sideColor;
-        _color = _color call BIS_fnc_colorRGBAtoHTML;
         private _returnVehicles = [_side,_allVehicles] call FUNC(getSideVehicles);
         private _sideVehicles = _returnVehicles select 0;
         _allVehicles = _returnVehicles select 1;
