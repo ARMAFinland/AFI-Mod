@@ -82,7 +82,7 @@ class RscDisplayMain: RscStandardDisplay{
 		class GVAR(serveriLeftText): RscButton {
 			text = "Join AFI Coop Ops & Misc Event server";
 			tooltip = "This is afi Coop Ops server and misc event server";
-			style = QUOTE(2 + 192);
+			style = 194;
 			SizeEx = QUOTE(GUI_TEXT_SIZE_LARGE);
 			onButtonClick = QUOTE(connectToServer ARR_3([SERVER_IP,2302,'kotka']););
 			x = "0.5 - (1.5 * 10) * (pixelW * pixelGridNoUIScale * 2) - (2 * pixelW)";
