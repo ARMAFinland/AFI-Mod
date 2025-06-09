@@ -29,7 +29,7 @@ class Cfg3DEN {
 					class GVAR(unitAdditionalDescription) {
 						displayName = "AFI event unit description";
 						tooltip = "Only used in the export JSON tool.";
-						property = QGVAR(unitAdditionalDescription) ;
+						property = QGVAR(unitAdditionalDescription);
 						control = "Edit";
 						defaultValue = """""";
 						unique = 0;
@@ -38,7 +38,7 @@ class Cfg3DEN {
 					class GVAR(vehicleSide) {
 						displayName = "AFI event vehicle side";
 						tooltip = "Only used in the export JSON tool.";
-						property = QGVAR(vehicleSide) ;
+						property = QGVAR(vehicleSide);
 						control = "combo";
 						defaultValue = -1;
 						unique = 0;
