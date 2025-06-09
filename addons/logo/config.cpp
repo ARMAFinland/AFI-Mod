@@ -80,8 +80,8 @@ class RscDisplayMain: RscStandardDisplay{
 	};
 	class Controls {
 		class GVAR(serveriLeftText): RscButton {
-			text = "Join AFI weekly games server";
-			tooltip = "This is afi weekly game server";
+			text = "Join AFI Coop Ops & Misc Event server";
+			tooltip = "This is afi Coop Ops server and misc event server";
 			style = QUOTE(2 + 192);
 			SizeEx = QUOTE(GUI_TEXT_SIZE_LARGE);
 			onButtonClick = QUOTE(connectToServer ARR_3([SERVER_IP,2302,'kotka']););
@@ -92,15 +92,15 @@ class RscDisplayMain: RscStandardDisplay{
 			colorBackground[] = {0,0,0,1};
 		};
 		class GVAR(serveriCenterText): GVAR(serveriLeftText) {
-			text = "Join AFI main event server";
+			text = "Join AFI Main Event Server";
 			tooltip = "This is main afi event server, all our events use this if not told otherwise.";
 			onButtonClick = QUOTE(connectToServer ARR_3([SERVER_IP,2202,'kotka']););
 			x = "0.5 - (0.5 * 10) * (pixelW * pixelGridNoUIScale * 2)";
 
 		};
 		class GVAR(serveriRightText): GVAR(serveriLeftText) {
-			text = "Join AFI secondary event server";
-			tooltip = "Almost never used, just in case as backup here.";
+			text = "Join AFI Secondary Event Server";
+			tooltip = "Used for some events when main event is used for bigger events";
 			onButtonClick = QUOTE(connectToServer ARR_3([SERVER_IP,2502,'kotka']););
 			x = "0.5 + (0.5 * 10) * (pixelW * pixelGridNoUIScale * 2) + (2 * pixelW)";
 		};
