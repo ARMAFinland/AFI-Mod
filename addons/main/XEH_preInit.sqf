@@ -30,5 +30,18 @@ ADDON = false;
 	}
 ] call CBA_fnc_addSetting;
 
+[
+	QGVAR(AIThinkOnlyLocal),
+	"CHECKBOX", 
+	["AI Think Only Local", "true to disable processing targetting data for remote AI units, knowsAbout, targets and similar commands will cease to work on remote units. For a gain in client performance because they no longer have to calculate all AI units."],
+	["AFI - Main", "Main"],
+	true, 
+	1, 
+	{
+		private _hash = createHashMapFromArray [["AIThinkOnlyLocal", _this]];
+		setMissionOptions _hash;
+	}
+] call CBA_fnc_addSetting;
+
 
 ADDON = true;
