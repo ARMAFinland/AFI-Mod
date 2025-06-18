@@ -14,9 +14,8 @@ class CfgPatches {
 	};
 };
 // configs go here
-//#include "CfgEventHandlers.hpp"
 
-#define SERVER_IP	'37.27.232.48'
+#define SERVER_IP	'a3.armafinland.fi'
 
 class RscPictureKeepAspect;
 class RscStandardDisplay;
