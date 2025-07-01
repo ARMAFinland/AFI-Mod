@@ -1,6 +1,5 @@
 class CBA_Extended_EventHandlers;
 class CfgVehicles {
-	class House;
 	class Logic;
 	class PRAA_module_tunnels: Logic
 	{

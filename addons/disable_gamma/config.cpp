@@ -18,7 +18,6 @@ class CfgPatches {
 // gamma
 class RscControlsGroup;
 class CA_TextDisplayMode;
-class RscText;
 
 class RscDisplayOptionsVideo
 {
