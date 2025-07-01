@@ -24,7 +24,6 @@ class CfgPatches {
 #define GUI_GRID_HAbs	(1)
 
 class RscDisplayGetReady;
-class ButtonCancel;
 class RscButtonMenuOK;
 class RscButtonMenuCancel;
 class ShortcutPos;
