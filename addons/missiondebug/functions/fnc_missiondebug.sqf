@@ -13,10 +13,10 @@
  */
 #include "script_component.hpp"
 
-if (isServer) then {
-	publicVariable "afi_jip_allowed";
-	publicVariable "afi_jip_time";
-};
+// if (isServer) then {
+// 	publicVariable "afi_jip_allowed";
+// 	publicVariable "afi_jip_time";
+// };
 
 player createDiarySubject ["DebugScript","Mission Debug"];
 
@@ -139,6 +139,7 @@ private _Tun_fnc_DebugVari = {
 		private _bandageCount =  { _x == "ACE_packingBandage" } count _allItems;
 		private _epinephrineCount =  { _x ==  "ACE_epinephrine" } count _allItems;
 		private _morphineCount =  { _x ==  "ACE_morphine" } count _allItems;
+		private _painkillersCount =  { _x ==  "ACE_painkillers" } count _allItems;
 		private _adenosineCount =  { _x ==  "ACE_adenosine" } count _allItems;
 		private _tourniquetCount =  { _x ==  "ACE_tourniquet" } count _allItems;
 		private _splintCount =  { _x in  ["ACE_splint", "adv_aceSplint_splint"] } count _allItems;
@@ -216,23 +217,23 @@ private _Tun_fnc_DebugVari = {
 				_unitErrorList pushBack format ["<br/>--  <font color='%1'>Unit only have %2 regular bandages (ACE_packingBandage)</font>", _color, _bandageCount];
 			};
 
-			if (_epinephrineCount  > 0) then {
-				private _color = [1] call _Tun_fnc_DebugVari;
+			// if (_epinephrineCount  > 0) then {
+			// 	private _color = [1] call _Tun_fnc_DebugVari;
 
-				_unitErrorList pushBack format ["<br/>--  <font color='%1'>Unit is not ACE medic, but have epipherin</font>", _color];
-			};
+			// 	_unitErrorList pushBack format ["<br/>--  <font color='%1'>Unit is not ACE medic, but have epipherin</font>", _color];
+			// };
 			
-			if (_morphineCount < 1) then {
+			if ((_morphineCount + _painkillersCount) < 1) then {
 				private _color = [4] call _Tun_fnc_DebugVari;
 
-				_unitErrorList pushBack format ["<br/>--  <font color='%1'>Unit dont have any Morphine auto injectors</font>", _color];
+				_unitErrorList pushBack format ["<br/>--  <font color='%1'>Unit dont have any Morphine or painkillers</font>", _color];
 			};
 			
-			if (_adenosineCount  > 0) then {
-				private _color = [1] call _Tun_fnc_DebugVari;
+			// if (_adenosineCount  > 0) then {
+			// 	private _color = [1] call _Tun_fnc_DebugVari;
 
-				_unitErrorList pushBack format ["<br/>--  <font color='%1'>Unit is not ACE medic, but have Adenosine auto injector</font>", _color];
-			};
+			// 	_unitErrorList pushBack format ["<br/>--  <font color='%1'>Unit is not ACE medic, but have Adenosine auto injector</font>", _color];
+			// };
 			
 			if (_tourniquetCount < 1) then {
 				private _color = [2] call _Tun_fnc_DebugVari;
@@ -576,11 +577,7 @@ player createDiaryRecord ["DebugScript", ["Main",format ["Alliances:
 <br/><font color='#CCFFFF'>East Radio Code</font>: %5
 <br/><font color='#CCFFFF'>Guer Radio Code</font>: %6
 <br/>
-<br/>
-<br/><font color='#CCFFFF'>afi_jip_enabled</font>: %7
-<br/><font color='#CCFFFF'>afi_jip_allowed</font>: %8
-<br/><font color='#CCFFFF'>afi_jip_time</font>: %9
-<br/>
+<br/>%7%8%9
 <br/><font color='#CCFFFF'>Enemy vehicles allowed</font>: %14
 <br/><font color='#CCFFFF'>Enemy radios allowed</font>: %15
 <br/>
@@ -612,9 +609,9 @@ player createDiaryRecord ["DebugScript", ["Main",format ["Alliances:
 tf_west_radio_code,
 tf_east_radio_code,
 tf_guer_radio_code,
-afi_jip_enabled,
-missionNamespace getVariable "afi_jip_allowed",
-missionNamespace getVariable "afi_jip_time",
+"",//old afi jipp
+"",
+"",
 west countSide allUnits,
 east countSide allUnits,
 resistance countSide allUnits,
