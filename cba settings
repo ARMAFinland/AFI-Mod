@@ -15,6 +15,11 @@ force force ace_advanced_fatigue_performanceFactor = 1;
 force force ace_advanced_fatigue_recoveryFactor = 2;
 force force ace_advanced_fatigue_terrainGradientFactor = 0.7;
 
+// ACE Advanced Missile Guidance
+force ace_missileguidance_chaffEffectivenessCoef = 1;
+force ace_missileguidance_flareAngleCoef = 1;
+force ace_missileguidance_flareEffectivenessCoef = 1;
+
 // ACE Advanced Throwing
 force ace_advanced_throwing_enabled = true;
 force ace_advanced_throwing_enablePickUp = true;
@@ -84,6 +89,8 @@ force ace_common_swayFactor = 1;
 // ACE Cook-off
 force ace_cookoff_ammoCookoffDuration = 0;
 force ace_cookoff_cookoffDuration = 1.2;
+force ace_cookoff_cookoffEnableProjectiles = true;
+force ace_cookoff_cookoffEnableSound = true;
 force ace_cookoff_destroyVehicleAfterCookoff = true;
 force ace_cookoff_enableAmmobox = false;
 force ace_cookoff_enableAmmoCookoff = false;
@@ -224,7 +231,6 @@ ace_interact_menu_more__ACE_MapGpsHide = false;
 ace_interact_menu_more__ACE_MapGpsShow = false;
 ace_interact_menu_more__ACE_MapTools = false;
 ace_interact_menu_more__ACE_Medical = false;
-ace_interact_menu_more__ace_medical_ai_heal = false;
 ace_interact_menu_more__ACE_Medical_Menu = false;
 ace_interact_menu_more__ACE_MoveRallypoint = false;
 ace_interact_menu_more__ACE_PlottingBoard = false;
@@ -239,6 +245,7 @@ ace_interact_menu_more__ACE_TeamManagement = false;
 ace_interact_menu_more__ace_zeus_create = false;
 ace_interact_menu_more__ace_zeus_delete = false;
 ace_interact_menu_more__acex_sitting_Stand = false;
+ace_interact_menu_more__SwitchToCamera = false;
 ace_interact_menu_more__TFAR_Radio = false;
 
 // ACE Interaction Menu (Self) - Move to Root
@@ -297,6 +304,7 @@ ace_interact_menu_moveToRoot__ACE_Equipment__ace_trenches__grad_trenches_digEnve
 ace_interact_menu_moveToRoot__ACE_Equipment__ace_trenches__grad_trenches_digEnvelopeShort = false;
 ace_interact_menu_moveToRoot__ACE_Equipment__ace_trenches__grad_trenches_digEnvelopeVehicle = false;
 ace_interact_menu_moveToRoot__ACE_Equipment__ace_tripod_place = false;
+ace_interact_menu_moveToRoot__ACE_Equipment__ace_ui_checkWeaponZeroing = false;
 ace_interact_menu_moveToRoot__ACE_Equipment__AFI_CutterAction = false;
 ace_interact_menu_moveToRoot__ACE_Equipment__bocr_main_cutLoweringLine = false;
 ace_interact_menu_moveToRoot__ACE_Equipment__bocr_main_lower = false;
@@ -304,6 +312,8 @@ ace_interact_menu_moveToRoot__ACE_Equipment__bocr_main_onBack = false;
 ace_interact_menu_moveToRoot__ACE_Equipment__bocr_main_onChest = false;
 ace_interact_menu_moveToRoot__ACE_Equipment__bocr_main_swap = false;
 ace_interact_menu_moveToRoot__ACE_Equipment__Tun_firesupport_openDialog = false;
+ace_interact_menu_moveToRoot__ACE_Equipment__dirt_compat_ace_field_rations_ACEXWaterToCleanDirt = false;
+ace_interact_menu_moveToRoot__ACE_Equipment__grad_loadout_customGearAction = false;
 ace_interact_menu_moveToRoot__ACE_Explosives__ACE_Cellphone = false;
 ace_interact_menu_moveToRoot__ACE_Explosives__ACE_Place = false;
 ace_interact_menu_moveToRoot__ace_gestures__ace_gestures_Advance = false;
@@ -426,6 +436,7 @@ ace_maptools_rotateModifierKey = 1;
 force ace_medical_ai_enabledFor = 2;
 force ace_medical_ai_requireItems = 0;
 force ace_medical_AIDamageThreshold = 0.9;
+force ace_medical_alternateArmorPenetration = true;
 force ace_medical_bleedingCoefficient = 1.3;
 force ace_medical_blood_bloodLifetime = 900;
 force force ace_medical_blood_enabledFor = 2;
@@ -433,7 +444,6 @@ force ace_medical_blood_maxBloodObjects = 300;
 force ace_medical_deathChance = 1;
 force ace_medical_dropWeaponUnconsciousChance = 0;
 force ace_medical_enableVehicleCrashes = true;
-force ace_medical_engine_damagePassThroughEffect = 1;
 force ace_medical_fatalDamageSource = 2;
 force ace_medical_fractureChance = 0.29808;
 force ace_medical_fractures = 2;
@@ -882,9 +892,14 @@ force afi_enemy_vehicles_allowed = false;
 force afi_engine_delay_cooldownMultiplier = 2;
 force afi_knocking_disableKnockingOnEnemy = false;
 force afi_knocking_notifyIfEnemy = true;
+force afi_main_AIThinkOnlyLocal = true;
 force afi_main_disableRemoteSensors = true;
 force afi_main_enableEnvironment = false;
 afi_missiondebug_enableMissionDebug = true;
+
+// AFI - Mission framework
+afi_mission_framework_addGeneralInfo = true;
+afi_mission_framework_addRules = true;
 
 // AFI - Terrain Grid
 force afi_grid_w_Altis = 6.25;
@@ -892,11 +907,11 @@ afi_grid_w_brf_sumava = 6.25;
 force afi_grid_w_Enoch = 6.25;
 force afi_grid_w_hellanmaa = 6.25;
 force afi_grid_w_hellanmaaw = 6.25;
+force afi_grid_w_juju_javory = 6.25;
 force afi_grid_w_Malden = 6.25;
 force afi_grid_w_Stratis = 6.25;
 force afi_grid_w_Tanoa = 6.25;
 force afi_grid_w_VR = 6.25;
-force afi_grid_w_vt7 = 6.25;
 
 // AFI Admin
 force force afi_admin_uids = """76561198002057694"",""76561197976768806"",""76561198004364483"",""76561198286154050"",""76561198060142127"",""76561197973689392"",""76561198043560247"",""76561198039338079"",""76561198177989825"",""76561198020606007"",""76561198039162445"",""76561197972222234"",""76561198010786811"",""76561197972154686"",""76561197990633198"",""76561197990347153"",""76561197981009705"",""76561197984942000"",""76561198136409147"",""76561197966970337"",""76561198058757308""";
@@ -922,6 +937,23 @@ cba_optics_usePipOptics = true;
 cba_quicktime_qteShorten = false;
 cba_ui_notifyLifetime = 8;
 cba_ui_StorePasswords = 1;
+
+// D.I.R.T. - Dynamic Textures
+force dirt_compat_ace_field_rations_allowACEXWaterToCleanDirt = true;
+force dirt_main_affectAI = true;
+force dirt_main_burnDecrease = 0.003;
+force dirt_main_burnIncrease = 0.2;
+dirt_main_enable = true;
+force dirt_main_explosionEH = true;
+force dirt_main_groundDecrease = 0.003;
+force dirt_main_groundIncrease = 0.02;
+force dirt_main_maxDistance = 500;
+force dirt_main_maxDistanceAnimations = 50;
+force dirt_main_maxDynTextures = 100;
+force dirt_main_precipitationDecrease = 0.003;
+force dirt_main_precipitationDecreaseDirt = true;
+force dirt_main_precipitationIncrease = 0.02;
+force dirt_main_updateFrequency = 2;
 
 // DUI - Squad Radar - Indicators
 force diwako_dui_indicators_crew_range_enabled = false;
@@ -1133,6 +1165,26 @@ force force SSD_DS_r_general = 1;
 force force SSD_DS_r_head = 1;
 force force SSD_DS_r_stomach = 1;
 
+// Tao's Folding Map Rewrite
+force tao_rewrite_main_allowAdjust = 1;
+force tao_rewrite_main_allowPaperMapDarkening = true;
+tao_rewrite_main_closeMap = true;
+tao_rewrite_main_closeView = ["INTERNAL","EXTERNAL"];
+force tao_rewrite_main_enableMap = true;
+force tao_rewrite_main_GPSAdjust = true;
+force tao_rewrite_main_gridRef = true;
+tao_rewrite_main_isNightMap = false;
+force tao_rewrite_main_itemsGPSSetting = "[""ACE_DAGR"",""ACE_microDAGR""]";
+force tao_rewrite_main_mapIcon = true;
+tao_rewrite_main_mapTypeLocked = false;
+force tao_rewrite_main_prefMap = true;
+tao_rewrite_main_refreshRate = 0;
+force tao_rewrite_main_requireGPSForGridRef = true;
+force tao_rewrite_main_requireGPSForTablet = true;
+force tao_rewrite_main_requireGPSmapIcon = true;
+force tao_rewrite_main_requireMapForPaperMap = true;
+tao_rewrite_main_zoomStep = 2;
+
 // TFAR - Clientside settings
 force TFAR_curatorCamEars = true;
 TFAR_default_radioVolume = 6;
@@ -1307,6 +1359,9 @@ force tunuti_radiochannels_commandElementID = "10";
 force tunuti_radiochannels_enable = true;
 tunuti_radiochannels_enableAutoSetup = true;
 force tunuti_radiochannels_trimNames = "1234567890 ";
+
+// Tun Utilities - Server info
+force tunuti_serverinfo_enableServerInfo = true;
 
 // Tun Utilities - Startmakers & BFT
 force tunuti_startmarkers_addAllVehicles = false;
