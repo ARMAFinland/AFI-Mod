@@ -78,7 +78,7 @@ if (_sideAtributes isEqualTo []) exitWith {
             ];
         } forEach _units; 
 
-        if (count _slots > 0) then {
+        if (_slots isNotEqualTo []) then {
             private _groupDescription = (_group get3DENAttribute QGVAR(groupAdditionalDescription)) select 0; 
             _groups pushBack createHashMapFromArray [ 
                 ["GroupName", _groupName],
@@ -94,7 +94,7 @@ if (_sideAtributes isEqualTo []) exitWith {
 
         if (count _groups > 0) then {
             private _existingPlatoon = _platoons select {_x get "PlatoonName" == _platoonName};
-            if (count _existingPlatoon > 0) then {
+            if (_existingPlatoon isNotEqualTo []) then {
                 // Append groups to existing platoon
                 private _existingGroups = (_existingPlatoon select 0) get "Groups";
                 _existingGroups append _groups;
@@ -110,7 +110,7 @@ if (_sideAtributes isEqualTo []) exitWith {
         };
     } forEach _allGroups; 
 
-    if (count _platoons > 0) then {
+    if (_platoons isNotEqualTo []) then {
         private _returnVehicles = [_side,_allVehicles] call FUNC(getSideVehicles);
         private _sideVehicles = _returnVehicles select 0;
         _allVehicles = _returnVehicles select 1;
@@ -126,7 +126,7 @@ if (_sideAtributes isEqualTo []) exitWith {
     }; 
 } forEach _sideAtributes; 
 
-if (count _lolFail > 0) then { 
+if (_lolFail isNotEqualTo []) then { 
     _sideData = _lolFail; 
 
     private _message = "ERRORS COPIED TO CLIPBOARD!<br/>"; 

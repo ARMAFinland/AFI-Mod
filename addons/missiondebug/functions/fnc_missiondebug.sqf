@@ -337,7 +337,7 @@ private _Tun_fnc_DebugVari = {
 			};
 		};
 		
-		if (count _unitErrorList > 0) then {
+		if (_unitErrorList isNotEqualTo []) then {
 
 			private _roleDescription = roleDescription _unit;
 			if (_roleDescription == "") then {
@@ -477,7 +477,7 @@ private _Tun_fnc_DebugVari = {
 
 	};
 	
-	if (count _unitErrorList > 0) then {
+	if (_unitErrorList isNotEqualTo []) then {
 
 		private _debugMarker = "Debugmerkki_" + str(_forEachIndex);
 		private _marker = createMarkerLocal [_debugMarker, (position _unit)];
@@ -559,7 +559,7 @@ if (fileExists "briefing.sqf") then {
 };
 
 
-if (count _unitErrorList > 0) then {
+if (_unitErrorList isNotEqualTo []) then {
 	{
 		player createDiaryRecord ["DebugScript", ["Mission errors/notes", _x]];
 	} forEach _unitErrorList;

@@ -381,7 +381,7 @@ if (missionNamespace getVariable ["AFI_gear_allGroups", true]) then {
 	
 	reverse _groups;
 };
-if (count _groups == 0) then {_groups pushBack group player;};
+if (_groups isEqualTo []) then {_groups pushBack group player;};
 
 
 ///////////////////////////////////////////////
@@ -430,7 +430,7 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 		if(vest _x != "") then {_allItems pushBack (vest _x);};
 		if(backpack _x != "") then {_allItems pushBack (backpack _x);};
 		
-		if (count _allItems > 0) then {
+		if (_allItems isNotEqualTo []) then {
 			_allItems = _allItems call _fnc_arrayCountEquals;
 			_briefingEntry = _briefingEntry + ([_allItems,32,32,_x] call _fnc_formatItems);
 			//_briefingEntry = _briefingEntry + "<br/>";
