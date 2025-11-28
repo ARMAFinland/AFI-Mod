@@ -28,7 +28,7 @@ private _radioCountCiv = 0;
 
 private _Tun_fnc_DebugVari = {
 	params ["_numero"];
-	_vari = switch (true) do {
+	private _vari = switch (true) do {
 		case ( 5 >= _numero && 4 < _numero ): {'#E30000'};
 		case ( 4 >= _numero && 3 < _numero ): {'#E46F00'};
 		case ( 3 >= _numero && 2 < _numero ): {'#E6DE00'};

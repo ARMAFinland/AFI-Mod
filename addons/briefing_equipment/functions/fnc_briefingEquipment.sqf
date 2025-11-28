@@ -6,7 +6,7 @@
 ///////			FUNCTIONS				///////
 ///////////////////////////////////////////////
 
-_fnc_sanitizeString = {
+private _fnc_sanitizeString = {
 	//Replaces markup sensitive characters from given string with XML entities
 	//& < > " ' >>into>> &amp; &lt; &gt; &quot; &apos;
    params ["_text"];
@@ -27,7 +27,7 @@ _fnc_sanitizeString = {
    _return
 };
 
-_fnc_massToKg = {
+private _fnc_massToKg = {
 	//Convert arma item mass to kilograms
 	params ["_mass"];
 
@@ -36,7 +36,7 @@ _fnc_massToKg = {
 	_mass;
 };
 
-_fnc_nameObject = {
+private _fnc_nameObject = {
 	//Get name for object from its config
 	params ["_object"];
 	private ["_name"];
@@ -50,7 +50,7 @@ _fnc_nameObject = {
 	_name;
 };
 
-_fnc_roundDecimals = {
+private _fnc_roundDecimals = {
 	//Rounds value into given max decimal count
 	params ["_value","_decimals"];
 	private ["_return"];
@@ -59,7 +59,7 @@ _fnc_roundDecimals = {
 	_return
 };
 
-_fnc_cargoMassKg = {
+private _fnc_cargoMassKg = {
 	//Get carried mass of a unit in kilograms
 	params ["_object"];
 	private ["_mass"];
@@ -69,7 +69,7 @@ _fnc_cargoMassKg = {
 	_mass;
 };
 
-_fnc_confMassKg = {
+private _fnc_confMassKg = {
 	//Get items/vehicles configured mass in kilograms
 	params ["_class"];
 	private ["_mass","_found"];
@@ -88,7 +88,7 @@ _fnc_confMassKg = {
 	_mass;
 };
 
-_fnc_confName = {
+private _fnc_confName = {
 	//Get configured display name
 	params ["_class"];
 	private ["_name","_found"];
@@ -107,7 +107,7 @@ _fnc_confName = {
 	_name;
 };
 
-_fnc_confImage = {
+private _fnc_confImage = {
 	//Get configured image path
 	params ["_class"];
 	private ["_image","_found"];
@@ -130,7 +130,7 @@ _fnc_confImage = {
 	_image;
 };
 
-_fnc_confType = {
+private _fnc_confType = {
 	//Get configured type number
 	params ["_class"];
 	private ["_type","_found"];
@@ -150,7 +150,7 @@ _fnc_confType = {
 
 
 
-_fnc_formatItemInfo = {
+private _fnc_formatItemInfo = {
 
 
 	//format item info link into given string, names are turned into array and again into string on execution to not break execute expression
@@ -167,7 +167,7 @@ _fnc_formatItemInfo = {
 	_return
 };
 
-_fnc_formatWeapon = {
+private _fnc_formatWeapon = {
 	//format weapon name, image and weapon attachments
 	params ["_weaponClass","_weaponItems"];
 	private ["_name","_image","_mass","_info","_return"];
@@ -203,7 +203,7 @@ _fnc_formatWeapon = {
 	_return
 };
 
-_fnc_containerInfo = {
+private _fnc_containerInfo = {
 	//calculate uniform/vest/backpack free and used capacity in kilograms
 	params ["_containerClass",["_load",0]];
 
@@ -217,7 +217,7 @@ _fnc_containerInfo = {
 	_return
 };
 
-_fnc_compatibleMagazines = {
+private _fnc_compatibleMagazines = {
 	//returns array of compatible magazines for given cfgWeapons class
 	params ["_class"];
 	private ["_subClasses","_return"];
@@ -236,7 +236,7 @@ _fnc_compatibleMagazines = {
 	_return
 };
 
-_fnc_formatTurret = {
+private _fnc_formatTurret = {
 	//format given turret weapons and their ammo
 	params ["_vehicle","_turret"];
 	private ["_weapons","_magazines","_ammoCount","_magazineCount","_validMagazines","_return","_magazineClass","_name"];
@@ -280,7 +280,7 @@ _fnc_formatTurret = {
 	_return
 };
 
-_fnc_formatItems = {
+private _fnc_formatItems = {
 	params ["_itemsArr","_imageW","_imageH",["_unit",objNull]];
 	private ["_count","_name","_image","_mass","_info","_i","_return"];
 	_return = "";
@@ -323,12 +323,12 @@ _fnc_formatItems = {
 	_return
 };
 
-_fnc_arrayCountEquals = {
+private _fnc_arrayCountEquals = {
 	//counts equal elements in an array and returns two arrays [[item1,item2...],[count1,count2...]]
 	private ["_item","_count","_return"];
 	_return = [[],[]];
 	
-	_inputArray = _this;
+	private _inputArray = _this;
 	while {(count _inputArray) > 0} do {
 		_item = _inputArray select 0;
 		_count = {_x == _item} count _inputArray;
@@ -346,23 +346,23 @@ _fnc_arrayCountEquals = {
 ///////			VARIABLES				///////
 ///////////////////////////////////////////////
 private ["_name","_image","_briefingEntry","_locationMarker","_stringList","_turrets","_turretRole","_vehicle","_info","_rows"];
-_credits = format ["<br/>Click item count for more information.<br/><font color='#4F4F4F' size='8'>Script by Raimo @ ArmaFinland.fi</font><br/>"];
-_subject = "Equipment";
-_divider = "<br/>_________________________________________________________________________<br/>";
-_fontEnd = "</font>";
-_font0 = "<font color='#FFFFFF' size='14'>"; //default text - colors are #RRGGBB in hex
-_font1 = "<font color='#FFFFFF' size='18'>"; //unit title
-_font2 = "<font color='#FFFF00' size='14'>"; //unit armament title
-_font3 = "<font color='#FFFFFF' size='18'>"; //vehicle title
-_font4 = "<font color='#FFFF00' size='16'>"; //vehicle armament title
-_font5 = "<font color='#FFFF00' size='12'>"; //turret role
-_font6 = "<font color='#FFFFB2' size='14'>"; //turret weapon ammo count
-_font7 = "<font color='#FFFFFF' size='12'>"; //crew/passenger names
+private _credits = format ["<br/>Click item count for more information.<br/><font color='#4F4F4F' size='8'>Script by Raimo @ ArmaFinland.fi</font><br/>"];
+private _subject = "Equipment";
+private _divider = "<br/>_________________________________________________________________________<br/>";
+private _fontEnd = "</font>";
+private _font0 = "<font color='#FFFFFF' size='14'>"; //default text - colors are #RRGGBB in hex
+private _font1 = "<font color='#FFFFFF' size='18'>"; //unit title
+private _font2 = "<font color='#FFFF00' size='14'>"; //unit armament title
+private _font3 = "<font color='#FFFFFF' size='18'>"; //vehicle title
+private _font4 = "<font color='#FFFF00' size='16'>"; //vehicle armament title
+private _font5 = "<font color='#FFFF00' size='12'>"; //turret role
+private _font6 = "<font color='#FFFFB2' size='14'>"; //turret weapon ammo count
+private _font7 = "<font color='#FFFFFF' size='12'>"; //crew/passenger names
 //_font = "<font face='EtelkaMonospacePro' color='#FFFFFF' size='14'>"; //monospace font for itemcounts if you ever want to play with spacing
 _rows = 6; //items listed per line
 _stringList = [];
-_groups = [];
-_groupsTemp = [];
+private _groups = [];
+private _groupsTemp = [];
 _groupsTemp = allGroups select {side _x == side player};
 
 //add all groups with playable units from side if "AFI_gear_allGroups" variable is not false
@@ -412,7 +412,7 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 		//EVERYTHING ELSE
 		_briefingEntry = _briefingEntry + format [_font2 + "Magazines and items:<br/>" + _fontEnd];
 		
-		_allItems = [];
+		private _allItems = [];
 		_allItems append (magazines _x);
 		_allItems append (primaryWeaponMagazine _x);
 		_allItems append (secondaryWeaponMagazine _x);
@@ -436,7 +436,7 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 	} forEach units _x; //repeat for every unit in group
 	
 	//after all units in a group have been added create a briefing page
-	_ownGroup = "";
+	private _ownGroup = "";
 	if (_x == group player) then {_ownGroup = " (You)";};
 	player createDiaryRecord [_subject,[format ["GROUP: %1" + _ownGroup, groupId _x],(_briefingEntry + _credits)]];
 	
@@ -483,7 +483,7 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 				_name = "";
 				{if (!isNull (_x select 0)) then {_name = name (_x select 0);};} forEach _turrets;
 				_briefingEntry = _briefingEntry + format [_font5 + "%1" + _fontEnd + _font7 + " %2" + _fontEnd + "<br/>",_turretRole,_name];
-				_tempStr = "";
+				private _tempStr = "";
 				
 				{
 					_tempStr = _tempStr + ([_vehicle, _x select 3] call _fnc_formatTurret);
@@ -500,7 +500,7 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 				_name = "";
 				{if (!isNull (_x select 0)) then {_name = name (_x select 0);};} forEach _turrets;
 				_briefingEntry = _briefingEntry + format [_font5 + "%1" + _fontEnd + _font7 + " %2" + _fontEnd + "<br/>",_turretRole,_name];
-				_tempStr = "";
+				private _tempStr = "";
 				
 				{
 					_tempStr = _tempStr + ([_vehicle, _x select 3] call _fnc_formatTurret);
@@ -516,7 +516,7 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 				_name = "";
 				{if (!isNull (_x select 0)) then {_name = name (_x select 0);};} forEach _turrets;
 				_briefingEntry = _briefingEntry + format [_font5 + "%1" + _fontEnd + _font7 + " %2" + _fontEnd + "<br/>",_turretRole,_name];
-				_tempStr = "";
+				private _tempStr = "";
 				
 				
 				{
@@ -530,7 +530,7 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 			_turrets = (fullCrew [_x, "turret", true]) select {_x select 2 < 0};
 			if (count _turrets > 0) then {
 				_turretRole = "Crew:";
-				_tempStr = "";
+				private _tempStr = "";
 				
 				{
 					_name = "";
@@ -545,8 +545,8 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 		};
 
 		//calculate used and total passenger seats
-		_passengersMax = count ((fullCrew [_x, "", true]) select {_x select 2 > -1});
-		_passengers = (fullCrew [_x, "", false]) select {_x select 2 > -1};
+		private _passengersMax = count ((fullCrew [_x, "", true]) select {_x select 2 > -1});
+		private _passengers = (fullCrew [_x, "", false]) select {_x select 2 > -1};
 		_passengers = _passengers apply {_x select 0;};
 		_passengers = _passengers apply {name _x;};
 		//_passengersCurrent = count ((fullcrew [_x, "", false]) select {_x select 2 > -1});
@@ -560,9 +560,9 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 		//CARGO
 		///////////////////////////////////////////////
 		
-		_cargoItems = [[],[]];
-		_cargoWeapons = [[],[]];
-		_cargo = getWeaponCargo _x;
+		private _cargoItems = [[],[]];
+		private _cargoWeapons = [[],[]];
+		private _cargo = getWeaponCargo _x;
 		
 		//Separating weapons from binoculars etc
 		{
@@ -608,7 +608,7 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 		//Sort vehicles 
 		///////////////////////////////////////////////
 		
-		_vehicleType = "";
+		private _vehicleType = "";
 		_vehicleType = getText((configOf _x) >> "vehicleClass");
 		_vehicleType = toLower(getText(configFile >> "CfgVehicleClasses" >> _vehicleType >> "displayName"));
 		_vehicleType = toArray(toUpper(_vehicleType select [0,1]) + _vehicleType);
@@ -617,14 +617,14 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 		if (_vehicleType == "") then {_vehicleType = "Misc";};
 		
 		//Stringien säilytys listaan luokittelun mukaan, muodossa [[STRING, LUOKITTELU, LUKUMÄÄRÄ], [..., ..., ...], ...]
-		_found = false;	
+		private _found = false;	
 		//Jos lista on tyhjä, lisätään uudeksi kohdaksi, muuten etsitään samammimistä kohtaa ja lisätään sen alle
 		if (count _stringList == 0) then {_stringList pushBack [format [_font3 + "1. " + _fontEnd] + _briefingEntry, _vehicleType, 1];} else {
 			{
 				if ((_x select 1) == _vehicleType) then {
 					_found = true;
 					_x set [2,(_x select 2) + 1];
-					_numStr = format [_font3 + "%1. " + _fontEnd,(_x select 2)];
+					private _numStr = format [_font3 + "%1. " + _fontEnd,(_x select 2)];
 					_x set [0,(_x select 0) + _numStr + _briefingEntry];
 				};
 			} forEach _stringList;
@@ -639,7 +639,7 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 
 if (count _stringList > 0) then {
 	//Listan järjestäminen aakkosjärjestykseen
-	_sorted = [];
+	private _sorted = [];
 	//Luokittelun perään lisätään lukumäärä ja siirretään järjestelylistaan
 	{_x set [1,(_x select 1) + " (" + str(_x select 2) + ")"]; _sorted pushBack ["", (_x select 1)];} forEach _stringList;
 	_sorted sort false;

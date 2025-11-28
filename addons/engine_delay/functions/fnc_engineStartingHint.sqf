@@ -14,7 +14,7 @@
 #include "script_component.hpp"
 params [["_type", 0],["_time", false]];
 
-_text = switch (_type) do {
+private _text = switch (_type) do {
 	case 1: {  
 		format["Engine starting in ~%1s", ceil _time]
 	};
