@@ -8,7 +8,7 @@ class CfgPatches {
 		weapons[] = {};
 		requiredVersion = REQUIRED_VERSION;
 		requiredAddons[] = {MAIN_ADDON_STR};
-		author[] = {"Raimo"};
+		author[] = {"Raimo", "Tuntematon"};
 		authorUrl = GITHUBLINK;
 		VERSION_CONFIG;
 	};
