@@ -9,11 +9,6 @@ options.ignore = [
     "createSoundSource", # Greatly attenuated when in first person and in a vehicle
 ]
 
-[sqf.var_all_caps]
-options.ignore = [
-    "SLX_*", "ACE_*"
-]
-
 [sqf.banned_macros]
 options.release = [
     "DEBUG_MODE_FULL", "DISABLE_COMPILE_CACHE", "ENABLE_PERFORMANCE_COUNTERS"
@@ -32,3 +27,12 @@ enabled = false
 
 [sqf.not_private]
 enabled = true
+
+[sqf.command_case]
+severity = "Help"
+options.ignore = [
+    "Blufor",
+    "Opfor",
+    "Independent",
+    "Civilian",
+]
