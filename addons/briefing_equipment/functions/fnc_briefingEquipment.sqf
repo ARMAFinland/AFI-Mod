@@ -165,7 +165,7 @@ _fnc_formatItemInfo = {
 	(toArray _name), 
 	_mass,
 	_linkText,
-	_containerInfor];
+	_containerInfo];
 
 	_return;
 };

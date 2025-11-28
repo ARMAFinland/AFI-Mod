@@ -449,9 +449,9 @@ private _Tun_fnc_DebugVari = {
 				_unitErrorList pushBack format ["<br/>--  <font color='%1'>Vehicle is locked</font>", _color];
 			};
 
+			private _tfarVehSide = toLower str ((vehicle _unit) call TFAR_fnc_getVehicleSide);
 			if (!_vehicleGearVarSet && isMultiplayer) then {
 					private _side = toLower (_unit getVariable "AFI_vehicle_gear");
-					private _tfarVehSide = toLower str ((vehicle _unit) call TFAR_fnc_getVehicleSide);
 					if (
 						((vehicle _unit) call TFAR_fnc_hasVehicleRadio) &&
 						{(_side != _tfarVehSide)}
