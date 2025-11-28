@@ -180,8 +180,8 @@ private _fnc_formatWeapon = {
 		_mass = _weaponClass call _fnc_confMassKg;
 		_info = [_name, _name, _mass] call _fnc_formatItemInfo;
 		
-		_return = _return + format [_font0 + _info + _fontEnd];
-		_return = _return + format ["<br/><img image='%1' width='100' height='50'/>	", _image];
+		_return = _return + format [FONT_0 + _info + FONT_END];
+		_return = _return + format ["<br/><img image='%1' width='100' height='50' title='%2'/>	", _image, _name];
 		
 		_weaponItems = _weaponItems - [""];
 		{
@@ -190,8 +190,8 @@ private _fnc_formatWeapon = {
 			_mass = _x call _fnc_confMassKg;
 			_info = ["*", _name, _mass] call _fnc_formatItemInfo;
 			
-			_return = _return + format ["<img image='%1' width='40' height='40'/>", _image];
-			_return = _return + format [_font0 + _info + _fontEnd];
+			_return = _return + format ["<img image='%1' width='40' height='40' title='%2'/>", _image, _name];
+			_return = _return + format [FONT_0 + _info + FONT_END];
 			
 			//add comma and empty space if more items
 			if (_forEachIndex + 1 < (count _weaponItems)) then {_return = _return + ",	";};
@@ -269,8 +269,8 @@ private _fnc_formatTurret = {
 				
 				_ammoCount = _vehicle magazineTurretAmmo [_magazineClass, _turret];
 				_magazineCount = ({_x == _magazineClass} count _magazines) - 1;
-				_return = _return + format ["  %1 - " + _font6 + "%2" + _fontEnd + " rnds", _name, _ammoCount];
-				if (_magazineCount > 0) then {_return = _return + format [" | " + _font6 + "%1" + _fontEnd + " mags<br/>", _magazineCount];} else {_return = _return + "<br/>";};
+				_return = _return + format ["  %1 - " + FONT_6 + "%2" + FONT_END + " rnds", _name, _ammoCount];
+				if (_magazineCount > 0) then {_return = _return + format [" | " + FONT_6 + "%1" + FONT_END + " mags<br/>", _magazineCount];} else {_return = _return + "<br/>";};
 			};
 			
 			_magazines = _magazines - [_magazineClass];
@@ -346,18 +346,7 @@ private _fnc_arrayCountEquals = {
 ///////			VARIABLES				///////
 ///////////////////////////////////////////////
 private ["_name","_image","_briefingEntry","_locationMarker","_stringList","_turrets","_turretRole","_vehicle","_info","_rows"];
-private _credits = format ["<br/>Click item count for more information.<br/><font color='#4F4F4F' size='8'>Script by Raimo @ ArmaFinland.fi</font><br/>"];
-private _subject = "Equipment";
-private _divider = "<br/>_________________________________________________________________________<br/>";
-private _fontEnd = "</font>";
-private _font0 = "<font color='#FFFFFF' size='14'>"; //default text - colors are #RRGGBB in hex
-private _font1 = "<font color='#FFFFFF' size='18'>"; //unit title
-private _font2 = "<font color='#FFFF00' size='14'>"; //unit armament title
-private _font3 = "<font color='#FFFFFF' size='18'>"; //vehicle title
-private _font4 = "<font color='#FFFF00' size='16'>"; //vehicle armament title
-private _font5 = "<font color='#FFFF00' size='12'>"; //turret role
-private _font6 = "<font color='#FFFFB2' size='14'>"; //turret weapon ammo count
-private _font7 = "<font color='#FFFFFF' size='12'>"; //crew/passenger names
+
 //_font = "<font face='EtelkaMonospacePro' color='#FFFFFF' size='14'>"; //monospace font for itemcounts if you ever want to play with spacing
 _rows = 6; //items listed per line
 _stringList = [];
@@ -382,35 +371,35 @@ if (_groups isEqualTo []) then {_groups pushBack group player;};
 ///////				UNITS				///////
 ///////////////////////////////////////////////
 
-if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subject, _subject];};
+if(!(player diarySubjectExists SUBJECT)) then {player createDiarySubject [SUBJECT, SUBJECT];};
 
 {
 	_briefingEntry = "";
 	
 	{	
 		//Add unit title in format: index/name/role/loadout weight
-		_briefingEntry = _briefingEntry + format [_font1 + "%1. %2 - %3 - %4kg<br/>" + _fontEnd, (_forEachIndex + 1), (name _x), (_x call _fnc_nameObject), (_x call _fnc_cargoMassKg)];
+		_briefingEntry = _briefingEntry + format [FONT_1 + "%1. %2 - %3 - %4kg<br/>" + FONT_END, (_forEachIndex + 1), (name _x), (_x call _fnc_nameObject), (_x call _fnc_cargoMassKg)];
 		
 		//PRIMARY WEAPON
 		if (primaryWeapon _x != "") then {
-			_briefingEntry = _briefingEntry + format [_font2 + "Primary: " + _fontEnd];
+			_briefingEntry = _briefingEntry + format [FONT_2 + "Primary: " + FONT_END];
 			_briefingEntry = _briefingEntry + ([primaryWeapon _x, primaryWeaponItems _x] call _fnc_formatWeapon);
 		};
 		
 		//SECONDARY WEAPON
 		if (secondaryWeapon _x != "") then {
-			_briefingEntry = _briefingEntry + format [_font2 + "Secondary: " + _fontEnd];
+			_briefingEntry = _briefingEntry + format [FONT_2 + "Secondary: " + FONT_END];
 			_briefingEntry = _briefingEntry + ([secondaryWeapon _x, secondaryWeaponItems _x] call _fnc_formatWeapon);
 		};
 		
 		//SIDEARM
 		if (handgunWeapon _x != "") then {
-			_briefingEntry = _briefingEntry + format [_font2 + "Sidearm: " + _fontEnd];
+			_briefingEntry = _briefingEntry + format [FONT_2 + "Sidearm: " + FONT_END];
 			_briefingEntry = _briefingEntry + ([handgunWeapon _x, handgunItems _x] call _fnc_formatWeapon);
 		};
 		
 		//EVERYTHING ELSE
-		_briefingEntry = _briefingEntry + format [_font2 + "Magazines and items:<br/>" + _fontEnd];
+		_briefingEntry = _briefingEntry + format [FONT_2 + "Magazines and items:<br/>" + FONT_END];
 		
 		private _allItems = [];
 		_allItems append (magazines _x);
@@ -431,14 +420,14 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 		};
 		
 		//All unit info added, finish with divider string
-		_briefingEntry = _briefingEntry + _divider;
+		_briefingEntry = _briefingEntry + DIVIDER;
 		
 	} forEach units _x; //repeat for every unit in group
 	
 	//after all units in a group have been added create a briefing page
 	private _ownGroup = "";
 	if (_x == group player) then {_ownGroup = " (You)";};
-	player createDiaryRecord [_subject,[format ["GROUP: %1" + _ownGroup, groupId _x],(_briefingEntry + _credits)]];
+	player createDiaryRecord [SUBJECT,[format ["GROUP: %1" + _ownGroup, groupId _x],(_briefingEntry + CREDITS)]];
 	
 } forEach _groups; //repeat for every given group
 
@@ -465,15 +454,15 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 			_image = "";
 		} else {
 			_name = _x call _fnc_nameObject;
-			_image = format ["<img image='%1' width='100' height='50'/><br/>",(typeOf _x) call _fnc_confImage];
+			_image = format ["<img image='%1' width='100' height='50' title='%2'/><br/>",(typeOf _x) call _fnc_confImage, _name];
 		};
 		
 		//add vehicle title and create map link to its location
-		_briefingEntry = _briefingEntry + format [_font3 + "<marker name='%2'>%1</marker><br/>%3" + _fontEnd, _name, _locationMarker, _image];
+		_briefingEntry = _briefingEntry + format [FONT_3 + "<marker name='%2'>%1</marker><br/>%3" + FONT_END, _name, _locationMarker, _image];
 		
 		//add armament for vehicle positions
 		if (count (fullCrew [_x, "", true]) > 0) then {
-			_briefingEntry = _briefingEntry + format [_font4 + "Armament:" + _fontEnd + "<br/>"];
+			_briefingEntry = _briefingEntry + format [FONT_4 + "Armament:" + FONT_END + "<br/>"];
 			
 			//DRIVER TURRETS
 			_turrets = fullCrew [_x, "driver", true]; 
@@ -482,7 +471,7 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 				if (typeOf(_vehicle) isKindOf "Air") then {_turretRole = "Pilot:";} else {_turretRole = "Driver:";};
 				_name = "";
 				{if (!isNull (_x select 0)) then {_name = name (_x select 0);};} forEach _turrets;
-				_briefingEntry = _briefingEntry + format [_font5 + "%1" + _fontEnd + _font7 + " %2" + _fontEnd + "<br/>",_turretRole,_name];
+				_briefingEntry = _briefingEntry + format [FONT_5 + "%1" + FONT_END + FONT_7 + " %2" + FONT_END + "<br/>",_turretRole,_name];
 				private _tempStr = "";
 				
 				{
@@ -499,7 +488,7 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 				_turretRole = "Gunner:";
 				_name = "";
 				{if (!isNull (_x select 0)) then {_name = name (_x select 0);};} forEach _turrets;
-				_briefingEntry = _briefingEntry + format [_font5 + "%1" + _fontEnd + _font7 + " %2" + _fontEnd + "<br/>",_turretRole,_name];
+				_briefingEntry = _briefingEntry + format [FONT_5 + "%1" + FONT_END + FONT_7 + " %2" + FONT_END + "<br/>",_turretRole,_name];
 				private _tempStr = "";
 				
 				{
@@ -515,7 +504,7 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 				_turretRole = "Commander:";
 				_name = "";
 				{if (!isNull (_x select 0)) then {_name = name (_x select 0);};} forEach _turrets;
-				_briefingEntry = _briefingEntry + format [_font5 + "%1" + _fontEnd + _font7 + " %2" + _fontEnd + "<br/>",_turretRole,_name];
+				_briefingEntry = _briefingEntry + format [FONT_5 + "%1" + FONT_END + FONT_7 + " %2" + FONT_END + "<br/>",_turretRole,_name];
 				private _tempStr = "";
 				
 				
@@ -536,7 +525,7 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 					_name = "";
 					if (!isNull (_x select 0)) then {_name = name (_x select 0);};
 					
-					_briefingEntry = _briefingEntry + format [_font5 + "%1" + _fontEnd + _font7 + " %2" + _fontEnd + "<br/>", _turretRole, _name];
+					_briefingEntry = _briefingEntry + format [FONT_5 + "%1" + FONT_END + FONT_7 + " %2" + FONT_END + "<br/>", _turretRole, _name];
 					_tempStr = _tempStr + ([_vehicle, _x select 3] call _fnc_formatTurret);
 					if (_tempStr == "") then {_briefingEntry = _briefingEntry + format ["N/A<br/>"];} else {_briefingEntry = _briefingEntry + _tempStr;};
 					_tempStr = "";
@@ -552,8 +541,8 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 		//_passengersCurrent = count ((fullcrew [_x, "", false]) select {_x select 2 > -1});
 
 		if (_passengersMax > 0) then {
-			_briefingEntry = _briefingEntry + format [_font4 + "<br/>Passengers: " + _fontEnd + "<font size='16'>%1/%2</font><br/>",count _passengers, _passengersMax];
-			{_briefingEntry = _briefingEntry + format [_font7 + "%1" + _fontEnd + "<br/>",_x];} forEach _passengers;
+			_briefingEntry = _briefingEntry + format [FONT_4 + "<br/>Passengers: " + FONT_END + "<font size='16'>%1/%2</font><br/>",count _passengers, _passengersMax];
+			{_briefingEntry = _briefingEntry + format [FONT_7 + "%1" + FONT_END + "<br/>",_x];} forEach _passengers;
 		};
 
 		///////////////////////////////////////////////
@@ -587,7 +576,7 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 		(_cargoItems select 1) append (_cargo select 1);
 		
 		//add cargo title only if there is some cargo
-		if((count (_cargoItems select 0) + count (_cargoWeapons select 0)) > 0) then {_briefingEntry = _briefingEntry + format [_font4 + "<br/>Cargo:" + _fontEnd];};
+		if((count (_cargoItems select 0) + count (_cargoWeapons select 0)) > 0) then {_briefingEntry = _briefingEntry + format [FONT_4 + "<br/>Cargo:" + FONT_END];};
 
 		//WEAPONS
 		if(count (_cargoWeapons select 0) > 0) then {
@@ -601,7 +590,7 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 			_briefingEntry = _briefingEntry + ([_cargoItems,32,32] call _fnc_formatItems);
 		};
 		
-		_briefingEntry = _briefingEntry + _divider;
+		_briefingEntry = _briefingEntry + DIVIDER;
 		
 		
 		///////////////////////////////////////////////
@@ -619,18 +608,18 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 		//Stringien säilytys listaan luokittelun mukaan, muodossa [[STRING, LUOKITTELU, LUKUMÄÄRÄ], [..., ..., ...], ...]
 		private _found = false;	
 		//Jos lista on tyhjä, lisätään uudeksi kohdaksi, muuten etsitään samammimistä kohtaa ja lisätään sen alle
-		if (count _stringList == 0) then {_stringList pushBack [format [_font3 + "1. " + _fontEnd] + _briefingEntry, _vehicleType, 1];} else {
+		if (count _stringList == 0) then {_stringList pushBack [format [FONT_3 + "1. " + FONT_END] + _briefingEntry, _vehicleType, 1];} else {
 			{
 				if ((_x select 1) == _vehicleType) then {
 					_found = true;
 					_x set [2,(_x select 2) + 1];
-					private _numStr = format [_font3 + "%1. " + _fontEnd,(_x select 2)];
+					private _numStr = format [FONT_3 + "%1. " + FONT_END,(_x select 2)];
 					_x set [0,(_x select 0) + _numStr + _briefingEntry];
 				};
 			} forEach _stringList;
 			
 			//Jos samannimistä kohtaa ei löydy, lisätään uutena
-			if (!_found) then {_stringList pushBack [format [_font3 + "1. " + _fontEnd] + _briefingEntry, _vehicleType, 1];};
+			if (!_found) then {_stringList pushBack [format [FONT_3 + "1. " + FONT_END] + _briefingEntry, _vehicleType, 1];};
 		};
 		
 		_briefingEntry = "";
@@ -652,5 +641,5 @@ if (count _stringList > 0) then {
 	} forEach _stringList;
 
 
-	{player createDiaryRecord [_subject,[(_x select 1),(_x select 0) + _credits]];} forEach _sorted;
+	{player createDiaryRecord [SUBJECT,[(_x select 1),(_x select 0) + CREDITS]];} forEach _sorted;
 };
