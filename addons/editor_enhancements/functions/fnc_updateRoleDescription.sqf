@@ -24,7 +24,7 @@ collect3DENHistory {
 		private _group = group _unit;
 		private _roleDescriptionOld = (_unit get3DENAttribute "description") select 0;
 		private _cbaGroupPos = _roleDescriptionOld find "@";
-		private _roleDescription = (configFile >> "CfgVehicles" >> typeOf _unit >> "displayName") call BIS_fnc_getCfgData;//Get units role description or "displayname"
+		private _roleDescription = ((configOf _unit) >> "displayName") call BIS_fnc_getCfgData;//Get units role description or "displayname"
 
 		if (_cbaGroupPos isNotEqualTo -1) then {
 			_roleDescription = (trim _roleDescription) + trim (_roleDescriptionOld select [_cbaGroupPos]);

@@ -341,7 +341,7 @@ private _Tun_fnc_DebugVari = {
 
 			private _roleDescription = roleDescription _unit;
 			if (_roleDescription == "") then {
-				_roleDescription = getText (configFile >> "CfgVehicles" >> typeOf _unit >> "displayName");
+				_roleDescription = getText ((configOf _unit) >> "displayName");
 			};
 			private _finalText = "";
 
@@ -359,7 +359,7 @@ private _Tun_fnc_DebugVari = {
 		private _isAceEOD = [_unit] call ace_common_fnc_isEOD;
 		private _isAceEngineer = [_unit] call ace_repair_fnc_isEngineer;
 
-		private _displayname = format["%1  %2", getText (configFile >> "CfgVehicles" >> typeOf _unit >> "displayName"), roleDescription _unit];
+		private _displayname = format["%1  %2", getText ((configOf _unit) >> "displayName"), roleDescription _unit];
 
 		private _primaryMagText = _primary_mag_count;
 		if (_primary_secondary_mag_count > 0) then {
@@ -430,7 +430,7 @@ private _Tun_fnc_DebugVari = {
 		_unit isKindOf "Ship" ||
 		_unit isKindOf "Static" ||
 		(_unit isKindOf "thing") &&
-		( getNumber (configFile/"CfgVehicles"/typeOf _unit/"transportMaxMagazines") != 0) && 
+		( getNumber ((configOf _unit) >> "transportMaxMagazines") != 0) && 
 		!(typeOf _x in ["ACE_friesAnchorBar","WeaponHolderSimulated"])
 	) then {
 		private _isLocked = (2 <= locked _unit);
@@ -484,7 +484,7 @@ private _Tun_fnc_DebugVari = {
 
 		private _vehicleSide = _unit getVariable ["AFI_vehicle_gear", "Side not set"];
 
-		private _vehicleName = getText (configFile/"CfgVehicles"/typeOf _unit/"displayName");
+		private _vehicleName = getText ((configOf _unit) >> "displayName");
 
 		
 

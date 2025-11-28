@@ -67,7 +67,7 @@ if (_sideAtributes isEqualTo []) exitWith {
             _role splitString "@" params [["_unitName", ""], ""]; 
 
             if (_unitName isEqualTo "") then { 
-                _role = getText (configFile >> "CfgVehicles" >> typeOf _unit >> "displayName"); 
+                _role = getText ((configOf _unit) >> "displayName"); 
                 private _error = ("Error: " + str _side + " " + str _unit + " (" + _role + "), role description is empty"); 
                 _lolFail pushBack _error; 
             }; 

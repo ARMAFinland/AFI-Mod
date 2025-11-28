@@ -30,12 +30,12 @@ private _sideNumber = [west,east,resistance,civilian] find _side;
         private _vehicleName = (_vehicle get3DENAttribute "description") select 0;
 
         if (_vehicleName isEqualTo "") then { 
-            _vehicleName = getText (configFile >> "CfgVehicles" >> typeOf _vehicle >> "displayName");
+            _vehicleName = getText ((configOf _vehicle) >> "displayName");
         }; 
 
         private _vehicleDescription = (_vehicle get3DENAttribute QGVAR(unitAdditionalDescription)) select 0;
 
-        private _vehicleCategory = getText(configFile >> "CfgVehicles" >> (typeOf _x) >> "vehicleClass");
+        private _vehicleCategory = getText((configOf _x) >> "vehicleClass");
         _vehicleCategory = getText(configFile >> "CfgVehicleClasses" >> _vehicleCategory >> "displayName");
         if (_vehicleCategory == "") then {_vehicleCategory = "Misc";};
 

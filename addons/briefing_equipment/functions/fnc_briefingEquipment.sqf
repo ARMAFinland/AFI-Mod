@@ -41,7 +41,7 @@ _fnc_nameObject = {
 	private ["_name"];
 
 	//Nimen haku conffista
-	_name = getText(configFile >> "CfgVehicles" >> typeOf _object >> "displayName");
+	_name = getText((configOf _object) >> "displayName");
 	//Nimen haku descriptionista jos se on määritelty
 	
 	if(roleDescription _object != "" && _object isKindOf "man") then {_name = roleDescription _object;};
@@ -615,7 +615,7 @@ if(!(player diarySubjectExists _subject)) then {player createDiarySubject [_subj
 		///////////////////////////////////////////////
 		
 		_vehicleType = "";
-		_vehicleType = getText(configFile >> "CfgVehicles" >> (typeOf _x) >> "vehicleClass");
+		_vehicleType = getText((configOf _x) >> "vehicleClass");
 		_vehicleType = toLower(getText(configFile >> "CfgVehicleClasses" >> _vehicleType >> "displayName"));
 		_vehicleType = toArray(toUpper(_vehicleType select [0,1]) + _vehicleType);
 		_vehicleType deleteAt 1;
