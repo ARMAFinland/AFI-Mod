@@ -19,17 +19,7 @@ git_hash = 0
 [binarize]
 enabled = true 
 
-[lint.sqf]
-enabled = true
 
-[lints.sqf.command_case]
-severity = "Help"
-options.ignore = [
-    "Blufor",
-    "Opfor",
-    "Independent",
-    "Civilian",
-]
 
 [hemtt.launch.default]
 workshop = [
