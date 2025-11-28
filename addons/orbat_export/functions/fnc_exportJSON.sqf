@@ -92,7 +92,7 @@ if (_sideAtributes isEqualTo []) exitWith {
             }; 
         };
 
-        if (count _groups > 0) then {
+        if (_groups isNotEqualTo []) then {
             private _existingPlatoon = _platoons select {_x get "PlatoonName" == _platoonName};
             if (_existingPlatoon isNotEqualTo []) then {
                 // Append groups to existing platoon
