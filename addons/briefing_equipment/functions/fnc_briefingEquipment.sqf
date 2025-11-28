@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 //Briefing gear v2.4 - by Raimo @ https://armafinland.fi/
 //TODO: better layout
 
@@ -23,7 +24,7 @@ _fnc_sanitizeString = {
    } forEach (toArray _text);
    _return = toString _return;
    
-   _return;
+   _return
 };
 
 _fnc_massToKg = {
@@ -55,7 +56,7 @@ _fnc_roundDecimals = {
 	private ["_return"];
 	//_return = round (_value * (10 ^ _decimals)) / 10 ^ _decimals;
 	_return = parseNumber (_value toFixed _decimals);
-	_return;
+	_return
 };
 
 _fnc_cargoMassKg = {
@@ -147,27 +148,23 @@ _fnc_confType = {
 };
 
 
-private _fnc_doChatMessage = {
-	params ["_name","_mass",["_containerInfo",""]];
 
-	ace_player sideChat "- Item: " + _name;
-	ace_player sideChat "- Weight: "+str _mass+"kg";
-	if (_containerInfo isNotEqualTo "") then {
-		ace_player sideChat "- Free: " + _containerInfo;
-	};
-};
 
 _fnc_formatItemInfo = {
+
+
 	//format item info link into given string, names are turned into array and again into string on execution to not break execute expression
 	params ["_linkText","_name","_mass",["_containerInfo",""]];
-	
-	private _return = format ["<execute expression='[str (parseText (toString %1)),%2,%4] call "+ str _fnc_doChatMessage +"'>%3</execute>",
+	// TRACE_4("Mitä vittua nyt taaas",_linkText,_name,_mass,_containerInfo);
+	private _return = format ["<execute expression='[%5, [%1,%2,%4]] call CBA_fnc_localEvent'>%3</execute>",
 	(toArray _name), 
 	_mass,
 	_linkText,
-	_containerInfo];
-
-	_return;
+	(toArray _containerInfo),
+	str QGVAR(equipmentChatMessage)
+	];
+	TRACE_1("Mitä vittua nyt taaas pt2",_return);
+	_return
 };
 
 _fnc_formatWeapon = {
@@ -178,7 +175,6 @@ _fnc_formatWeapon = {
 	_return = "";
 
 	if(_weaponClass != "") then {
-		_return = "";
 		_name = _weaponClass call _fnc_confName;
 		_image = _weaponClass call _fnc_confImage;
 		_mass = _weaponClass call _fnc_confMassKg;
@@ -204,23 +200,21 @@ _fnc_formatWeapon = {
 		_return = _return + "<br/>";
 	};
 	
-	_return;
+	_return
 };
 
 _fnc_containerInfo = {
 	//calculate uniform/vest/backpack free and used capacity in kilograms
 	params ["_containerClass",["_load",0]];
-	private ["_loadMax","_loadFree","_loadFreePercent","_return"];
 
-	_loadFreePercent = (1 - _load) * 100;
+	private _loadFreePercent = (1 - _load) * 100;
 	//_loadMax = getnumber(configFile >> "CfgVehicles" >> _containerClass >> "maximumLoad"); - vest containers max load
-	_loadMax = getContainerMaxLoad _containerClass;
-	_loadFree = [((1 - _load) * _loadMax) call _fnc_massToKg, 2] call _fnc_roundDecimals;
+	private _loadMax = getContainerMaxLoad _containerClass;
+	private _loadFree = [((1 - _load) * _loadMax) call _fnc_massToKg, 2] call _fnc_roundDecimals;
 	_loadMax = [_loadMax call _fnc_massToKg, 2] call _fnc_roundDecimals;
 
-	_return = format ["%1kg/%2kg", _loadFree, _loadMax];
-
-	_return;
+	private _return = format ["%1kg/%2kg", _loadFree, _loadMax];
+	_return
 };
 
 _fnc_compatibleMagazines = {
@@ -239,7 +233,7 @@ _fnc_compatibleMagazines = {
 		_return append (getArray (_x >> "magazines"));
 	} forEach _subClasses;
 	
-	_return;
+	_return
 };
 
 _fnc_formatTurret = {
@@ -283,7 +277,7 @@ _fnc_formatTurret = {
 		};
 	} forEach _weapons;
 	
-	_return;
+	_return
 };
 
 _fnc_formatItems = {
@@ -326,7 +320,7 @@ _fnc_formatItems = {
 		};
 	} forEach (_itemsArr select 0);
 	
-	_return;
+	_return
 };
 
 _fnc_arrayCountEquals = {
@@ -345,7 +339,7 @@ _fnc_arrayCountEquals = {
 		_inputArray = _inputArray - [_item];
 	};
 	
-	_return;
+	_return
 };
 
 ///////////////////////////////////////////////
