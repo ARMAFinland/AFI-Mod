@@ -2,7 +2,7 @@
 #define COMPONENT_BEAUTIFIED engine_delay
 #include "\x\afi\addons\main\script_mod.hpp"
 
-#define DEBUG_MODE_FULL
+// #define DEBUG_MODE_FULL
 // #define DISABLE_COMPILE_CACHE
 
 #ifdef DEBUG_ENABLED_MAIN
