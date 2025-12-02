@@ -101,6 +101,8 @@ private _fnc_confName = {
 	if (_class isKindOf ["default", configFile >> "CfgMagazines"] && !_found) then {_found = true; _name = getText(configFile >> "CfgMagazines" >> _class >> "displayName");};
 	//Vehicles/backpacks
 	if (_class isKindOf ["all", configFile >> "CfgVehicles"] && !_found) then {_found = true; _name = getText(configFile >> "CfgVehicles" >> _class >> "displayName");};
+	//Goggles
+	if (_class isKindOf ["None", configFile >> "CfgGlasses"] && !_found) then {_found = true; _name = getText(configFile >> "CfgGlasses" >> _class >> "displayName");};
 	
 	//sanitize names to not break script
 	_name = (_name call _fnc_sanitizeString);
@@ -184,7 +186,7 @@ private _fnc_formatWeapon = {
 	private ["_name","_image","_mass","_info","_return"];
 	
 	_return = "";
-	if(_weaponClass != "") then {
+	if(_weaponClass isNotEqualTo "") then {
 		_name = _weaponClass call _fnc_confName;
 		_image = _weaponClass call _fnc_confImage;
 		_mass = _weaponClass call _fnc_confMassKg;
@@ -225,7 +227,7 @@ private _fnc_formatUniform = {
 	
 	_return = "";
 	_info = "";
-	if(_uniformClass != "") then {
+	if(_uniformClass isNotEqualTo "") then {
 		_name = _uniformClass call _fnc_confName;
 		_image = _uniformClass call _fnc_confImage;
 		_mass = _uniformClass call _fnc_confMassKg;
@@ -539,7 +541,7 @@ if(!(player diarySubjectExists SUBJECT)) then {player createDiarySubject [SUBJEC
 		
 		//UNIFORM/VEST/BACKPACK ITEMS 
 		private _headgear = headgear _soldier;
-		if(_headgear != "") then {
+		if(_headgear isNotEqualTo "") then {
 			_briefingEntry = _briefingEntry + format [FONT_2 + "Helmet: " + FONT_END];
 			_briefingEntry = _briefingEntry + ([_headgear, _soldier] call _fnc_formatUniform);
 
@@ -547,25 +549,25 @@ if(!(player diarySubjectExists SUBJECT)) then {player createDiarySubject [SUBJEC
 
 		//Raimon lasit talteen
 		private _goggles = goggles _soldier;
-		if(_goggles != "") then {
+		if(_goggles isNotEqualTo "") then {
 			_briefingEntry = _briefingEntry + format [FONT_2 + "Facewear: " + FONT_END];
 			_briefingEntry = _briefingEntry + ([_goggles, _soldier] call _fnc_formatUniform);
 		};
 
 		private _uniform = uniform _soldier;
-		if(_uniform != "") then {
+		if(_uniform isNotEqualTo "") then {
 			_briefingEntry = _briefingEntry + format [FONT_2 + "Uniform: " + FONT_END];
 			_briefingEntry = _briefingEntry + ([_uniform, _soldier] call _fnc_formatUniform);
 		};
 
 		private _vest = vest _soldier;
-		if(_vest != "") then {
+		if(_vest isNotEqualTo "") then {
 			_briefingEntry = _briefingEntry + format [FONT_2 + "Vest: " + FONT_END];
 			_briefingEntry = _briefingEntry + ([_vest, _soldier] call _fnc_formatUniform);
 		};
 
 		private _backpack = backpack _soldier;
-		if (_backpack != "") then {
+		if (_backpack isNotEqualTo "") then {
 			_briefingEntry = _briefingEntry + format [FONT_2 + "Backpack: " + FONT_END];
 			_briefingEntry = _briefingEntry + ([_backpack, _soldier] call _fnc_formatUniform);
 		};
@@ -580,7 +582,7 @@ if(!(player diarySubjectExists SUBJECT)) then {player createDiarySubject [SUBJEC
 		};
 
 		//EVERYTHING ELSE
-		_briefingEntry = _briefingEntry + format [FONT_2 + "Magazines and items:<br/>" + FONT_END];
+		_briefingEntry = _briefingEntry + format [FONT_2 + "Misc magazines and items:<br/>" + FONT_END];
 		
 		if (keys _allItems isNotEqualTo []) then {
 			_briefingEntry = _briefingEntry + ([_allItems,32,32,_x] call _fnc_formatItems);
