@@ -13,7 +13,4 @@
 #define FONT_6 		"<font color='#FFFFB2' size='14'>" //turret weapon ammo count
 #define FONT_7 		"<font color='#FFFFFF' size='12'>" //crew/passenger names
 
-#define MAGS_TO_BRIEF(TEXT,MAGS,UNIT)   _briefingEntry = _briefingEntry + "<br/>";\
-                                        _briefingEntry = _briefingEntry + format [FONT_0 + TEXT + FONT_END];\
-                                        _briefingEntry = _briefingEntry + ([MAGS,32,32,UNIT] call _fnc_formatItems);\
-                                        _briefingEntry = _briefingEntry + "<br/>";  
+#define MAGS_TO_BRIEF(TEXT,MAGS,UNIT)   _weaponBrief = _weaponBrief + "<br/>" + format [FONT_0 + TEXT + FONT_END] + ([MAGS,32,32,UNIT] call _fnc_formatItems) + "<br/>";  

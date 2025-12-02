@@ -548,43 +548,35 @@ if(!(player diarySubjectExists SUBJECT)) then {player createDiarySubject [SUBJEC
 		//UNIFORM/VEST/BACKPACK ITEMS 
 		private _headgear = headgear _soldier;
 		if(_headgear isNotEqualTo "") then {
-			_briefingEntry = _briefingEntry + format [FONT_2 + "Helmet: " + FONT_END];
-			_briefingEntry = _briefingEntry + ([_headgear, _soldier] call _fnc_formatUniform);
-
+			_briefingEntry = _briefingEntry + format [FONT_2 + "Helmet: " + FONT_END] + ([_headgear, _soldier] call _fnc_formatUniform);
 		};
 
 		//Raimon lasit talteen
 		private _goggles = goggles _soldier;
 		if(_goggles isNotEqualTo "") then {
-			_briefingEntry = _briefingEntry + format [FONT_2 + "Facewear: " + FONT_END];
-			_briefingEntry = _briefingEntry + ([_goggles, _soldier] call _fnc_formatUniform);
+			_briefingEntry = _briefingEntry + format [FONT_2 + "Facewear: " + FONT_END] + ([_goggles, _soldier] call _fnc_formatUniform);
 		};
 
 		private _uniform = uniform _soldier;
 		if(_uniform isNotEqualTo "") then {
-			_briefingEntry = _briefingEntry + format [FONT_2 + "Uniform: " + FONT_END];
-			_briefingEntry = _briefingEntry + ([_uniform, _soldier] call _fnc_formatUniform);
+			_briefingEntry = _briefingEntry + format [FONT_2 + "Uniform: " + FONT_END] + ([_uniform, _soldier] call _fnc_formatUniform);
 		};
 
 		private _vest = vest _soldier;
 		if(_vest isNotEqualTo "") then {
-			_briefingEntry = _briefingEntry + format [FONT_2 + "Vest: " + FONT_END];
-			_briefingEntry = _briefingEntry + ([_vest, _soldier] call _fnc_formatUniform);
+			_briefingEntry = _briefingEntry + format [FONT_2 + "Vest: " + FONT_END] + ([_vest, _soldier] call _fnc_formatUniform);
 		};
 
 		private _backpack = backpack _soldier;
 		if (_backpack isNotEqualTo "") then {
-			_briefingEntry = _briefingEntry + format [FONT_2 + "Backpack: " + FONT_END];
-			_briefingEntry = _briefingEntry + ([_backpack, _soldier] call _fnc_formatUniform);
+			_briefingEntry = _briefingEntry + format [FONT_2 + "Backpack: " + FONT_END] + ([_backpack, _soldier] call _fnc_formatUniform);
 		};
 
-		//Linked items
-		_briefingEntry = _briefingEntry + format [FONT_2 + "Linked items:<br/>" + FONT_END];
-		
+
 		if (_assignedItems isNotEqualTo []) then {
+			//Linked items
 			_assignedItems = _assignedItems call _fnc_arrayCountEquals;
-			_briefingEntry = _briefingEntry + ([_assignedItems,32,32,_soldier] call _fnc_formatItems);
-			_briefingEntry = _briefingEntry + "<br/>";
+			_briefingEntry = _briefingEntry + format [FONT_2 + "Linked items:<br/>" + FONT_END] + ([_assignedItems,32,32,_soldier] call _fnc_formatItems) + "<br/>";
 		};
 
 		//EVERYTHING ELSE
@@ -592,7 +584,6 @@ if(!(player diarySubjectExists SUBJECT)) then {player createDiarySubject [SUBJEC
 		
 		if (keys _allItems isNotEqualTo []) then {
 			_briefingEntry = _briefingEntry + ([_allItems,32,32,_x] call _fnc_formatItems);
-			//_briefingEntry = _briefingEntry + "<br/>";
 		};
 		
 		//All unit info added, finish with divider string
