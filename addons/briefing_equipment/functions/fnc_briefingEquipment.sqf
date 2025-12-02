@@ -84,6 +84,8 @@ private _fnc_confMassKg = {
 	if (_class isKindOf ["default", configFile >> "CfgMagazines"] && !_found) then {_found = true; _mass = [(getNumber(configFile >> "CfgMagazines" >> _class >> "mass")) call _fnc_massToKg, 2] call _fnc_roundDecimals;};
 	//Vehicles/backpacks
 	if (_class isKindOf ["all", configFile >> "CfgVehicles"] && !_found) then {_found = true; _mass = [(getNumber(configFile >> "CfgVehicles" >> _class >> "mass")) call _fnc_massToKg, 2] call _fnc_roundDecimals;};
+	//Goggles
+	if (_class isKindOf ["None", configFile >> "CfgGlasses"] && !_found) then {_found = true; _mass = [(getNumber(configFile >> "CfgGlasses" >> _class >> "mass")) call _fnc_massToKg, 2] call _fnc_roundDecimals;};
 	
 	_mass;
 };
@@ -122,6 +124,8 @@ private _fnc_confImage = {
 	if (_class isKindOf ["default", configFile >> "CfgMagazines"] && !_found) then {_found = true; _image = getText(configFile >> "CfgMagazines" >> _class >> "picture");};
 	//Vehicles/backpacks
 	if (_class isKindOf ["all", configFile >> "CfgVehicles"] && !_found) then {_found = true; _image = getText(configFile >> "CfgVehicles" >> _class >> "picture");};
+	//Goggles
+	if (_class isKindOf ["None", configFile >> "CfgGlasses"] && !_found) then {_found = true; _image = getText(configFile >> "CfgGlasses" >> _class >> "picture");};
 	
 	//default image if no configured image found
 	if(_image == "") then {_image = "\A3\ui_f\data\map\markers\military\unknown_CA.paa";};
@@ -145,6 +149,8 @@ private _fnc_confType = {
 	if (_class isKindOf ["default", configFile >> "CfgMagazines"] && !_found) then {_found = true; _type = getNumber(configFile >> "CfgMagazines" >> _class >> "type");};
 	//Vehicles
 	if (_class isKindOf ["all", configFile >> "CfgVehicles"] && !_found) then {_found = true; _type = getNumber(configFile >> "CfgVehicles" >> _class >> "type");};
+	//Goggles
+	if (_class isKindOf ["None", configFile >> "CfgGlasses"] && !_found) then {_found = true; _type = getNumber(configFile >> "CfgGlasses" >> _class >> "type");};
 	
 	_type;
 };
