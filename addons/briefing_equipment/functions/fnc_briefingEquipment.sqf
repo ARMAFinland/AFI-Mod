@@ -197,7 +197,7 @@ private _fnc_formatWeapon = {
 		_image = _weaponClass call _fnc_confImage;
 		_mass = _weaponClass call _fnc_confMassKg;
 
-		if (_count > 0) then {
+		if (_count > 1) then {
 			_name = format ["%1 (x%2)", _name, _count];
 		};
 		_info = [_name, _name, _mass, "", _count] call _fnc_formatItemInfo;
@@ -508,19 +508,23 @@ if(!(player diarySubjectExists SUBJECT)) then {player createDiarySubject [SUBJEC
 		{
 			_x params ["_weapon","_additionalWeapons","_gunText","_additionalGunText"];
 			if (_weapon isNotEqualTo [] || _additionalWeapons isNotEqualTo []) then {
-				
-				_briefingEntry = _briefingEntry + format [FONT_2 + _gunText + FONT_END];
-				_weapon params ["_weaponClass","_weaponItems"];
-				_briefingEntry = _briefingEntry + ([_weaponClass, _weaponItems] call _fnc_formatWeapon);
+				private _weaponBrief = "";
+				if (_weapon isNotEqualTo []) then {
+					_weaponBrief = _weaponBrief + format [FONT_2 + _gunText + FONT_END];
+					_weapon params ["_weaponClass","_weaponItems"];
+					private _count = {_weaponClass isEqualTo _x} count _weapon;
 
-				private _mags = [_weaponClass, _allItems] call _fnc_compatibleMagazinesSmallArmas;
-				
-				if (keys _mags isNotEqualTo []) then {
-					MAGS_TO_BRIEF("Additional mags:<br/>",_mags,_soldier);
+					_weaponBrief = _weaponBrief + ([_weaponClass, _weaponItems,_count] call _fnc_formatWeapon);
+
+					private _mags = [_weaponClass, _allItems] call _fnc_compatibleMagazinesSmallArmas;
+					
+					if (keys _mags isNotEqualTo []) then {
+						MAGS_TO_BRIEF("Additional mags:<br/>",_mags,_soldier);
+					};
 				};
 
 				if (_additionalWeapons isNotEqualTo []) then {
-					_briefingEntry = _briefingEntry + format [FONT_2 + _additionalGunText + FONT_END];
+					_weaponBrief = _weaponBrief + format [FONT_2 + _additionalGunText + FONT_END];
 					while {_additionalWeapons isNotEqualTo []} do {
 						private _weaponData = _additionalWeapons select 0;
 						_weaponData params ["_weaponClass","_weaponItems"];
@@ -530,7 +534,7 @@ if(!(player diarySubjectExists SUBJECT)) then {player createDiarySubject [SUBJEC
 							FILTER(_additionalWeapons,_x isNotEqualTo _weaponData);
 						};
 						
-						_briefingEntry = _briefingEntry + ([_weaponClass, _weaponItems, _count] call _fnc_formatWeapon);
+						_weaponBrief = _weaponBrief + ([_weaponClass, _weaponItems, _count] call _fnc_formatWeapon);
 
 						private _mags = [_weaponClass, _allItems] call _fnc_compatibleMagazinesSmallArmas;
 
@@ -539,6 +543,7 @@ if(!(player diarySubjectExists SUBJECT)) then {player createDiarySubject [SUBJEC
 						};
 					};
 				};
+				_briefingEntry = _briefingEntry + _weaponBrief;
 			};
 		} forEach [[_primaryWeapon, _additionalPrimaryWeapons, "Primary: ", "Additional Primary:<br/>"],
 					[_secondaryWeapon, _additionalSecondaryWeapons, "Secondary: ", "Additional Secondary:<br/>"],
