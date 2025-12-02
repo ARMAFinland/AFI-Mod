@@ -4,7 +4,7 @@ addMissionEventHandler ["HandleChatMessage", {
 	params ["_channel", "_owner", "_from", "_text", "_person", "_name", "_strID", "_forcedDisplay", "_isPlayerMessage", "_sentenceType", "_chatMessageType", "_params"];
 	private _block = false;
 	private _time = missionNamespace getVariable ["cba_missionTime", -1];
-	if ((_chatMessageType isEqualTo 2 || _channel isEqualTo 16) && {_time > 0} && {GVAR(disableSystemChat)} && {isMultiplayer}) then {
+	if ((_chatMessageType isEqualTo 2 || _channel isEqualTo 16) && _time > 0 && GVAR(disableSystemChat) && isMultiplayer) then {
 		_block = true;
 		private _text = "Message blocked: " + _text;
 		LOG(_text);
