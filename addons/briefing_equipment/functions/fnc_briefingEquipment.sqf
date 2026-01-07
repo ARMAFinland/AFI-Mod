@@ -776,7 +776,7 @@ if(!(player diarySubjectExists SUBJECT)) then {player createDiarySubject [SUBJEC
 		//Stringien säilytys listaan luokittelun mukaan, muodossa [[STRING, LUOKITTELU, LUKUMÄÄRÄ], [..., ..., ...], ...]
 		private _found = false;	
 		//Jos lista on tyhjä, lisätään uudeksi kohdaksi, muuten etsitään samammimistä kohtaa ja lisätään sen alle
-		if (count _stringList == 0) then {_stringList pushBack [format [FONT_3 + "1. " + FONT_END] + _briefingEntry, _vehicleType, 1];} else {
+		if (_stringList isEqualTo []) then {_stringList pushBack [format [FONT_3 + "1. " + FONT_END] + _briefingEntry, _vehicleType, 1];} else {
 			{
 				if ((_x select 1) == _vehicleType) then {
 					_found = true;
@@ -794,7 +794,7 @@ if(!(player diarySubjectExists SUBJECT)) then {player createDiarySubject [SUBJEC
 	};
 } forEach vehicles;
 
-if (count _stringList > 0) then {
+if (_stringList isEqualTo []) then {
 	//Listan järjestäminen aakkosjärjestykseen
 	private _sorted = [];
 	//Luokittelun perään lisätään lukumäärä ja siirretään järjestelylistaan

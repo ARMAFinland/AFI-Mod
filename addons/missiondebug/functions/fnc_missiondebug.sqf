@@ -96,7 +96,7 @@ private _Tun_fnc_DebugVari = {
 		};
 
 
-		if (!_noPrimary && { _primary_secondary_mag_count <= 5 } && { count _compatible_primary_secondary_mags > 0 } ) then {
+		if (!_noPrimary && { _primary_secondary_mag_count <= 5 } && { _compatible_primary_secondary_mags isNotEqualTo [] } ) then {
 
 			private _color = [(5 - _primary_secondary_mag_count)] call _Tun_fnc_DebugVari;
 
