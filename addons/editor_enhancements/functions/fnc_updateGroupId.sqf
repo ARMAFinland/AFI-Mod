@@ -30,8 +30,9 @@ collect3DENHistory {
 			private _groupIdInUnitInit = toLower _initUnit find "setgroupid";
 			private _groupIdInUnitInitBool = _groupIdInUnitInit isNotEqualTo -1;
 			private _groupIdInGroupInit = toLower _initGroup find "setgroupid";
+			private _groupIdInGroupInitBool = _groupIdInGroupInit isNotEqualTo -1;
 
-			if (_groupIdInUnitInitBool || _groupIdInGroupInit isNotEqualTo -1) then {
+			if (_groupIdInUnitInitBool || _groupIdInGroupInitBool) then {
 				
 				private _init = [_initGroup,_initUnit] select _groupIdInUnitInitBool;
 				private _initPOS = [_groupIdInGroupInit,_groupIdInUnitInit] select _groupIdInUnitInitBool;
@@ -41,17 +42,11 @@ collect3DENHistory {
 				private _id = _init select [_idStart,_idEnd];
 				TRACE_4("asd",_idStart,_idEnd,_id,_init);
 
-				GVAR(data) set [(hashValue _unit),_id];
-
-				//Arma not allowing multiple squads having same groupid in editor atributes. Add side prefix to fix this.
-				private _sideLetter = ["B ", "O ", "I ", "C "] select ([west,east,resistance,civilian] find (side _unit));
-				_group set3DENAttribute ["groupID", (_sideLetter + _id)];
-				if (_groupIdInUnitInitBool) then {
-					GVAR(unitIdInInitArray) pushBack _group;
-				};
+				GVAR(unitIdInInitArray) pushBack _group;
 			} else {
 				private _id = _group get3DENAttribute "groupID" select 0;
-				GVAR(unitIdInInitArray) pushBack _group;
+				[_group, _id] call CBA_fnc_setCallsign; 
+				GVAR(data) set [(hashValue _unit),_id];
 			};
 		};
 	} forEach _selectedUnits;
@@ -93,6 +88,4 @@ if (GVAR(unitIdInInitArray) isNotEqualTo []) then {
 	["Group IDs updated, no errors found",0,12] call BIS_fnc_3DENNotification;
 }; 
 
-GVAR(unitIdInInitArray) = nil;
-GVAR(data) = nil;
 true

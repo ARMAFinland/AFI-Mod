@@ -202,11 +202,14 @@ class Cfg3DEN {
 			};
 		};
 	};
-	class Groups {
+	class Group {
 		class AttributeCategories {
 			class Init {
 				class Attributes {
 					class Callsign {
+						unique = 0;
+					};
+					class groupID {
 						unique = 0;
 					};
 				};
@@ -228,14 +231,14 @@ class Cfg3DEN {
 					class Steps {
 						// Classname can be anything
 						class part1 {
-							text = "In this window, you'll find the category OBJECT: INIT. Expand it if it's not already open. You'll likely see the following line: (group this) setGroupId ['xxxx']; We need to move this line to the group's init field. Copy and remove it from here, then close the attributes window and continue with this tutorial. If your init field is empty, you're likely following this tutorial manually, or you haven't set it yet. Just imagine the line being there as an example."; // Step text
+							text = "In this window, you'll find the category OBJECT: INIT. Expand it if it's not already open. Look for any setGroupId code in the init field and remove it. This functionality is now handled by the base game's Callsign field. Close the attributes window and continue with this tutorial."; // Step text
 							//highlight = IDC_DISPLAY3DEN_TOOLBAR_MISSION_MAP; // IDC of highlighted UI control (none by default)
 							expression = QUOTE([1] call FUNC(groupIdTutorial)); // Code called when the step is displayed (before highlight)
 							x = "safeZoneX + 0.1"; // Custom X coordinate (centered when undefined)
 							y = "safeZoneY + 0.9"; // Custom Y coordinate (centered when undefined)
 						};
 						class part2: part1 {
-							text = "Do the same here: open the composition's init field if it's not open already. Now, paste your code here, but modify it slightly. Replace (group this) with just this. Example: this setGroupId ['xxxx'];";
+							text = "Now open the group's init field if it's not open already. Remove any setGroupId code from here as well. Put the group ID in the Callsign field under the Init section. The base game's Callsign field in the group attributes will now handle this functionality.";
 							expression = QUOTE([2] call FUNC(groupIdTutorial));
 						};
 						class part3 {
