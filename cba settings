@@ -140,7 +140,7 @@ force acex_field_rations_waterSourceActions = 2;
 force ace_fire_dropWeapon = 0;
 force ace_fire_enabled = true;
 force ace_fire_enableFlare = false;
-force ace_fire_enableScreams = true;
+ace_fire_enableScreams = true;
 
 // ACE Fortify
 force ace_fortify_markObjectsOnMap = 1;
