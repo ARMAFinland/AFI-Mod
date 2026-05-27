@@ -7,7 +7,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = REQUIRED_VERSION;
-		requiredAddons[] = {MAIN_ADDON_STR,"hellanmaaw"};
+		requiredAddons[] = {QGVARMAIN(main),"hellanmaaw"};
 		author[] = {"Tuntematon"};
 		VERSION_CONFIG;
 		skipWhenMissingDependencies = 1;

@@ -7,7 +7,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = REQUIRED_VERSION;
-		requiredAddons[] = {MAIN_ADDON_STR,"ACE_interact_menu"};
+		requiredAddons[] = {QGVARMAIN(main),"ACE_interact_menu"};
 		author = "Raimo";
 		authorUrl = GITHUBLINK;
 		VERSION_CONFIG;

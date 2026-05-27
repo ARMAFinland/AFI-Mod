@@ -7,7 +7,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = REQUIRED_VERSION;
-		requiredAddons[] = {MAIN_ADDON_STR, "praa_tunnels"};
+		requiredAddons[] = {QGVARMAIN(main), "praa_tunnels"};
 		author[] = {"Tikka"};
 		authorUrl = GITHUBLINK;
 		VERSION_CONFIG;

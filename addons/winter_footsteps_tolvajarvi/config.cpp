@@ -7,7 +7,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = REQUIRED_VERSION;
-		requiredAddons[] = {MAIN_ADDON_STR, "annd_tolvajarvi", "asp_footsteps"};
+		requiredAddons[] = {QGVARMAIN(main), "annd_tolvajarvi", "asp_footsteps"};
 		author[] = {"Tuntematon"};
 		authorUrl = GITHUBLINK;
 		VERSION_CONFIG;

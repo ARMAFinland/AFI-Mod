@@ -7,7 +7,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = REQUIRED_VERSION;
-		requiredAddons[] = {MAIN_ADDON_STR,"3DEN"};
+		requiredAddons[] = {QGVARMAIN(main),"3DEN"};
 		author[] = {"Bummeri","Tuntematon"};
 		authorUrl = GITHUBLINK;
 		skipWhenMissingDependencies = 1;

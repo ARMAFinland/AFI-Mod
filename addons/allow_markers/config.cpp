@@ -7,7 +7,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = REQUIRED_VERSION;
-		requiredAddons[] = {"swt_markers",MAIN_ADDON_STR};
+		requiredAddons[] = {"swt_markers",QGVARMAIN(main)};
 		author[] = {"Tikka","Tuntematon"};
 		authorUrl = GITHUBLINK;
 		VERSION_CONFIG;

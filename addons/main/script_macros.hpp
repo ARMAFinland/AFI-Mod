@@ -9,7 +9,6 @@
 #endif
 
 #define GITHUBLINK				"https://github.com/ARMAFinland/AFI-Mod"
-#define MAIN_ADDON_STR			QUOTE(MAIN_ADDON)
 
 //This forces debug on everything.
 //#define DEBUG_ENABLED_MAIN

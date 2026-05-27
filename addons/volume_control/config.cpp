@@ -7,7 +7,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = REQUIRED_VERSION;
-		requiredAddons[] = {MAIN_ADDON_STR, "A3_Data_F", "A3_UI_F", "ace_hearing", "CBA_Common"};
+		requiredAddons[] = {QGVARMAIN(main), "A3_Data_F", "A3_UI_F", "ace_hearing", "CBA_Common"};
 		author[] = {"Tikka", "Tuntematon"};
 		authorUrl = GITHUBLINK;
 		VERSION_CONFIG;

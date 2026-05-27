@@ -7,7 +7,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = REQUIRED_VERSION;
-		requiredAddons[] = {MAIN_ADDON_STR,"A3_Data_F_Enoch_Loadorder"};
+		requiredAddons[] = {QGVARMAIN(main),"A3_Data_F_Enoch_Loadorder"};
 		author[] = {"Tuntematon"};
 		authorUrl = GITHUBLINK;
 		VERSION_CONFIG;

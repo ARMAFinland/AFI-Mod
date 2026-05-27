@@ -7,7 +7,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = REQUIRED_VERSION;
-		requiredAddons[] = {MAIN_ADDON_STR,"afi_editor_enhancements"};
+		requiredAddons[] = {QGVARMAIN(main),"afi_editor_enhancements"};
 		author[] = {"Raimo","Tikka","Cultti","Tuntematon"};
 		authorUrl = GITHUBLINK;
 		VERSION_CONFIG;
