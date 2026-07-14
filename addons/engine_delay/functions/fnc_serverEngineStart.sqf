@@ -14,6 +14,8 @@
 #include "script_component.hpp"
 params ["_vehicle", "_isEngineOn"];
 
+if ( !isPlayer (driver _vehicle) ) exitWith { };
+
 private _startupDelay = _vehicle getVariable ["ace_vehicles_engineStartDelay", getNumber (configOf _vehicle >> "ace_vehicles_engineStartDelay")];
 private _configDelay = getNumber (configOf _vehicle >> "ace_vehicles_engineStartDelay");
 private _engineFullStart = _vehicle getVariable [QGVAR(engineFullStart), false];
