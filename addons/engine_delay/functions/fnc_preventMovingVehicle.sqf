@@ -14,7 +14,7 @@
 #include "script_component.hpp"
 params ["_vehicle", "_isEngineOn"];
 
-if (!_isEngineOn || {floor abs speed _vehicle > 0} || {!isNull isVehicleCargo _vehicle} || {(surfaceIsWater (getPos _vehicle))} || {!hasInterface}) exitWith {};
+if (!_isEngineOn || {floor abs speed _vehicle > 0} || {!isNull isVehicleCargo _vehicle} || {(surfaceIsWater (getPos _vehicle))} || {!hasInterface} || {driver _vehicle isEqualTo ace_player}) exitWith {};
 
 private _startupDelay = _vehicle getVariable ["ace_vehicles_engineStartDelay", getNumber (configOf _vehicle >> "ace_vehicles_engineStartDelay")];
 if (_startupDelay <= 0) exitWith {};
