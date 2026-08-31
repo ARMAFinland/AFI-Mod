@@ -10,13 +10,13 @@ private _fnc_sanitizeString = {
 	//Replaces markup sensitive characters from given string with XML entities
 	//& < > " ' >>into>> &amp; &lt; &gt; &quot; &apos;
    params ["_text"];
-   private ["_specialsArray","_convertsArray","_i","_return"];
+   private ["_i"];
    
    //& < > " '
-   _specialsArray = [38, 60, 62, 34, 39];
+   private _specialsArray = [38, 60, 62, 34, 39];
    //&amp; &lt; &gt; &quot; &apos;
-   _convertsArray = [[38,97,109,112,59], [38,108,116,59], [38,103,116,59], [38,113,117,111,116,59], [38,97,112,111,115,59]];
-   _return = [];
+   private _convertsArray = [[38,97,109,112,59], [38,108,116,59], [38,103,116,59], [38,113,117,111,116,59], [38,97,112,111,115,59]];
+   private _return = [];
    
    {
 		_i = _specialsArray find _x;
@@ -39,10 +39,9 @@ private _fnc_massToKg = {
 private _fnc_nameObject = {
 	//Get name for object from its config
 	params ["_object"];
-	private ["_name"];
 
 	//Nimen haku conffista
-	_name = getText((configOf _object) >> "displayName");
+	private _name = getText((configOf _object) >> "displayName");
 	//Nimen haku descriptionista jos se on määritelty
 	
 	if(roleDescription _object != "" && _object isKindOf "man") then {_name = roleDescription _object;};
@@ -53,28 +52,26 @@ private _fnc_nameObject = {
 private _fnc_roundDecimals = {
 	//Rounds value into given max decimal count
 	params ["_value","_decimals"];
-	private ["_return"];
+
 	//_return = round (_value * (10 ^ _decimals)) / 10 ^ _decimals;
-	_return = parseNumber (_value toFixed _decimals);
+	private _return = parseNumber (_value toFixed _decimals);
 	_return
 };
 
 private _fnc_cargoMassKg = {
 	//Get carried mass of a unit in kilograms
 	params ["_object"];
-	private ["_mass"];
 
-	_mass = [(loadAbs _object) call _fnc_massToKg, 1] call _fnc_roundDecimals;
-	
+	private _mass = [(loadAbs _object) call _fnc_massToKg, 1] call _fnc_roundDecimals;
 	_mass;
 };
 
 private _fnc_confMassKg = {
 	//Get items/vehicles configured mass in kilograms
 	params ["_class"];
-	private ["_mass","_found"];
+	private ["_mass"];
 	
-	_found = false;
+	private _found = false;
 	
 	//Items
 	if (_class isKindOf ["itemCore", configFile >> "CfgWeapons"] && !_found) then {_found = true; _mass = [(getNumber(configFile >> "CfgWeapons" >> _class >> "ItemInfo" >> "mass")) call _fnc_massToKg, 2] call _fnc_roundDecimals;};
@@ -93,9 +90,7 @@ private _fnc_confMassKg = {
 private _fnc_confName = {
 	//Get configured display name
 	params ["_class"];
-	private ["_name","_found"];
-
-	_found = false;
+	private _found = false;
 	
 	//Weapons and items
 	if (_class isKindOf ["default", configFile >> "CfgWeapons"] && !_found) then {_found = true; _name = getText(configFile >> "CfgWeapons" >> _class >> "displayName");};
@@ -107,16 +102,15 @@ private _fnc_confName = {
 	if (_class isKindOf ["None", configFile >> "CfgGlasses"] && !_found) then {_found = true; _name = getText(configFile >> "CfgGlasses" >> _class >> "displayName");};
 	
 	//sanitize names to not break script
-	_name = (_name call _fnc_sanitizeString);
+	private _name = (_name call _fnc_sanitizeString);
 	_name;
 };
 
 private _fnc_confImage = {
 	//Get configured image path
 	params ["_class"];
-	private ["_image","_found"];
-	
-	_found = false;
+	private ["_image"];
+	private _found = false;
 
 	//Weapons and items
 	if (_class isKindOf ["default", configFile >> "CfgWeapons"] && !_found) then {_found = true; _image = getText(configFile >> "CfgWeapons" >> _class >> "picture");};
@@ -139,9 +133,8 @@ private _fnc_confImage = {
 private _fnc_confType = {
 	//Get configured type number
 	params ["_class"];
-	private ["_type","_found"];
-	
-	_found = false;
+	private ["_type"];
+	private _found = false;
 	
 	//Weapons and items
 	if (_class isKindOf ["default", configFile >> "CfgWeapons"] && !_found) then {_found = true; _type = getNumber(configFile >> "CfgWeapons" >> _class >> "type");};
@@ -189,9 +182,9 @@ private _fnc_formatItemInfo = {
 private _fnc_formatWeapon = {
 	//format weapon name, image and weapon attachments
 	params [["_weaponClass","", [""]],["_weaponItems",nil, [[]]],["_count",0]];
-	private ["_name","_image","_mass","_info","_return"];
+	private ["_name","_image","_mass","_info"];
 	
-	_return = "";
+	private _return = "";
 	if(_weaponClass isNotEqualTo "") then {
 		_name = _weaponClass call _fnc_confName;
 		_image = _weaponClass call _fnc_confImage;
@@ -229,10 +222,10 @@ private _fnc_formatWeapon = {
 private _fnc_formatUniform = {
 	//format uniform name, image and mass
 	params ["_uniformClass",["_unit",objNull]];
-	private ["_name","_image","_mass","_info","_return"];
+	private ["_name","_image","_mass"];
 	
-	_return = "";
-	_info = "";
+	private _return = "";
+	private _info = "";
 	if(_uniformClass isNotEqualTo "") then {
 		_name = _uniformClass call _fnc_confName;
 		_image = _uniformClass call _fnc_confImage;
@@ -250,6 +243,9 @@ private _fnc_formatUniform = {
 			if(backpack _unit == _uniformClass) then {
 				_info = [_name, _name, _mass, [_uniformClass, (loadBackpack _unit)] call _fnc_containerInfo] call _fnc_formatItemInfo;
 			};
+			if(headgear _unit == _uniformClass) then {
+				_info = [_name, _name, _mass] call _fnc_formatItemInfo;
+			};
 		};
 		
 		_return = _return + format [FONT_0 + _info + FONT_END];
@@ -264,13 +260,12 @@ private _fnc_formatUniform = {
 private _fnc_compatibleMagazines = {
 	//returns array of compatible magazines for given cfgWeapons class
 	params ["_class"];
-	private ["_subClasses","_return"];
 	
 	//add compatible magazines of weapon class
-	_return = getArray (configFile >> "CfgWeapons" >> _class >> "magazines");
+	private _return = getArray (configFile >> "CfgWeapons" >> _class >> "magazines");
 	
 	//get weapon subclasses that have configured magazines
-	_subClasses = "count (getArray (_x >> 'magazines')) > 0" configClasses (configFile >> "CfgWeapons" >> _class);
+	private _subClasses = "count (getArray (_x >> 'magazines')) > 0" configClasses (configFile >> "CfgWeapons" >> _class);
 
 	//add compatible magazines of weapon subclasses
 	{
@@ -283,17 +278,16 @@ private _fnc_compatibleMagazines = {
 private _fnc_formatTurret = {
 	//format given turret weapons and their ammo
 	params ["_vehicle","_turret"];
-	private ["_weapons","_magazines","_ammoCount","_magazineCount","_validMagazines","_return","_magazineClass","_name"];
-	_return = "";
-
-	_weapons = _vehicle weaponsTurret _turret;
+	private ["_magazines","_ammoCount","_magazineCount","_validMagazines","_magazineClass","_name"];
+	private _return = [];
+	private _weapons = _vehicle weaponsTurret _turret;
 	
 	{
 		//weapon name or use classname if its empty
 		_name = _x call _fnc_confName;
 		if (_name == "") then {_name = _x;};
 		
-		_return = _return + format ["%1<br/>",_name];
+		_return pushBack format ["%1<br/>",_name];
 		
 		//get array of magazines that can be used for given weapon class
 		_validMagazines = _x call _fnc_compatibleMagazines;
@@ -313,21 +307,21 @@ private _fnc_formatTurret = {
 				
 				_ammoCount = _vehicle magazineTurretAmmo [_magazineClass, _turret];
 				_magazineCount = ({_x == _magazineClass} count _magazines) - 1;
-				_return = _return + format ["  %1 - " + FONT_6 + "%2" + FONT_END + " rnds", _name, _ammoCount];
-				if (_magazineCount > 0) then {_return = _return + format [" | " + FONT_6 + "%1" + FONT_END + " mags<br/>", _magazineCount];} else {_return = _return + "<br/>";};
+				_return pushBack format ["  %1 - " + FONT_6 + "%2" + FONT_END + " rnds", _name, _ammoCount];
+				if (_magazineCount > 0) then {_return pushBack format [" | " + FONT_6 + "%1" + FONT_END + " mags<br/>", _magazineCount];} else {_return pushBack "<br/>";};
 			};
 			
 			_magazines = _magazines - [_magazineClass];
 		};
 	} forEach _weapons;
-	
+	_return = _return joinString "";
 	_return
 };
 
 private _fnc_formatItems = {
 	params ["_itemsArrHash","_imageW","_imageH",["_unit",objNull]];
-	private ["_count","_name","_image","_mass","_info","_i","_return"];
-	_return = "";
+	private ["_count","_name","_image","_mass","_info","_i"];
+	private _return = [];
 
 	private _itemsArr = keys _itemsArrHash;
 	{
@@ -357,22 +351,23 @@ private _fnc_formatItems = {
 			};
 		};
 
-		_return = _return + format ["<img image='%1' width='%2' height='%3' title='%4'/>", _image, _imageW, _imageH, _name];
-		_return = _return + format [FONT_0 + _info + FONT_END];
+		_return pushBack format ["<img image='%1' width='%2' height='%3' title='%4'/>", _image, _imageW, _imageH, _name];
+		_return pushBack format [FONT_0 + _info + FONT_END];
 		
 		if((_forEachIndex + 1) < count (_itemsArr)) then {
-			_return = _return + ", ";
-			if((_forEachIndex + 1) mod _rows == 0) then {_return = _return + "<br/>";};
+			_return pushBack ", ";
+			if((_forEachIndex + 1) mod _rows == 0) then {_return pushBack "<br/>";};
 		};
 	} forEach _itemsArr;
+	_return = _return joinString "";
 	
 	_return
 };
 
 private _fnc_arrayCountEquals = {
 	//counts equal elements in an array and returns two arrays [[item1,item2...],[count1,count2...]]
-	private ["_item","_count","_return"];
-	_return = createHashMap;
+	private ["_item","_count"];
+	private _return = createHashMap;
 	
 	private _inputArray = _this;
 	while {(count _inputArray) > 0} do {
@@ -406,11 +401,11 @@ private _fnc_compatibleMagazinesSmallArmas = {
 ///////////////////////////////////////////////
 ///////			VARIABLES				///////
 ///////////////////////////////////////////////
-private ["_name","_image","_briefingEntry","_locationMarker","_stringList","_turrets","_turretRole","_vehicle","_info","_rows"];
+private ["_name","_image","_briefingEntry","_locationMarker","_turrets","_turretRole","_vehicle","_info"];
 
 //_font = "<font face='EtelkaMonospacePro' color='#FFFFFF' size='14'>"; //monospace font for itemcounts if you ever want to play with spacing
-_rows = 6; //items listed per line
-_stringList = [];
+private _rows = 6; //items listed per line
+private _stringList = [];
 private _groups = [];
 private _groupsTemp = [];
 _groupsTemp = allGroups select {side _x == side player};
@@ -435,7 +430,7 @@ if (_groups isEqualTo []) then {_groups pushBack group player;};
 if(!(player diarySubjectExists SUBJECT)) then {player createDiarySubject [SUBJECT, SUBJECT];};
 
 {
-	_briefingEntry = "";
+	_briefingEntry = [];
 	
 	{	
 		private _soldier = _x;
@@ -444,7 +439,7 @@ if(!(player diarySubjectExists SUBJECT)) then {player createDiarySubject [SUBJEC
 		private _allItems = (items _soldier) + (magazines _soldier);
 
 		//Add unit title in format: index/name/role/loadout weight
-		_briefingEntry = _briefingEntry + format [FONT_1 + "%1. %2 - %3 - %4kg<br/>" + FONT_END, (_forEachIndex + 1), (name _x), (_x call _fnc_nameObject), (_x call _fnc_cargoMassKg)];
+		_briefingEntry pushBack format [FONT_1 + "%1. %2 - %3 - %4kg<br/>" + FONT_END, (_forEachIndex + 1), (name _x), (_x call _fnc_nameObject), (_x call _fnc_cargoMassKg)];
 		
 		//WEAPONS
 		private _primaryWeapon = [];
@@ -543,7 +538,7 @@ if(!(player diarySubjectExists SUBJECT)) then {player createDiarySubject [SUBJEC
 						};
 					};
 				};
-				_briefingEntry = _briefingEntry + _weaponBrief;
+				_briefingEntry pushBack _weaponBrief;
 			};
 		} forEach [[_primaryWeapon, _additionalPrimaryWeapons, "Primary: ", "Additional Primary:<br/>"],
 					[_secondaryWeapon, _additionalSecondaryWeapons, "Secondary: ", "Additional Secondary:<br/>"],
@@ -553,49 +548,50 @@ if(!(player diarySubjectExists SUBJECT)) then {player createDiarySubject [SUBJEC
 		//UNIFORM/VEST/BACKPACK ITEMS 
 		private _headgear = headgear _soldier;
 		if(_headgear isNotEqualTo "") then {
-			_briefingEntry = _briefingEntry + format [FONT_2 + "Helmet: " + FONT_END] + ([_headgear, _soldier] call _fnc_formatUniform);
+			_briefingEntry pushBack format [FONT_2 + "Helmet: " + FONT_END] + ([_headgear, _soldier] call _fnc_formatUniform);
 		};
 
 		//Raimon lasit talteen
 		private _goggles = goggles _soldier;
 		if(_goggles isNotEqualTo "") then {
-			_briefingEntry = _briefingEntry + format [FONT_2 + "Facewear: " + FONT_END] + ([_goggles, _soldier] call _fnc_formatUniform);
+			_briefingEntry pushBack format [FONT_2 + "Facewear: " + FONT_END] + ([_goggles, _soldier] call _fnc_formatUniform);
 		};
 
 		private _uniform = uniform _soldier;
 		if(_uniform isNotEqualTo "") then {
-			_briefingEntry = _briefingEntry + format [FONT_2 + "Uniform: " + FONT_END] + ([_uniform, _soldier] call _fnc_formatUniform);
+			_briefingEntry pushBack format [FONT_2 + "Uniform: " + FONT_END] + ([_uniform, _soldier] call _fnc_formatUniform);
 		};
 
 		private _vest = vest _soldier;
 		if(_vest isNotEqualTo "") then {
-			_briefingEntry = _briefingEntry + format [FONT_2 + "Vest: " + FONT_END] + ([_vest, _soldier] call _fnc_formatUniform);
+			_briefingEntry pushBack format [FONT_2 + "Vest: " + FONT_END] + ([_vest, _soldier] call _fnc_formatUniform);
 		};
 
 		private _backpack = backpack _soldier;
 		if (_backpack isNotEqualTo "") then {
-			_briefingEntry = _briefingEntry + format [FONT_2 + "Backpack: " + FONT_END] + ([_backpack, _soldier] call _fnc_formatUniform);
+			_briefingEntry pushBack format [FONT_2 + "Backpack: " + FONT_END] + ([_backpack, _soldier] call _fnc_formatUniform);
 		};
 
 
 		if (_assignedItems isNotEqualTo []) then {
 			//Linked items
 			_assignedItems = _assignedItems call _fnc_arrayCountEquals;
-			_briefingEntry = _briefingEntry + format [FONT_2 + "Linked items:<br/>" + FONT_END] + ([_assignedItems,32,32,_soldier] call _fnc_formatItems) + "<br/>";
+			_briefingEntry pushBack format [FONT_2 + "Linked items:<br/>" + FONT_END] + ([_assignedItems,32,32,_soldier] call _fnc_formatItems) + "<br/>";
 		};
 
 		//EVERYTHING ELSE
-		_briefingEntry = _briefingEntry + format [FONT_2 + "Misc magazines and items:<br/>" + FONT_END];
+		_briefingEntry pushBack format [FONT_2 + "Misc magazines and items:<br/>" + FONT_END];
 		
 		if (keys _allItems isNotEqualTo []) then {
-			_briefingEntry = _briefingEntry + ([_allItems,32,32,_x] call _fnc_formatItems);
+			_briefingEntry pushBack ([_allItems,32,32,_x] call _fnc_formatItems);
 		};
 		
 		//All unit info added, finish with divider string
-		_briefingEntry = _briefingEntry + DIVIDER;
+		_briefingEntry pushBack DIVIDER;
 		
 	} forEach units _x; //repeat for every unit in group
 	
+	_briefingEntry = _briefingEntry joinString "";
 	//after all units in a group have been added create a briefing page
 	private _ownGroup = "";
 	if (_x == group player) then {_ownGroup = " (You)";};
@@ -644,12 +640,13 @@ if(!(player diarySubjectExists SUBJECT)) then {player createDiarySubject [SUBJEC
 				_name = "";
 				{if (!isNull (_x select 0)) then {_name = name (_x select 0);};} forEach _turrets;
 				_briefingEntry = _briefingEntry + format [FONT_5 + "%1" + FONT_END + FONT_7 + " %2" + FONT_END + "<br/>",_turretRole,_name];
-				private _tempStr = "";
 				
+				private _tempStrArr = [""];
 				{
-					_tempStr = _tempStr + ([_vehicle, _x select 3] call _fnc_formatTurret);
+					_tempStrArr pushBack ([_vehicle, _x select 3] call _fnc_formatTurret);
 				} forEach _turrets;
 				
+				private _tempStr = _tempStrArr joinString "";
 				if (_tempStr == "") then {_briefingEntry = _briefingEntry + format ["N/A<br/>"];} else {_briefingEntry = _briefingEntry + _tempStr;};
 			};
 			
@@ -661,12 +658,13 @@ if(!(player diarySubjectExists SUBJECT)) then {player createDiarySubject [SUBJEC
 				_name = "";
 				{if (!isNull (_x select 0)) then {_name = name (_x select 0);};} forEach _turrets;
 				_briefingEntry = _briefingEntry + format [FONT_5 + "%1" + FONT_END + FONT_7 + " %2" + FONT_END + "<br/>",_turretRole,_name];
-				private _tempStr = "";
+				private _tempStrArr = [""];
 				
 				{
-					_tempStr = _tempStr + ([_vehicle, _x select 3] call _fnc_formatTurret);
+					_tempStrArr pushBack ([_vehicle, _x select 3] call _fnc_formatTurret);
 				} forEach _turrets;
 				
+				private _tempStr = _tempStrArr joinString "";
 				if (_tempStr == "") then {_briefingEntry = _briefingEntry + format ["N/A<br/>"];} else {_briefingEntry = _briefingEntry + _tempStr;};
 			};
 			
@@ -677,12 +675,13 @@ if(!(player diarySubjectExists SUBJECT)) then {player createDiarySubject [SUBJEC
 				_name = "";
 				{if (!isNull (_x select 0)) then {_name = name (_x select 0);};} forEach _turrets;
 				_briefingEntry = _briefingEntry + format [FONT_5 + "%1" + FONT_END + FONT_7 + " %2" + FONT_END + "<br/>",_turretRole,_name];
-				private _tempStr = "";
+				private _tempStrArr = [""];
 				
 				{
-					_tempStr = _tempStr + ([_vehicle, _x select 3] call _fnc_formatTurret);
+					_tempStrArr pushBack ([_vehicle, _x select 3] call _fnc_formatTurret);
 				} forEach _turrets;
 				
+				private _tempStr = _tempStrArr joinString "";
 				if (_tempStr == "") then {_briefingEntry = _briefingEntry + format ["N/A<br/>"];} else {_briefingEntry = _briefingEntry + _tempStr;};
 			};
 			
