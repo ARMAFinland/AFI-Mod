@@ -1,102 +1,116 @@
-# Afi-mod
+# AFI Mod
 
-This mod adds AFI QOL improvements and tweaks/add some mechanics without altering damage values for weapons, ammo, or vehicles.  
-Ace and cba are only mods that are required, others are optional.  
-This mod is build using [HEMTT](https://github.com/BrettMayson/HEMTT)
+AFI Mod is a collection of Arma 3 quality-of-life improvements and mission support components for AFI gameplay. The mod focuses on usability, setup flow, and server-side consistency without changing core weapon, ammo, or vehicle damage values.
 
-## AI Skill Presets
-- Add different presets for AI skills
+## Requirements
 
-## Allow markers
-- Add cba setting to enable/disable ability to place markers in specific channels using SWT after briefing.
-- Hides vanilla marker system.
+- Arma 3
+- CBA_A3
+- ACE3
+- HEMTT for building the mod
 
-## Briefing equipment
-- Adds briefing tab with equipment of each side.
+Other dependencies listed in the project are optional and only used by specific addons.
 
-## CBA settings whitelist
-- Whitelist who can change cba settings
+## Overview
 
-## Chat filter
-- Filters all systemChat messages out. Should prevent connected, killed etc. messages
+The project is split into independent addons under the `addons/` folder. Each addon is self-contained and can be enabled or disabled independently as needed.
 
-## Clutter cutter
-- Adds ace action to remove clutter around player
+## Included addons
 
-## Confirm start
-- During briefing screen, require admin to confirm starting game. Prevents accidental clicking it.
+### Core gameplay and quality-of-life
+- AI Skill Presets (`aisettings`)
+  - Adds configurable AI skill presets.
+- Allow Markers (`allow_markers`)
+  - Restricts marker placement to selected channels after briefing and hides the default marker system.
+- Briefing Equipment (`briefing_equipment`)
+  - Adds a briefing tab with equipment info for each side.
+- Chat Filter (`chatfilter`)
+  - Filters repetitive system chat spam such as connection and kill notifications.
+- Clutter Cutter (`cluttercutter`)
+  - Adds an ACE interaction to remove clutter around the player.
+- Confirm Start (`confirm_start`)
+  - Requires an admin confirmation before a mission can begin from the briefing screen.
+- Disable 3DEN Start Shortcut (`disable_3den_start_shortcut`)
+  - Prevents accidental mission starts from the editor shortcut.
+- Disable Gamma (`disable_gamma`)
+  - Blocks the ability to adjust gamma during multiplayer missions.
+- Enemy Radios (`enemy_radios`)
+  - Adds an option to allow or disallow taking enemy-side radios.
+- Enemy Vehicles (`enemy_vehicles`)
+  - Adds settings to control access to enemy vehicles while leaving static vehicles unlocked.
+- Engine Delay (`engine_delay`)
+  - Expands ACE engine start delay logic, limits driver movement while the engine is starting, and displays startup timing feedback.
+- Engine Delay 3CB Factions (`engine_delay_3cb_factions`)
+  - Vehicle startup delay data for 3CB factions.
+- Engine Delay RHS RU (`engine_delay_rhs_ru`)
+  - Vehicle startup delay data for RHS Russian vehicles.
+- Engine Delay RHS US (`engine_delay_rhs_us`)
+  - Vehicle startup delay data for RHS US vehicles.
+- Knocking (`knocking`)
+  - Adds vehicle knocking functionality.
+- Main (`main`)
+  - Includes base AFI settings such as ambient environment and remote sensor toggles, and disables profile glasses.
+- Repair (`repair`)
+  - Adjusts repair timing to reduce rapid post-damage repair loops.
+- Safestart (`safestart`)
+  - Adds AFI safestart handling.
+- Viewdistance (`viewdistance`)
+  - Adds hotkeys to adjust view distance.
+- Volume Control (`volume_control`)
+  - Adds hotkeys to adjust volume.
+- World Grid (`world_grid`)
+  - Adds per-map terrain grid settings through CBA.
 
-## Disable 3DEN start shortcut
-- Disables the 3DEN mission start shortcut to prevent accidental starts.
+### Editor and mission tools
+- Editor Enhancements (`editor_enhancements`)
+  - Adds editor utilities, marker visibility controls, briefing equipment display, and mission attribute helpers.
+- Mission Debug (`missiondebug`)
+  - Basic debugging utilities for AFI missions.
+- Mission Framework (`mission_framework`)
+  - Provides framework support for AFI mission setups.
+- ORBAT Export (`orbat_export`)
+  - Adds ORBAT export tools for 3DEN event JSON exports.
+- CBA Settings Whitelist (`cba_settings_whitelist`)
+  - Restricts which users are allowed to modify CBA settings.
+- Logo (`logo`)
+  - Adds AFI branding to the splash screen and custom server join buttons in the menu.
 
-## Disable gamma
-- Disables players ability to change gamma settings during MP mission.
+### Maps and compatibility fixes
+- Aliabad Fix (`aliabad_fix`)
+  - Map-specific compatibility fix.
+- FATA Fix (`fata_fix`)
+  - Fixes issues on the FATA map and supports related tunnel functionality.
+- Hellanmaa / Ihantala Snow Fixes (`hellanmaaw`, `ihantalaw`, `winter_footsteps_tolvajarvi`)
+  - Corrects snow sound behavior and footsteps on affected maps.
+- BWA XEH Fix (`bwa_xeh_fix`)
+  - Compatibility fix for XEH behavior.
+- IFA Fix (`ifa_fix`)
+  - Compatibility fix for IFA-related content.
+- TBD MTLB XEH Fix (`tbd_mtlb_xeh_fix`)
+  - Adds a compatibility fix for the TBD MTLB.
 
-## Editor enhancements
-- Adds various enhancements to the 3DEN editor, including marker visibility controls, briefing equipment display, and mission attribute settings.
+## Build and development
 
-## Enemy radio
-- Add cba setting to enable/disable ability to take enemy sides radios
+This project is built using [HEMTT](https://github.com/BrettMayson/HEMTT).
 
-## Enemy vehicles
-- Add cba setting to enable/disable ability to use enemy vehicles.
-- Defaultly allows usage of cars, but that can be also toggled from settings.
-- Static vehicles are never locked.
+Common commands:
+- `build_dev.bat` - builds the mod in development mode
+- `build_release.bat` - produces a release build
+- `build.bat` - general build entry point
+- `buld_test.bat` - launches the mod for local testing
+- `debugMultiplayer.bat` - starts a local multiplayer debug setup
 
-## Engine start (Engine delay)
-- Expands ace engine start delay system.
-- Disables drivers ability to use vehicle movement keys, should prevent tyres and tracks moving but vehicle staying in position.
-- onEngineOff, it will do linearConversion on the next vehicle start up delay. It will take 3x time of the default startup delay to get back to that. This allows vehicles to start moving faster soon after shutting engine down.
-- Adds different delay times to at least all land vehicles.
-- Add hint to the driver that shows how long starting engine takes.
+Standard HEMTT usage:
+- `hemtt build`
+- `hemtt dev`
+- `hemtt release`
 
-## Engine delay 3CB factions
-- Engine delay settings for 3CB factions vehicles.
+## Notes
 
-## Engine delay RHS RU
-- Engine delay settings for RHS Russian vehicles.
+- This mod is designed as a modular AFI toolkit rather than a single monolithic package.
+- Addons are intended to be independent where possible, while still sharing the same CBA/ACE foundation.
+- Most configuration and logic is managed through addon-specific config files and CBA settings.
 
-## Engine delay RHS US
-- Engine delay settings for RHS US vehicles.
+## License
 
-## FATA fix
-- Fixes issues on FATA map (requires PRAA tunnels).
-
-## Fix snow sounds on maps
-- Fixes snow sounds on Hellanmaa and Ihantala maps to not sound like rain.
-
-## Knocking
-- Vehicle knocking
-
-## Logo
-- Add afi logo on splash screen
-- Add buttons to join servers to main menu
-
-## Main
-- Disables profile glasses.
-- Add cba setting to disable [ambient animals](https://community.bistudio.com/wiki/enableEnvironment)
-- Add cba setting to disable [remoteSensors](https://community.bistudio.com/wiki/disableRemoteSensors)
-
-## Mission debug
-- Some basic AFI mission debug features
-
-## Mission framework
-- Provides framework features for AFI missions.
-
-## ORBAT export
-- Adds ORBAT export functionality to 3DEN for event JSON export.
-
-## Repair
-- Tweak repair times to be higher. Aim is to prevent 1min repair after mobility kill.
-
-## Safestart
-- Add AFI safestart system
-
-## Viewdistance
-- Add hotkeys F1-F2 to change viewdistance
-
-## Volume control
-- Add hotkeys F3-F4 to change volume
-
-## World grid
-- Add CBA setting to specify [terrain resolution](https://community.bistudio.com/wiki/setTerrainGrid) for each map individually.
+This project is distributed as part of the AFI Mod package and follows the repository's existing licensing and distribution terms.
