@@ -7,7 +7,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = REQUIRED_VERSION;
-		requiredAddons[] = {"cba_main","cba_xeh","cba_settings","cba_events","ace_common","ace_main","ace_interaction", "A3_UI_F", "A3_Animals_F_Seagull"};
+		requiredAddons[] = {"cba_main","cbc_main","cba_xeh","cba_settings","cba_events","ace_common","ace_main","ace_interaction", "A3_UI_F", "A3_Animals_F_Seagull"};
 		author[] = {"Tuntematon"};
 		authorUrl = GITHUBLINK;
 		VERSION_CONFIG;
