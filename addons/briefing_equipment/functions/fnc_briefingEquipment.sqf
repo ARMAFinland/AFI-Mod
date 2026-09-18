@@ -296,7 +296,7 @@ private _fnc_formatTurret = {
 		//current magazines in turret
 		_magazines = _vehicle magazinesTurret _turret;
 		
-		while {count _magazines > 0} do {
+		while {_magazines isNotEqualTo []} do {
 			//again make sure everything is in lowercase
 			_magazineClass = (_magazines select 0);
 			
@@ -687,7 +687,7 @@ if(!(player diarySubjectExists SUBJECT)) then {player createDiarySubject [SUBJEC
 			
 			//CREW TURRETS - can contain more than 1 manned crew positions
 			_turrets = (fullCrew [_vehicle, "turret", true]) select {_x select 2 < 0};
-			if (count _turrets > 0) then {
+			if (_turrets isNotEqualTo []) then {
 				_turretRole = "Crew:";
 				private _tempStr = "";
 				

@@ -16,7 +16,7 @@ class Extended_PostInit_EventHandlers {
 	};
 };
 
-class Extended_GetIn_Eventhandlers
+class Extended_GetIn_EventHandlers
 {
 	class AllVehicles
 	{

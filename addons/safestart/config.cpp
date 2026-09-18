@@ -17,7 +17,7 @@ class CfgPatches {
 #include "CfgEventHandlers.hpp"
 
 
-class cfgNotifications
+class CfgNotifications
 {
 	class Default;
 	class SafeStart: Default

@@ -17,7 +17,7 @@ class CfgPatches {
 
 class ctrlMenuStrip;
 class ctrlShortcutButton;
-class Display3den {
+class Display3DEN {
 	class Controls {
 		class MenuStrip: ctrlMenuStrip {
 			class Items {
